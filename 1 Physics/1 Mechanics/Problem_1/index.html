@@ -172,7 +172,444 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
-<p>lol</p>
+<p>Investigating the Range as a Function of the Angle of Projection
+1. Theoretical Foundation
+Deriving the Equations of Motion:</p>
+<p>Projectile motion can be analyzed by breaking it into horizontal and vertical components. Assuming no air resistance, the only acceleration is due to gravity, acting downward.</p>
+<p>Horizontal Motion:</p>
+<p>d
+2
+x
+d
+t
+2
+=
+0
+  
+⟹
+  
+d
+x
+d
+t
+=
+v
+0
+x
+=
+v
+0
+cos
+⁡
+(
+θ
+)
+dt 
+2</p>
+<p>d 
+2
+ x
+​
+ =0⟹ 
+dt
+dx
+​
+ =v 
+0x
+​
+ =v 
+0
+​
+ cos(θ)
+x
+(
+t
+)
+=
+v
+0
+cos
+⁡
+(
+θ
+)
+⋅
+t
+x(t)=v 
+0
+​
+ cos(θ)⋅t
+Vertical Motion:</p>
+<p>d
+2
+y
+d
+t
+2
+=
+−
+g
+  
+⟹
+  
+d
+y
+d
+t
+=
+v
+0
+y
+−
+g
+t
+=
+v
+0
+sin
+⁡
+(
+θ
+)
+−
+g
+t
+dt 
+2</p>
+<p>d 
+2
+ y
+​
+ =−g⟹ 
+dt
+dy
+​
+ =v 
+0y
+​
+ −gt=v 
+0
+​
+ sin(θ)−gt
+y
+(
+t
+)
+=
+v
+0
+sin
+⁡
+(
+θ
+)
+⋅
+t
+−
+1
+2
+g
+t
+2
+y(t)=v 
+0
+​
+ sin(θ)⋅t− 
+2
+1
+​
+ gt 
+2</p>
+<p>Time of Flight:</p>
+<p>The projectile lands when 
+y
+(
+t
+)
+=
+0
+y(t)=0:</p>
+<p>v
+0
+sin
+⁡
+(
+θ
+)
+⋅
+t
+−
+1
+2
+g
+t
+2
+=
+0
+  
+⟹
+  
+t
+(
+v
+0
+sin
+⁡
+(
+θ
+)
+−
+1
+2
+g
+t
+)
+=
+0
+v 
+0
+​
+ sin(θ)⋅t− 
+2
+1
+​
+ gt 
+2
+ =0⟹t(v 
+0
+​
+ sin(θ)− 
+2
+1
+​
+ gt)=0
+t
+=
+0
+or
+t
+=
+2
+v
+0
+sin
+⁡
+(
+θ
+)
+g
+t=0ort= 
+g
+2v 
+0
+​
+ sin(θ)
+​</p>
+<p>Range:</p>
+<p>Substitute the time of flight into the horizontal motion equation:</p>
+<h1 id="r">R</h1>
+<p>v
+0
+cos
+⁡
+(
+θ
+)
+⋅
+2
+v
+0
+sin
+⁡
+(
+θ
+)
+g
+=
+v
+0
+2
+sin
+⁡
+(
+2
+θ
+)
+g
+R=v 
+0
+​
+ cos(θ)⋅ 
+g
+2v 
+0
+​
+ sin(θ)
+​
+ = 
+g
+v 
+0
+2
+​
+ sin(2θ)
+​</p>
+<p>Family of Solutions:</p>
+<p>The range 
+R
+R depends on the initial velocity 
+v
+0
+v 
+0
+​
+ , the angle of projection 
+θ
+θ, and gravitational acceleration 
+g
+g. Different initial conditions lead to different trajectories and ranges.</p>
+<ol>
+<li>Analysis of the Range
+Dependence on Angle of Projection:</li>
+</ol>
+<p>The range 
+R
+R is maximized when 
+sin
+⁡
+(
+2
+θ
+)
+=
+1
+sin(2θ)=1, i.e., 
+θ
+=
+4
+5
+∘
+θ=45 
+∘
+ . For angles less than or greater than 
+4
+5
+∘
+45 
+∘
+ , the range decreases symmetrically.</p>
+<p>Influence of Initial Velocity and Gravitational Acceleration:</p>
+<p>Initial Velocity (
+v
+0
+v 
+0
+​
+ ): The range increases with the square of the initial velocity.</p>
+<p>Gravitational Acceleration (
+g
+g): The range decreases with increasing gravitational acceleration.</p>
+<ol>
+<li>Practical Applications
+Real-World Scenarios:</li>
+</ol>
+<p>Sports: Analyzing the trajectory of a soccer ball or a golf shot.</p>
+<p>Engineering: Designing projectile-based systems, such as water fountains or missile trajectories.</p>
+<p>Astrophysics: Modeling the motion of celestial bodies under gravitational influence.</p>
+<p>Adaptations:</p>
+<p>Uneven Terrain: Adjust the initial height 
+y
+0
+y 
+0
+​
+  in the vertical motion equation.</p>
+<p>Air Resistance: Incorporate a drag force proportional to the velocity, leading to more complex differential equations.</p>
+<ol>
+<li>Implementation
+Python Script for Simulation:</li>
+</ol>
+<p>python
+Copy
+import numpy as np
+import matplotlib.pyplot as plt</p>
+<h1 id="constants">Constants</h1>
+<p>g = 9.81  # gravitational acceleration (m/s^2)</p>
+<p>def range_projectile(v0, theta, g):
+    theta_rad = np.radians(theta)
+    return (v0**2 * np.sin(2 * theta_rad)) / g</p>
+<h1 id="parameters">Parameters</h1>
+<p>v0 = 20  # initial velocity (m/s)
+angles = np.linspace(0, 90, 100)  # angles from 0 to 90 degrees
+ranges = [range_projectile(v0, angle, g) for angle in angles]</p>
+<h1 id="plotting">Plotting</h1>
+<p>plt.figure(figsize=(10, 6))
+plt.plot(angles, ranges, label=f'v0 = {v0} m/s')
+plt.xlabel('Angle of Projection (degrees)')
+plt.ylabel('Range (m)')
+plt.title('Range as a Function of Angle of Projection')
+plt.legend()
+plt.grid(True)
+plt.show()
+Graphical Representation:</p>
+<p>The plot shows the range as a function of the angle of projection for a given initial velocity. The curve peaks at 
+4
+5
+∘
+45 
+∘
+ , illustrating the optimal angle for maximum range.</p>
+<ol>
+<li>Limitations and Extensions
+Limitations of the Idealized Model:</li>
+</ol>
+<p>Air Resistance: Neglecting air resistance can lead to overestimation of the range.</p>
+<p>Wind Effects: Crosswinds can alter the trajectory significantly.</p>
+<p>Spin and Lift: In sports, spin can create lift, affecting the trajectory.</p>
+<p>Suggestions for Improvement:</p>
+<p>Incorporating Drag: Use a more complex model that includes air resistance.</p>
+<p>Wind Effects: Add a horizontal acceleration component to account for wind.</p>
+<p>Spin Effects: Model the Magnus effect for spinning projectiles.</p>
+<p>Deliverables
+Markdown Document with Python Script:</p>
+<p>The provided Python script simulates and visualizes the range as a function of the angle of projection.</p>
+<p>Family of Solutions:</p>
+<p>The range equation 
+R
+=
+v
+0
+2
+sin
+⁡
+(
+2
+θ
+)
+g
+R= 
+g
+v 
+0
+2
+​
+ sin(2θ)
+​
+  describes a family of solutions parameterized by 
+v
+0
+v 
+0
+​
+ , 
+θ
+θ, and 
+g
+g.</p>
+<p>Graphical Representations:</p>
+<p>Plots showing the range versus angle of projection for different initial velocities.</p>
+<p>Discussion on Limitations:</p>
+<p>The idealized model neglects air resistance, wind, and spin effects, which are crucial for accurate real-world predictions.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
