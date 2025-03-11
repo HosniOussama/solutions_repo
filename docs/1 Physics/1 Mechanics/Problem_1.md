@@ -1,482 +1,122 @@
-# Problem 1
+## Investigating the Range as a Function of the Angle of Projection
 
-Investigating the Range as a Function of the Angle of Projection
-1. Theoretical Foundation
-Deriving the Equations of Motion:
+### Motivation
 
-Projectile motion can be analyzed by breaking it into horizontal and vertical components. Assuming no air resistance, the only acceleration is due to gravity, acting downward.
+Projectile motion is a fundamental concept in physics, illustrating how objects move under gravity. This study explores how the range of a projectile depends on its launch angle, uncovering both theoretical and computational insights.
 
-Horizontal Motion:
+### Theoretical Foundation
 
-d
-2
-x
-d
-t
-2
-=
-0
-  
-⟹
-  
-d
-x
-d
-t
-=
-v
-0
-x
-=
-v
-0
-cos
-⁡
-(
-θ
-)
-dt 
-2
- 
-d 
-2
- x
-​
- =0⟹ 
-dt
-dx
-​
- =v 
-0x
-​
- =v 
-0
-​
- cos(θ)
-x
-(
-t
-)
-=
-v
-0
-cos
-⁡
-(
-θ
-)
-⋅
-t
-x(t)=v 
-0
-​
- cos(θ)⋅t
-Vertical Motion:
+The motion of a projectile follows these kinematic equations:
 
-d
-2
-y
-d
-t
-2
-=
-−
-g
-  
-⟹
-  
-d
-y
-d
-t
-=
-v
-0
-y
-−
-g
-t
-=
-v
-0
-sin
-⁡
-(
-θ
-)
-−
-g
-t
-dt 
-2
- 
-d 
-2
- y
-​
- =−g⟹ 
-dt
-dy
-​
- =v 
-0y
-​
- −gt=v 
-0
-​
- sin(θ)−gt
-y
-(
-t
-)
-=
-v
-0
-sin
-⁡
-(
-θ
-)
-⋅
-t
-−
-1
-2
-g
-t
-2
-y(t)=v 
-0
-​
- sin(θ)⋅t− 
-2
-1
-​
- gt 
-2
- 
-Time of Flight:
+- Horizontal motion: 
+             
+    $x = v_0 \cos(\theta) t$
 
-The projectile lands when 
-y
-(
-t
-)
-=
-0
-y(t)=0:
 
-v
-0
-sin
-⁡
-(
-θ
-)
-⋅
-t
-−
-1
-2
-g
-t
-2
-=
-0
-  
-⟹
-  
-t
-(
-v
-0
-sin
-⁡
-(
-θ
-)
-−
-1
-2
-g
-t
-)
-=
-0
-v 
-0
-​
- sin(θ)⋅t− 
-2
-1
-​
- gt 
-2
- =0⟹t(v 
-0
-​
- sin(θ)− 
-2
-1
-​
- gt)=0
-t
-=
-0
-or
-t
-=
-2
-v
-0
-sin
-⁡
-(
-θ
-)
-g
-t=0ort= 
-g
-2v 
-0
-​
- sin(θ)
-​
- 
-Range:
+- Vertical motion: 
 
-Substitute the time of flight into the horizontal motion equation:
+    $y = v_0 \sin(\theta) t - \frac{1}{2} g t^2$
 
-R
-=
-v
-0
-cos
-⁡
-(
-θ
-)
-⋅
-2
-v
-0
-sin
-⁡
-(
-θ
-)
-g
-=
-v
-0
-2
-sin
-⁡
-(
-2
-θ
-)
-g
-R=v 
-0
-​
- cos(θ)⋅ 
-g
-2v 
-0
-​
- sin(θ)
-​
- = 
-g
-v 
-0
-2
-​
- sin(2θ)
-​
- 
-Family of Solutions:
 
-The range 
-R
-R depends on the initial velocity 
-v
-0
-v 
-0
-​
- , the angle of projection 
-θ
-θ, and gravitational acceleration 
-g
-g. Different initial conditions lead to different trajectories and ranges.
+- Time of flight: 
 
-2. Analysis of the Range
-Dependence on Angle of Projection:
+     $T = \frac{2 v_0 \sin(\theta)}{g}$
 
-The range 
-R
-R is maximized when 
-sin
-⁡
-(
-2
-θ
-)
-=
-1
-sin(2θ)=1, i.e., 
-θ
-=
-4
-5
-∘
-θ=45 
-∘
- . For angles less than or greater than 
-4
-5
-∘
-45 
-∘
- , the range decreases symmetrically.
 
-Influence of Initial Velocity and Gravitational Acceleration:
+- Range equation:
 
-Initial Velocity (
-v
-0
-v 
-0
-​
- ): The range increases with the square of the initial velocity.
 
-Gravitational Acceleration (
-g
-g): The range decreases with increasing gravitational acceleration.
+    $R = \frac{v_0^2 \sin(2\theta)}{g}$
 
-3. Practical Applications
-Real-World Scenarios:
+### Python Simulation
 
-Sports: Analyzing the trajectory of a soccer ball or a golf shot.
-
-Engineering: Designing projectile-based systems, such as water fountains or missile trajectories.
-
-Astrophysics: Modeling the motion of celestial bodies under gravitational influence.
-
-Adaptations:
-
-Uneven Terrain: Adjust the initial height 
-y
-0
-y 
-0
-​
-  in the vertical motion equation.
-
-Air Resistance: Incorporate a drag force proportional to the velocity, leading to more complex differential equations.
-
-4. Implementation
-Python Script for Simulation:
-
-python
-Copy
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Constants
 g = 9.81  # gravitational acceleration (m/s^2)
+v0 = 20   # initial velocity (m/s)
+theta = np.linspace(0, np.pi/2, 100)
+R = (v0**2 * np.sin(2*theta)) / g
 
-def range_projectile(v0, theta, g):
-    theta_rad = np.radians(theta)
-    return (v0**2 * np.sin(2 * theta_rad)) / g
-
-# Parameters
-v0 = 20  # initial velocity (m/s)
-angles = np.linspace(0, 90, 100)  # angles from 0 to 90 degrees
-ranges = [range_projectile(v0, angle, g) for angle in angles]
-
-# Plotting
-plt.figure(figsize=(10, 6))
-plt.plot(angles, ranges, label=f'v0 = {v0} m/s')
-plt.xlabel('Angle of Projection (degrees)')
-plt.ylabel('Range (m)')
-plt.title('Range as a Function of Angle of Projection')
-plt.legend()
-plt.grid(True)
+plt.plot(np.degrees(theta), R)
+plt.xlabel("Launch Angle (degrees)")
+plt.ylabel("Range (m)")
+plt.title("Projectile Range vs. Launch Angle")
+plt.grid()
 plt.show()
-Graphical Representation:
+```
 
-The plot shows the range as a function of the angle of projection for a given initial velocity. The curve peaks at 
-4
-5
-∘
-45 
-∘
- , illustrating the optimal angle for maximum range.
+---
 
-5. Limitations and Extensions
-Limitations of the Idealized Model:
+## Investigating the Dynamics of a Forced Damped Pendulum
 
-Air Resistance: Neglecting air resistance can lead to overestimation of the range.
+### Motivation
 
-Wind Effects: Crosswinds can alter the trajectory significantly.
+The forced damped pendulum exhibits complex behaviors such as resonance and chaos. Understanding its motion helps in various applications, from engineering to climate models.
 
-Spin and Lift: In sports, spin can create lift, affecting the trajectory.
+### Theoretical Foundation
 
-Suggestions for Improvement:
+The equation of motion for a forced damped pendulum is:
 
-Incorporating Drag: Use a more complex model that includes air resistance.
+  
+$\frac{d^2\theta}{dt^2} + b\frac{d\theta}{dt} + \omega_0^2 \sin\theta = A \cos(\omega t)$
 
-Wind Effects: Add a horizontal acceleration component to account for wind.
+### Python Simulation
 
-Spin Effects: Model the Magnus effect for spinning projectiles.
+```python
+from scipy.integrate import solve_ivp
 
-Deliverables
-Markdown Document with Python Script:
+def pendulum(t, y, b, w0, A, w):
+    theta, omega = y
+    return [omega, -b*omega - w0**2*np.sin(theta) + A*np.cos(w*t)]
 
-The provided Python script simulates and visualizes the range as a function of the angle of projection.
+b, w0, A, w = 0.1, 1.0, 0.5, 2.0
+t = np.linspace(0, 50, 1000)
+sol = solve_ivp(pendulum, [0, 50], [np.pi/4, 0], args=(b, w0, A, w), t_eval=t)
 
-Family of Solutions:
+plt.plot(t, sol.y[0])
+plt.xlabel("Time (s)")
+plt.ylabel("Angle (rad)")
+plt.title("Forced Damped Pendulum Motion")
+plt.grid()
+plt.show()
+```
 
-The range equation 
-R
-=
-v
-0
-2
-sin
-⁡
-(
-2
-θ
-)
-g
-R= 
-g
-v 
-0
-2
-​
- sin(2θ)
-​
-  describes a family of solutions parameterized by 
-v
-0
-v 
-0
-​
- , 
-θ
-θ, and 
-g
-g.
+---
 
-Graphical Representations:
+## Orbital Period and Orbital Radius
 
-Plots showing the range versus angle of projection for different initial velocities.
+### Motivation
 
-Discussion on Limitations:
+Kepler's Third Law states that the square of the orbital period is proportional to the cube of the orbital radius. This principle is key in astrophysics and satellite design.
 
-The idealized model neglects air resistance, wind, and spin effects, which are crucial for accurate real-world predictions.
+### Theoretical Foundation
+
+For circular orbits:
+
+$T^2 = \frac{4\pi^2 r^3}{GM}$
+
+
+### Python Simulation
+
+```python
+G = 6.674e-11  # Gravitational constant (m^3/kg/s^2)
+M = 5.972e24   # Earth mass (kg)
+r = np.linspace(6.7e6, 4e7, 100)  # Orbital radius range (m)
+T = 2 * np.pi * np.sqrt(r**3 / (G * M))
+
+plt.plot(r / 1e6, T / 3600)
+plt.xlabel("Orbital Radius (million m)")
+plt.ylabel("Orbital Period (hours)")
+plt.title("Orbital Period vs. Radius")
+plt.grid()
+plt.show()
+```
+
+---
+
+### Conclusion
+
+These simulations provide insights into projectile motion, pendulums, and orbits, demonstrating their dependence on key parameters. Further refinements could include air resistance and non-linear effects to enhance realism.
+
