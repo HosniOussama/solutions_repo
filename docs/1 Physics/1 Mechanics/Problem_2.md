@@ -39,12 +39,12 @@ $$\omega = \sqrt{\frac{g}{l} - \frac{b^2}{4}}$$
 At resonance, the system absorbs maximum energy, leading to large oscillations.
 
 ## 2. Analysis of Dynamics
-### Effect of Parameters on Motion
-**1. Damping Coefficient ($b$):**
+#### Effect of Parameters on Motion
+1. **Damping Coefficient ($b$):**
 Higher damping reduces oscillations and suppresses chaotic motion.
-**2. Driving Amplitude ($A$):**
+2. **Driving Amplitude ($A$):**
 Increased forcing can lead to resonance or chaotic behavior.
-**3. Driving Frequency ($\omega$):**
+3. **Driving Frequency ($\omega$):**
 Tuning the frequency can shift the system from periodic to chaotic regimes.
 #### Chaos and Transition to Irregular Motion
 When forcing is strong and damping is moderate, the system can enter chaotic motion, characterized by sensitive dependence on initial conditions. This is analyzed using **Poincaré sections** and **bifurcation diagrams**.
