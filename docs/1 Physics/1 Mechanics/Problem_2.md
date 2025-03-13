@@ -13,12 +13,12 @@ $$\frac{d^2\theta}{dt^2} + b\frac{d\theta}{dt} + \frac{g}{l} \sin\theta = A \cos
 
 where:
 
-$\theta$   is the angular displacement,</p>
-$b$        is the damping coefficient,</p>
-$g$        is gravitational acceleration,</p>
-$l$        is the length of the pendulum,</p>
-$A$        is the amplitude of the external forcing,</p>
-$\omega$   is the driving frequency.</p>
+$\theta$   is the angular displacement,
+$b$        is the damping coefficient,
+$g$        is gravitational acceleration,
+$l$        is the length of the pendulum,
+$A$        is the amplitude of the external forcing,
+$\omega$   is the driving frequency.
 
 ### Small-Angle Approximation
 For small angles ($\theta\approx$ $\sin$ $\theta$ ), the equation simplifies to:
