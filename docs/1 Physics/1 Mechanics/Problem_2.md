@@ -1,4 +1,4 @@
-Investigating the Dynamics of a Forced Damped Pendulum
+# Investigating the Dynamics of a Forced Damped Pendulum
 Motivation
 The forced damped pendulum is a fascinating system where damping, restoring forces, and external periodic forcing interact to create diverse motion patterns. The system transitions from simple harmonic motion to resonance, chaos, and quasiperiodic behavior. These dynamics are essential in various real-world applications, including energy harvesting, structural engineering, and nonlinear oscillatory systems.
 
@@ -61,29 +61,29 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import solve_ivp
 
-# Define system parameters
+#Define system parameters
 g = 9.81   # Gravity (m/s^2)
 l = 1.0    # Length of pendulum (m)
 b = 0.2    # Damping coefficient
 A = 1.2    # Driving force amplitude
 omega = 2.0  # Driving frequency
 
-# Equations of motion
+#Equations of motion
 def pendulum_eq(t, y):
     theta, omega_p = y
     dtheta_dt = omega_p
     domega_dt = -b * omega_p - (g/l) * np.sin(theta) + A * np.cos(omega * t)
     return [dtheta_dt, domega_dt]
 
-# Time span and initial conditions
+#Time span and initial conditions
 t_span = [0, 50]
 y0 = [0.5, 0]  # Initial angle and velocity
 t_eval = np.linspace(0, 50, 1000)
 
-# Solve the system
+#Solve the system
 sol = solve_ivp(pendulum_eq, t_span, y0, t_eval=t_eval)
 
-# Plot results
+#Plot results
 plt.figure(figsize=(8, 5))
 plt.plot(sol.t, sol.y[0], label="Angle (θ)")
 plt.xlabel("Time (s)")
