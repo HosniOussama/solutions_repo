@@ -50,26 +50,6 @@
 </li>
 <li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 2</a>
 <ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="#escape-velocities-and-cosmic-velocities">Escape Velocities and Cosmic Velocities</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#motivation">Motivation</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#cosmic-velocities-definitions">Cosmic Velocities Definitions</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#first-cosmic-velocity-orbital-velocity">First Cosmic Velocity (Orbital Velocity)</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#second-cosmic-velocity-escape-velocity">Second Cosmic Velocity (Escape Velocity)</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#python-implementation">Python Implementation</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#python-script-cosmic_velocitiespy">Python Script (cosmic_velocities.py)</a>
-</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -191,121 +171,115 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="problem-2">Problem 2</h1>
-<h2 id="escape-velocities-and-cosmic-velocities">Escape Velocities and Cosmic Velocities</h2>
-<h3 id="motivation">Motivation</h3>
-<p>Understanding escape velocity is crucial for space exploration. The first, second, and third cosmic velocities define the speed needed to:</p>
-<ul>
-<li>Stay in orbit (first cosmic velocity).</li>
-<li>Escape a planet’s gravity (second cosmic velocity).</li>
-<li>Leave a star system (third cosmic velocity).
-These concepts are fundamental for launching satellites, interplanetary travel, and deep-space missions.</li>
-</ul>
-<h2 id="cosmic-velocities-definitions">Cosmic Velocities Definitions</h2>
-<h3 id="first-cosmic-velocity-orbital-velocity">First Cosmic Velocity (Orbital Velocity)</h3>
-<p>The minimum speed required to stay in a circular orbit around a planet. Derived from:</p>
-<p><span class="arithmatex">\(v1\)</span>\ =$<span class="arithmatex">\(RGM​\)</span>​</p>
-<h3 id="second-cosmic-velocity-escape-velocity">Second Cosmic Velocity (Escape Velocity)</h3>
-<p>The speed needed to break free from a planet’s gravity without further propulsion.</p>
-<p>​“v2​\=2​⋅v1​\=R2GM​​”</p>
-<p>Third Cosmic Velocity (Interstellar Escape)
-The velocity required to leave the Sun’s gravitational influence:</p>
-<p>𝑣“v3​\=2​⋅dGM⊙​​​”</p>
-<p>where <span class="arithmatex">\(M ⊙\)</span> is the Sun’s mass and <span class="arithmatex">\(𝑑\)</span> is the distance from the Sun.</p>
-<p>Calculations for Earth, Mars, and Jupiter
-Using standard gravitational values:</p>
-<p>Planet  Mass (<span class="arithmatex">\(kg\)</span>) Radius (<span class="arithmatex">\(m\)</span>)    First Cosmic Velocity (<span class="arithmatex">\(km/s\)</span>)  Second Cosmic Velocity (<span class="arithmatex">\(km/s\)</span>)</p>
-<p>Earth   </p>
-<p>$$5.972
-×
-10
-24
-5.972×10 
-24</p>
-<p>6.371
-×
-10
-6
-6.371×10 
-6
-    7.91    11.19 $$</p>
-<p>Mars    </p>
-<p>$$ 6.39
-×
-10
-23
-6.39×10 
-23</p>
-<p>3.389
-×
-10
-6
-3.389×10 
-6
-    3.55    5.03 $$</p>
-<p>Jupiter </p>
-<p>$$1.898
-×
-10
-27
-1.898×10 
-27</p>
-<p>6.991
-×
-10
-7
-6.991×10 
-7
-    42.1    59.5$$</p>
-<h2 id="python-implementation">Python Implementation</h2>
-<h3 id="python-script-cosmic_velocitiespy">Python Script (cosmic_velocities.py)</h3>
-<p>python
+<p>Investigating the Dynamics of a Forced Damped Pendulum
+Motivation
+The forced damped pendulum is a fascinating system where damping, restoring forces, and external periodic forcing interact to create diverse motion patterns. The system transitions from simple harmonic motion to resonance, chaos, and quasiperiodic behavior. These dynamics are essential in various real-world applications, including energy harvesting, structural engineering, and nonlinear oscillatory systems.</p>
+<p>By systematically varying damping, driving amplitude, and driving frequency, we can observe different behaviors such as synchronized oscillations, resonance, and chaotic motion. Understanding these phenomena helps in designing better mechanical systems, reducing unwanted vibrations, and optimizing energy transfer in oscillatory systems.</p>
+<ol>
+<li>Theoretical Foundation
+The motion of a forced damped pendulum is governed by the differential equation:</li>
+</ol>
+<div class="arithmatex">\[\frac{d^2\theta}{dt^2} + b\frac{d\theta}{dt} + \frac{g}{l} \sin\theta = A \cos(\omega t)\]</div>
+<p>where:</p>
+<p><span class="arithmatex">\(\theta\)</span>   is the angular displacement,
+<span class="arithmatex">\(b\)</span>        is the damping coefficient,
+<span class="arithmatex">\(g\)</span>        is gravitational acceleration,
+<span class="arithmatex">\(l\)</span>        is the length of the pendulum,
+<span class="arithmatex">\(A\)</span>        is the amplitude of the external forcing,
+<span class="arithmatex">\(\omega\)</span>   is the driving frequency.
+Small-Angle Approximation
+For small angles (<span class="arithmatex">\(\theta\approx\)</span> <span class="arithmatex">\(\sin\)</span> <span class="arithmatex">\(\theta\)</span> ), the equation simplifies to:</p>
+<div class="arithmatex">\[\frac{d^2\theta}{dt^2} + b\frac{d\theta}{dt} + \frac{g}{l} \theta = A \cos(\omega t)\]</div>
+<p>This is a damped, driven harmonic oscillator with an analytical solution in the form:</p>
+<div class="arithmatex">\[\theta(t) = \theta_0 e^{-bt/2} \cos(\omega t + \phi)\]</div>
+<p>where <span class="arithmatex">\(\theta_0\)</span> is the initial amplitude, and <span class="arithmatex">\(\phi\)</span> is a phase shift.</p>
+<p>Resonance Conditions
+Resonance occurs when the driving frequency matches the system's natural frequency:</p>
+<div class="arithmatex">\[\omega = \sqrt{\frac{g}{l} - \frac{b^2}{4}}\]</div>
+<p>At resonance, the system absorbs maximum energy, leading to large oscillations.</p>
+<ol>
+<li>
+<p>Analysis of Dynamics
+Effect of Parameters on Motion
+Damping Coefficient (<span class="arithmatex">\(b\)</span>): Higher damping reduces oscillations and suppresses chaotic motion.
+Driving Amplitude (<span class="arithmatex">\(A\)</span>): Increased forcing can lead to resonance or chaotic behavior.
+Driving Frequency (<span class="arithmatex">\(\omega\)</span>): Tuning the frequency can shift the system from periodic to chaotic regimes.
+Chaos and Transition to Irregular Motion
+When forcing is strong and damping is moderate, the system can enter chaotic motion, characterized by sensitive dependence on initial conditions. This is analyzed using Poincaré sections and bifurcation diagrams.</p>
+</li>
+<li>
+<p>Practical Applications
+Energy Harvesting: Used in devices that convert oscillatory motion into electricity.
+Suspension Bridges: Understanding resonance helps prevent structural failures (e.g., Tacoma Narrows Bridge collapse).
+Biomechanics: Models human gait and oscillatory movements.
+Electrical Circuits: Analogous to driven RLC circuits.</p>
+</li>
+<li>Computational Model &amp; Simulations
+We use Python to simulate the forced damped pendulum with the Runge-Kutta method for numerical integration.</li>
+</ol>
+<p>Python Script (forced_damped_pendulum.py)
+python
 Copy
 Edit
-import math</p>
-<h1 id="gravitational-constant-m3-kg-1-s-2">Gravitational constant (<span class="arithmatex">\(m^3 kg^-1 s^-2\)</span>)</h1>
-<div class="arithmatex">\[ G = 6.67430e-11 \]</div>
-<h1 id="celestial-body-data-mass-in-kg-radius-in-meters">Celestial body data (mass in kg, radius in meters)</h1>
-<p>celestial_bodies = {
-    "Earth": {"mass": 5.972e24, "radius": 6.371e6, "distance_sun": 1.496e11},
-    "Mars": {"mass": 6.39e23, "radius": 3.389e6, "distance_sun": 2.279e11},
-    "Jupiter": {"mass": 1.898e27, "radius": 6.991e7, "distance_sun": 7.785e11}
-}</p>
-<p>def first_cosmic_velocity(mass, radius):
-    return math.sqrt(G * mass / radius)</p>
-<p>def second_cosmic_velocity(mass, radius):
-    return math.sqrt(2) * first_cosmic_velocity(mass, radius)</p>
-<p>def third_cosmic_velocity(mass_sun, distance):
-    return math.sqrt(2 * G * mass_sun / distance)</p>
-<h1 id="suns-mass">Sun's mass</h1>
-<p>mass_sun = 1.989e30</p>
-<h1 id="compute-and-display-results">Compute and display results</h1>
-<p>for body, data in celestial_bodies.items():
-    v1 = first_cosmic_velocity(data["mass"], data["radius"]) / 1000  # km/s
-    v2 = second_cosmic_velocity(data["mass"], data["radius"]) / 1000  # km/s
-    v3 = third_cosmic_velocity(mass_sun, data["distance_sun"]) / 1000  # km/s</p>
-<pre><code>print(f"{body}:")
-print(f"  First Cosmic Velocity: {v1:.2f} km/s")
-print(f"  Second Cosmic Velocity: {v2:.2f} km/s")
-print(f"  Third Cosmic Velocity: {v3:.2f} km/s\n")
-</code></pre>
-<h2 id="jupyter-notebook-interactive-simulations">Jupyter Notebook (Interactive Simulations)</h2>
-<p>The accompanying Jupyter Notebook contains:</p>
-<ul>
-<li>Detailed explanations</li>
-<li>Interactive graphs</li>
-<li>Velocity comparisons across planets
-@ Download Jupyter Notebook (Link to the file on your site)@</li>
-</ul>
-<h2 id="graphical-representations">Graphical Representations</h2>
-<p>Below is a sample visualization of escape velocities for different planets:</p>
-<p>(Include a velocity vs. planet graph from the Jupyter Notebook output.)</p>
-<h2 id="importance-in-space-exploration">Importance in Space Exploration</h2>
-<p>Satellites: Need at least the first cosmic velocity.
-Moon &amp; Mars Missions: Require second cosmic velocity to leave Earth.
-Interstellar Travel: Future missions must reach the third cosmic velocity.</p>
-<h3 id="conclusion">Conclusion</h3>
-<p>Understanding cosmic velocities is key to space travel. With this knowledge, we can design better rockets, plan efficient space missions, and explore beyond our solar system.</p>
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import solve_ivp</p>
+<h1 id="define-system-parameters">Define system parameters</h1>
+<p>g = 9.81   # Gravity (m/s^2)
+l = 1.0    # Length of pendulum (m)
+b = 0.2    # Damping coefficient
+A = 1.2    # Driving force amplitude
+omega = 2.0  # Driving frequency</p>
+<h1 id="equations-of-motion">Equations of motion</h1>
+<p>def pendulum_eq(t, y):
+    theta, omega_p = y
+    dtheta_dt = omega_p
+    domega_dt = -b * omega_p - (g/l) * np.sin(theta) + A * np.cos(omega * t)
+    return [dtheta_dt, domega_dt]</p>
+<h1 id="time-span-and-initial-conditions">Time span and initial conditions</h1>
+<p>t_span = [0, 50]
+y0 = [0.5, 0]  # Initial angle and velocity
+t_eval = np.linspace(0, 50, 1000)</p>
+<h1 id="solve-the-system">Solve the system</h1>
+<p>sol = solve_ivp(pendulum_eq, t_span, y0, t_eval=t_eval)</p>
+<h1 id="plot-results">Plot results</h1>
+<p>plt.figure(figsize=(8, 5))
+plt.plot(sol.t, sol.y[0], label="Angle (θ)")
+plt.xlabel("Time (s)")
+plt.ylabel("Angle (rad)")
+plt.title("Forced Damped Pendulum Motion")
+plt.legend()
+plt.grid()
+plt.show()
+5. Graphical Representations
+1. Time Evolution of Motion
+(Plot showing pendulum angle over time.)</p>
+<ol>
+<li>
+<p>Phase Portraits
+{{\text{Plot } (\theta, \dot{\theta}) \text{ to visualize motion in phase space.}}}</p>
+</li>
+<li>
+<p>Poincaré Sections
+{{\text{Stroboscopic map of the system, revealing periodic or chaotic behavior.}}}</p>
+</li>
+<li>
+<p>Bifurcation Diagrams
+{{\text{Graph showing transition to chaos as the driving force increases.}}}</p>
+</li>
+<li>
+<p>Discussion on Model Limitations &amp; Extensions
+Limitations
+The small-angle approximation fails for large oscillations.
+The model assumes a simple sinusoidal driving force.
+Possible Extensions
+Nonlinear Damping: More realistic energy dissipation models.
+Non-Periodic Forcing: Studying real-world irregular driving forces.
+Coupled Pendulums: Exploring synchronization and complex dynamics.</p>
+</li>
+</ol>
+<h2 id="conclusion">Conclusion</h2>
+<p>The forced damped pendulum provides insights into nonlinear dynamics, resonance, and chaos. By tuning parameters, we observe a transition from regular motion to chaos, revealing fundamental principles that apply to various fields of science and engineering.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
