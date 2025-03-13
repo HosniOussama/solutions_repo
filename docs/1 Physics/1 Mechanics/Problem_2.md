@@ -50,10 +50,10 @@ Tuning the frequency can shift the system from periodic to chaotic regimes.
 When forcing is strong and damping is moderate, the system can enter chaotic motion, characterized by sensitive dependence on initial conditions. This is analyzed using **Poincaré sections** and **bifurcation diagrams**.
 
 ### 3. Practical Applications
-*** Energy Harvesting:** Used in devices that convert oscillatory motion into electricity.
-*** Suspension Bridges:** Understanding resonance helps prevent structural failures (e.g., Tacoma Narrows Bridge collapse).
-*** Biomechanics:** Models human gait and oscillatory movements.
-*** Electrical Circuits:** Analogous to driven RLC circuits.
+* **Energy Harvesting:** Used in devices that convert oscillatory motion into electricity.</p>
+* **Suspension Bridges:** Understanding resonance helps prevent structural failures (e.g., Tacoma Narrows Bridge collapse).</p>
+* **Biomechanics:** Models human gait and oscillatory movements.</p>
+* **Electrical Circuits:** Analogous to driven RLC circuits.
 ### 4. Computational Model & Simulations
 We use Python to simulate the forced damped pendulum with the Runge-Kutta method for numerical integration.
 
@@ -111,11 +111,11 @@ $$\text Graph showing transition to chaos as the driving force increases.$$
 
 ### 6. Discussion on Model Limitations & Extensions
 #### Limitations
-* The small-angle approximation fails for large oscillations.
-* The model assumes a simple sinusoidal driving force.
+*** The small-angle approximation fails for large oscillations.**
+*** The model assumes a simple sinusoidal driving force.**
 #### Possible Extensions
-##### * Nonlinear Damping: More realistic energy dissipation models.
-##### * Non-Periodic Forcing: Studying real-world irregular driving forces.
-##### * Coupled Pendulums: Exploring synchronization and complex dynamics.
+*** Nonlinear Damping: More realistic energy dissipation models.**
+*** Non-Periodic Forcing: Studying real-world irregular driving forces.**
+*** Coupled Pendulums: Exploring synchronization and complex dynamics.**
 ## Conclusion
 The forced damped pendulum provides insights into nonlinear dynamics, resonance, and chaos. By tuning parameters, we observe a transition from regular motion to chaos, revealing fundamental principles that apply to various fields of science and engineering.
