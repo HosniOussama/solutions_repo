@@ -68,7 +68,13 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#4-computational-model-simulations">4. Computational Model &amp; Simulations</a>
 </li>
+<li class="toctree-l4"><a class="reference internal" href="#5-graphical-representations">5. Graphical Representations</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#6-discussion-on-model-limitations-extensions">6. Discussion on Model Limitations &amp; Extensions</a>
+</li>
 </ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#conclusion">Conclusion</a>
 </li>
 </ul>
 </li>
@@ -199,12 +205,12 @@
 <p>The motion of a forced damped pendulum is governed by the differential equation:</p>
 <div class="arithmatex">\[\frac{d^2\theta}{dt^2} + b\frac{d\theta}{dt} + \frac{g}{l} \sin\theta = A \cos(\omega t)\]</div>
 <p>where:</p>
-<p><span class="arithmatex">\(\theta\)</span>   is the angular displacement,
+<p><span class="arithmatex">\(\theta\)</span>   is the angular displacement,</p>
 <span class="arithmatex">\(b\)</span>        is the damping coefficient,
 <span class="arithmatex">\(g\)</span>        is gravitational acceleration,
 <span class="arithmatex">\(l\)</span>        is the length of the pendulum,
 <span class="arithmatex">\(A\)</span>        is the amplitude of the external forcing,
-<span class="arithmatex">\(\omega\)</span>   is the driving frequency.</p>
+<span class="arithmatex">\(\omega\)</span>   is the driving frequency.
 <h3 id="small-angle-approximation">Small-Angle Approximation</h3>
 <p>For small angles (<span class="arithmatex">\(\theta\approx\)</span> <span class="arithmatex">\(\sin\)</span> <span class="arithmatex">\(\theta\)</span> ), the equation simplifies to:</p>
 <div class="arithmatex">\[\frac{d^2\theta}{dt^2} + b\frac{d\theta}{dt} + \frac{g}{l} \theta = A \cos(\omega t)\]</div>
@@ -217,54 +223,58 @@
 <p>At resonance, the system absorbs maximum energy, leading to large oscillations.</p>
 <h2 id="2-analysis-of-dynamics">2. Analysis of Dynamics</h2>
 <h3 id="effect-of-parameters-on-motion">Effect of Parameters on Motion</h3>
-<h4 id="1-damping-coefficient-b">1. Damping Coefficient (<span class="arithmatex">\(b\)</span>):</h4>
-<p>Higher damping reduces oscillations and suppresses chaotic motion.</p>
-<h4 id="2-driving-amplitude-a">2. Driving Amplitude (<span class="arithmatex">\(A\)</span>):</h4>
-<p>Increased forcing can lead to resonance or chaotic behavior.</p>
-<h5 id="3-driving-frequency-omega">3. Driving Frequency (<span class="arithmatex">\(\omega\)</span>):</h5>
-<p>Tuning the frequency can shift the system from periodic to chaotic regimes.</p>
+<p><strong>1. Damping Coefficient (<span class="arithmatex">\(b\)</span>):</strong>
+Higher damping reduces oscillations and suppresses chaotic motion.
+<strong>2. Driving Amplitude (<span class="arithmatex">\(A\)</span>):</strong>
+Increased forcing can lead to resonance or chaotic behavior.
+<strong>3. Driving Frequency (<span class="arithmatex">\(\omega\)</span>):</strong>
+Tuning the frequency can shift the system from periodic to chaotic regimes.</p>
 <h4 id="chaos-and-transition-to-irregular-motion">Chaos and Transition to Irregular Motion</h4>
-<p>When forcing is strong and damping is moderate, the system can enter chaotic motion, characterized by sensitive dependence on initial conditions. This is analyzed using Poincaré sections and bifurcation diagrams.</p>
+<p>When forcing is strong and damping is moderate, the system can enter chaotic motion, characterized by sensitive dependence on initial conditions. This is analyzed using <strong>Poincaré sections</strong> and <strong>bifurcation diagrams</strong>.</p>
 <h3 id="3-practical-applications">3. Practical Applications</h3>
-<ul>
-<li>Energy Harvesting: Used in devices that convert oscillatory motion into electricity.</li>
-<li>Suspension Bridges: Understanding resonance helps prevent structural failures (e.g., Tacoma Narrows Bridge collapse).</li>
-<li>Biomechanics: Models human gait and oscillatory movements.</li>
-<li>Electrical Circuits: Analogous to driven RLC circuits.</li>
-</ul>
+<p>*** Energy Harvesting:<strong> Used in devices that convert oscillatory motion into electricity.
+*** Suspension Bridges:</strong> Understanding resonance helps prevent structural failures (e.g., Tacoma Narrows Bridge collapse).
+*** Biomechanics:<strong> Models human gait and oscillatory movements.
+*** Electrical Circuits:</strong> Analogous to driven RLC circuits.</p>
 <h3 id="4-computational-model-simulations">4. Computational Model &amp; Simulations</h3>
 <p>We use Python to simulate the forced damped pendulum with the Runge-Kutta method for numerical integration.</p>
 <h4 id="python-script-forced_damped_pendulumpy">Python Script (forced_damped_pendulum.py)</h4>
-<p>import numpy as np
+<pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
-from scipy.integrate import solve_ivp</p>
-<h1 id="define-system-parameters">Define system parameters</h1>
-<p>g = 9.81   # Gravity (m/s^2)
+from scipy.integrate import solve_ivp
+
+# Define system parameters
+g = 9.81   # Gravity (m/s^2)
 l = 1.0    # Length of pendulum (m)
 b = 0.2    # Damping coefficient
 A = 1.2    # Driving force amplitude
-omega = 2.0  # Driving frequency</p>
-<h1 id="equations-of-motion">Equations of motion</h1>
-<p>def pendulum_eq(t, y):
+omega = 2.0  # Driving frequency
+
+# Equations of motion
+def pendulum_eq(t, y):
     theta, omega_p = y
     dtheta_dt = omega_p
     domega_dt = -b * omega_p - (g/l) * np.sin(theta) + A * np.cos(omega * t)
-    return [dtheta_dt, domega_dt]</p>
-<h1 id="time-span-and-initial-conditions">Time span and initial conditions</h1>
-<p>t_span = [0, 50]
+    return [dtheta_dt, domega_dt]
+
+# Time span and initial conditions
+t_span = [0, 50]
 y0 = [0.5, 0]  # Initial angle and velocity
-t_eval = np.linspace(0, 50, 1000)</p>
-<h1 id="solve-the-system">Solve the system</h1>
-<p>sol = solve_ivp(pendulum_eq, t_span, y0, t_eval=t_eval)</p>
-<h1 id="plot-results">Plot results</h1>
-<p>plt.figure(figsize=(8, 5))
+t_eval = np.linspace(0, 50, 1000)
+
+# Solve the system
+sol = solve_ivp(pendulum_eq, t_span, y0, t_eval=t_eval)
+
+# Plot results
+plt.figure(figsize=(8, 5))
 plt.plot(sol.t, sol.y[0], label="Angle (θ)")
 plt.xlabel("Time (s)")
 plt.ylabel("Angle (rad)")
 plt.title("Forced Damped Pendulum Motion")
 plt.legend()
 plt.grid()
-plt.show()</p>
+plt.show() 
+</code></pre>
 <h3 id="5-graphical-representations">5. Graphical Representations</h3>
 <h4 id="1-time-evolution-of-motion">1. Time Evolution of Motion</h4>
 <p>(Plot showing pendulum angle over time.)</p>
