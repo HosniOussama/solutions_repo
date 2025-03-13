@@ -28,6 +28,7 @@ The motion of a projectile follows these kinematic equations:
 
     $R = \frac{v_0^2 \sin(2\theta)}{g}$
 
+
 ### Python Simulation
 
 ```python
@@ -61,6 +62,7 @@ The equation of motion for a forced damped pendulum is:
 
   
 $\frac{d^2\theta}{dt^2} + b\frac{d\theta}{dt} + \omega_0^2 \sin\theta = A \cos(\omega t)$
+
 
 ### Python Simulation
 
