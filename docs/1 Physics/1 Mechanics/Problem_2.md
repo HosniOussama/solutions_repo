@@ -1,143 +1,117 @@
-# Problem 2
-## Escape Velocities and Cosmic Velocities
-### Motivation
-Understanding escape velocity is crucial for space exploration. The first, second, and third cosmic velocities define the speed needed to:
+Investigating the Dynamics of a Forced Damped Pendulum
+Motivation
+The forced damped pendulum is a fascinating system where damping, restoring forces, and external periodic forcing interact to create diverse motion patterns. The system transitions from simple harmonic motion to resonance, chaos, and quasiperiodic behavior. These dynamics are essential in various real-world applications, including energy harvesting, structural engineering, and nonlinear oscillatory systems.
 
-* Stay in orbit (first cosmic velocity).
-* Escape a planet’s gravity (second cosmic velocity).
-* Leave a star system (third cosmic velocity).
-These concepts are fundamental for launching satellites, interplanetary travel, and deep-space missions.
+By systematically varying damping, driving amplitude, and driving frequency, we can observe different behaviors such as synchronized oscillations, resonance, and chaotic motion. Understanding these phenomena helps in designing better mechanical systems, reducing unwanted vibrations, and optimizing energy transfer in oscillatory systems.
 
-## Cosmic Velocities Definitions
-### First Cosmic Velocity (Orbital Velocity)
-The minimum speed required to stay in a circular orbit around a planet. Derived from:
+1. Theoretical Foundation
+The motion of a forced damped pendulum is governed by the differential equation:
 
-$v1$\ =$$RGM​$​
+$$\frac{d^2\theta}{dt^2} + b\frac{d\theta}{dt} + \frac{g}{l} \sin\theta = A \cos(\omega t)$$
 
 
-### Second Cosmic Velocity (Escape Velocity)
-The speed needed to break free from a planet’s gravity without further propulsion.
- 
-​“v2​\=2​⋅v1​\=R2GM​​”
 
-Third Cosmic Velocity (Interstellar Escape)
-The velocity required to leave the Sun’s gravitational influence:
+where:
 
-𝑣“v3​\=2​⋅dGM⊙​​​”
+$\theta$   is the angular displacement,
+$b$        is the damping coefficient,
+$g$        is gravitational acceleration,
+$l$        is the length of the pendulum,
+$A$        is the amplitude of the external forcing,
+$\omega$   is the driving frequency.
+Small-Angle Approximation
+For small angles ($\theta\approx$ $\sin$ $\theta$ ), the equation simplifies to:
 
-where $M ⊙$ is the Sun’s mass and $𝑑$ is the distance from the Sun.
+$$\frac{d^2\theta}{dt^2} + b\frac{d\theta}{dt} + \frac{g}{l} \theta = A \cos(\omega t)$$
 
-Calculations for Earth, Mars, and Jupiter
-Using standard gravitational values:
+This is a damped, driven harmonic oscillator with an analytical solution in the form:
 
-Planet	Mass ($kg$)	Radius ($m$)	First Cosmic Velocity ($km/s$)	Second Cosmic Velocity ($km/s$)
+$$\theta(t) = \theta_0 e^{-bt/2} \cos(\omega t + \phi)$$
 
-Earth	
+where $\theta_0$ is the initial amplitude, and $\phi$ is a phase shift.
 
-$$5.972
-×
-10
-24
-5.972×10 
-24
- 	
-6.371
-×
-10
-6
-6.371×10 
-6
- 	7.91	11.19 $$
+Resonance Conditions
+Resonance occurs when the driving frequency matches the system's natural frequency:
 
-Mars	
+$$\omega = \sqrt{\frac{g}{l} - \frac{b^2}{4}}$$
 
-$$ 6.39
-×
-10
-23
-6.39×10 
-23
- 	
-3.389
-×
-10
-6
-3.389×10 
-6
- 	3.55	5.03 $$
+At resonance, the system absorbs maximum energy, leading to large oscillations.
 
-Jupiter	
+2. Analysis of Dynamics
+Effect of Parameters on Motion
+Damping Coefficient ($b$): Higher damping reduces oscillations and suppresses chaotic motion.
+Driving Amplitude ($A$): Increased forcing can lead to resonance or chaotic behavior.
+Driving Frequency ($\omega$): Tuning the frequency can shift the system from periodic to chaotic regimes.
+Chaos and Transition to Irregular Motion
+When forcing is strong and damping is moderate, the system can enter chaotic motion, characterized by sensitive dependence on initial conditions. This is analyzed using Poincaré sections and bifurcation diagrams.
 
-$$1.898
-×
-10
-27
-1.898×10 
-27
- 	
-6.991
-×
-10
-7
-6.991×10 
-7
- 	42.1	59.5$$
-## Python Implementation
-### Python Script (cosmic_velocities.py)
+3. Practical Applications
+Energy Harvesting: Used in devices that convert oscillatory motion into electricity.
+Suspension Bridges: Understanding resonance helps prevent structural failures (e.g., Tacoma Narrows Bridge collapse).
+Biomechanics: Models human gait and oscillatory movements.
+Electrical Circuits: Analogous to driven RLC circuits.
+4. Computational Model & Simulations
+We use Python to simulate the forced damped pendulum with the Runge-Kutta method for numerical integration.
+
+Python Script (forced_damped_pendulum.py)
 python
 Copy
 Edit
-import math
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import solve_ivp
 
-# Gravitational constant ($m^3 kg^-1 s^-2$)
-$$ G = 6.67430e-11 $$ 
+# Define system parameters
+g = 9.81   # Gravity (m/s^2)
+l = 1.0    # Length of pendulum (m)
+b = 0.2    # Damping coefficient
+A = 1.2    # Driving force amplitude
+omega = 2.0  # Driving frequency
 
-# Celestial body data (mass in kg, radius in meters)
-celestial_bodies = {
-    "Earth": {"mass": 5.972e24, "radius": 6.371e6, "distance_sun": 1.496e11},
-    "Mars": {"mass": 6.39e23, "radius": 3.389e6, "distance_sun": 2.279e11},
-    "Jupiter": {"mass": 1.898e27, "radius": 6.991e7, "distance_sun": 7.785e11}
-}
+# Equations of motion
+def pendulum_eq(t, y):
+    theta, omega_p = y
+    dtheta_dt = omega_p
+    domega_dt = -b * omega_p - (g/l) * np.sin(theta) + A * np.cos(omega * t)
+    return [dtheta_dt, domega_dt]
 
-def first_cosmic_velocity(mass, radius):
-    return math.sqrt(G * mass / radius)
+# Time span and initial conditions
+t_span = [0, 50]
+y0 = [0.5, 0]  # Initial angle and velocity
+t_eval = np.linspace(0, 50, 1000)
 
-def second_cosmic_velocity(mass, radius):
-    return math.sqrt(2) * first_cosmic_velocity(mass, radius)
+# Solve the system
+sol = solve_ivp(pendulum_eq, t_span, y0, t_eval=t_eval)
 
-def third_cosmic_velocity(mass_sun, distance):
-    return math.sqrt(2 * G * mass_sun / distance)
+# Plot results
+plt.figure(figsize=(8, 5))
+plt.plot(sol.t, sol.y[0], label="Angle (θ)")
+plt.xlabel("Time (s)")
+plt.ylabel("Angle (rad)")
+plt.title("Forced Damped Pendulum Motion")
+plt.legend()
+plt.grid()
+plt.show()
+5. Graphical Representations
+1. Time Evolution of Motion
+(Plot showing pendulum angle over time.)
 
-# Sun's mass
-mass_sun = 1.989e30
+2. Phase Portraits
+{{\text{Plot } (\theta, \dot{\theta}) \text{ to visualize motion in phase space.}}}
 
-# Compute and display results
-for body, data in celestial_bodies.items():
-    v1 = first_cosmic_velocity(data["mass"], data["radius"]) / 1000  # km/s
-    v2 = second_cosmic_velocity(data["mass"], data["radius"]) / 1000  # km/s
-    v3 = third_cosmic_velocity(mass_sun, data["distance_sun"]) / 1000  # km/s
-    
-    print(f"{body}:")
-    print(f"  First Cosmic Velocity: {v1:.2f} km/s")
-    print(f"  Second Cosmic Velocity: {v2:.2f} km/s")
-    print(f"  Third Cosmic Velocity: {v3:.2f} km/s\n")
-## Jupyter Notebook (Interactive Simulations)
-The accompanying Jupyter Notebook contains:
+3. Poincaré Sections
+{{\text{Stroboscopic map of the system, revealing periodic or chaotic behavior.}}}
 
-* Detailed explanations
-* Interactive graphs
-* Velocity comparisons across planets
-@ Download Jupyter Notebook (Link to the file on your site)@
+4. Bifurcation Diagrams
+{{\text{Graph showing transition to chaos as the driving force increases.}}}
 
-##Graphical Representations
-Below is a sample visualization of escape velocities for different planets:
-
-(Include a velocity vs. planet graph from the Jupyter Notebook output.)
-
-## Importance in Space Exploration
-Satellites: Need at least the first cosmic velocity.
-Moon & Mars Missions: Require second cosmic velocity to leave Earth.
-Interstellar Travel: Future missions must reach the third cosmic velocity.
-### Conclusion
-Understanding cosmic velocities is key to space travel. With this knowledge, we can design better rockets, plan efficient space missions, and explore beyond our solar system.
-
+6. Discussion on Model Limitations & Extensions
+Limitations
+The small-angle approximation fails for large oscillations.
+The model assumes a simple sinusoidal driving force.
+Possible Extensions
+Nonlinear Damping: More realistic energy dissipation models.
+Non-Periodic Forcing: Studying real-world irregular driving forces.
+Coupled Pendulums: Exploring synchronization and complex dynamics.
+## Conclusion
+The forced damped pendulum provides insights into nonlinear dynamics, resonance, and chaos. By tuning parameters, we observe a transition from regular motion to chaos, revealing fundamental principles that apply to various fields of science and engineering.
