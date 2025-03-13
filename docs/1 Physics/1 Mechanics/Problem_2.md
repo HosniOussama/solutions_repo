@@ -1,8 +1,8 @@
 # Investigating the Dynamics of a Forced Damped Pendulum
 ## Motivation
-The forced damped pendulum is a fascinating system where damping, restoring forces, and external periodic forcing interact to create diverse motion patterns. The system transitions from simple harmonic motion to resonance, chaos, and quasiperiodic behavior. These dynamics are essential in various real-world applications, including energy harvesting, structural engineering, and nonlinear oscillatory systems.
+The forced damped pendulum is a fascinating system where damping, restoring forces, and external periodic forcing interact to create diverse motion patterns. The system transitions from simple harmonic motion to resonance, chaos, and quasiperiodic behavior. These dynamics are essential in various real-world applications, including energy harvesting, structural engineering, and nonlinear oscillatory systems.</p>
 
-By systematically varying damping, driving amplitude, and driving frequency, we can observe different behaviors such as synchronized oscillations, resonance, and chaotic motion. Understanding these phenomena helps in designing better mechanical systems, reducing unwanted vibrations, and optimizing energy transfer in oscillatory systems.
+By systematically varying damping, driving amplitude, and driving frequency, we can observe different behaviors such as synchronized oscillations, resonance, and chaotic motion. Understanding these phenomena helps in designing better mechanical systems, reducing unwanted vibrations, and optimizing energy transfer in oscillatory systems.</p>
 
 ## 1. Theoretical Foundation
 The motion of a forced damped pendulum is governed by the differential equation:
@@ -13,12 +13,12 @@ $$\frac{d^2\theta}{dt^2} + b\frac{d\theta}{dt} + \frac{g}{l} \sin\theta = A \cos
 
 where:
 
-$\theta$   is the angular displacement,
-$b$        is the damping coefficient,
-$g$        is gravitational acceleration,
-$l$        is the length of the pendulum,
-$A$        is the amplitude of the external forcing,
-$\omega$   is the driving frequency.
+$\theta$   is the angular displacement,</p>
+$b$        is the damping coefficient,</p>
+$g$        is gravitational acceleration,</p>
+$l$        is the length of the pendulum,</p>
+$A$        is the amplitude of the external forcing,</p>
+$\omega$   is the driving frequency.</p>
 
 ### Small-Angle Approximation
 For small angles ($\theta\approx$ $\sin$ $\theta$ ), the equation simplifies to:
@@ -40,24 +40,25 @@ At resonance, the system absorbs maximum energy, leading to large oscillations.
 
 ## 2. Analysis of Dynamics
 ### Effect of Parameters on Motion
-#### 1. Damping Coefficient ($b$): 
+**1. Damping Coefficient ($b$):**
 Higher damping reduces oscillations and suppresses chaotic motion.
-#### 2. Driving Amplitude ($A$): 
+**2. Driving Amplitude ($A$):**
 Increased forcing can lead to resonance or chaotic behavior.
-##### 3. Driving Frequency ($\omega$): 
+**3. Driving Frequency ($\omega$):**
 Tuning the frequency can shift the system from periodic to chaotic regimes.
 #### Chaos and Transition to Irregular Motion
-When forcing is strong and damping is moderate, the system can enter chaotic motion, characterized by sensitive dependence on initial conditions. This is analyzed using Poincaré sections and bifurcation diagrams.
+When forcing is strong and damping is moderate, the system can enter chaotic motion, characterized by sensitive dependence on initial conditions. This is analyzed using **Poincaré sections** and **bifurcation diagrams**.
 
 ### 3. Practical Applications
-* Energy Harvesting: Used in devices that convert oscillatory motion into electricity.
-* Suspension Bridges: Understanding resonance helps prevent structural failures (e.g., Tacoma Narrows Bridge collapse).
-* Biomechanics: Models human gait and oscillatory movements.
-* Electrical Circuits: Analogous to driven RLC circuits.
+*** Energy Harvesting:** Used in devices that convert oscillatory motion into electricity.
+*** Suspension Bridges:** Understanding resonance helps prevent structural failures (e.g., Tacoma Narrows Bridge collapse).
+*** Biomechanics:** Models human gait and oscillatory movements.
+*** Electrical Circuits:** Analogous to driven RLC circuits.
 ### 4. Computational Model & Simulations
 We use Python to simulate the forced damped pendulum with the Runge-Kutta method for numerical integration.
 
 #### Python Script (forced_damped_pendulum.py)
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import solve_ivp
@@ -92,7 +93,8 @@ plt.ylabel("Angle (rad)")
 plt.title("Forced Damped Pendulum Motion")
 plt.legend()
 plt.grid()
-plt.show()
+plt.show() 
+```
 
 ### 5. Graphical Representations
 #### 1. Time Evolution of Motion
