@@ -12,36 +12,28 @@ These concepts are fundamental for launching satellites, interplanetary travel, 
 ### First Cosmic Velocity (Orbital Velocity)
 The minimum speed required to stay in a circular orbit around a planet. Derived from:
 
-$v1​\=RGM​​$
+$v1$\ =$$RGM​$​
 
 
-​
- 
-​
- 
 ### Second Cosmic Velocity (Escape Velocity)
 The speed needed to break free from a planet’s gravity without further propulsion.
  
 ​“v2​\=2​⋅v1​\=R2GM​​”
 
- 
 Third Cosmic Velocity (Interstellar Escape)
 The velocity required to leave the Sun’s gravitational influence:
 
 𝑣“v3​\=2​⋅dGM⊙​​​”
 
-
-​
- 
-​
- 
 where $M ⊙$ is the Sun’s mass and $𝑑$ is the distance from the Sun.
 
 Calculations for Earth, Mars, and Jupiter
 Using standard gravitational values:
 
 Planet	Mass ($kg$)	Radius ($m$)	First Cosmic Velocity ($km/s$)	Second Cosmic Velocity ($km/s$)
+
 Earth	
+
 $$5.972
 ×
 10
@@ -56,7 +48,9 @@ $$5.972
 6.371×10 
 6
  	7.91	11.19 $$
+
 Mars	
+
 $$ 6.39
 ×
 10
@@ -71,7 +65,9 @@ $$ 6.39
 3.389×10 
 6
  	3.55	5.03 $$
+
 Jupiter	
+
 $$1.898
 ×
 10
@@ -93,8 +89,8 @@ Copy
 Edit
 import math
 
-# Gravitational constant (m^3 kg^-1 s^-2)
-G = 6.67430e-11  
+# Gravitational constant ($m^3 kg^-1 s^-2$)
+$$ G = 6.67430e-11 $$ 
 
 # Celestial body data (mass in kg, radius in meters)
 celestial_bodies = {
