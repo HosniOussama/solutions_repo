@@ -1,6 +1,7 @@
 # Problem 2
-# Problem 2
+
 ## Escape Velocities and Cosmic Velocities
+
 ### Motivation
 Understanding escape velocity is crucial for space exploration. The first, second, and third cosmic velocities define the speed needed to:
 
@@ -13,7 +14,7 @@ These concepts are fundamental for launching satellites, interplanetary travel, 
 ### First Cosmic Velocity (Orbital Velocity)
 The minimum speed required to stay in a circular orbit around a planet. Derived from:
 
-$v1$\ =$$RGM​$​
+$v1\=RGM​$​
 
 
 ### Second Cosmic Velocity (Escape Velocity)
