@@ -147,14 +147,15 @@ $$\text Graph showing transition to chaos as the driving force increases.$$
 
 #### Limitations
 
-*** The small-angle approximation fails for large oscillations.**
-*** The model assumes a simple sinusoidal driving force.**
+****The small-angle approximation fails for large oscillations****
+
+****The model assumes a simple sinusoidal driving force.****
 
 #### Possible Extensions
 
-*** Nonlinear Damping: More realistic energy dissipation models.**
-*** Non-Periodic Forcing: Studying real-world irregular driving forces.**
-*** Coupled Pendulums: Exploring synchronization and complex dynamics.**
+***Nonlinear Damping: More realistic energy dissipation models***
+***Non-Periodic Forcing: Studying real-world irregular driving forces.***
+***Coupled Pendulums: Exploring synchronization and complex dynamics.***
 
 ## Conclusion
 
