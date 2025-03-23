@@ -115,7 +115,7 @@ plt.title("Orbital Period vs. Radius")
 plt.grid()
 plt.show()
 ```
-![Forced_Damped_Pendulum_Motion](../../_pics/Projectile_Range_vs._Launch_Angle.png)
+![Orbital_Period_vs_Radius](../../_pics/Orbital_Period_vs_Radius.png)
 ---
 
 ### Conclusion
