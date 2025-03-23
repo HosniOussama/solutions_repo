@@ -47,7 +47,7 @@ plt.title("Projectile Range vs. Launch Angle")
 plt.grid()
 plt.show()
 ```
-![Fork Repository](docs/_pics/fork.png)
+![Projectile Range vs. Launch Angle](../../_pics/Projectile_Range_vs._Launch_Angle.png)
 ---
 
 ## Investigating the Dynamics of a Forced Damped Pendulum
