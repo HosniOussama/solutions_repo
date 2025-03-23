@@ -1,145 +1,116 @@
-# Problem 2
+# Investigating the Dynamics of a Forced Damped Pendulum
 
-## Escape Velocities and Cosmic Velocities
+## Introduction
+The forced damped pendulum is an example of a system exhibiting complex behavior due to the interplay of damping, restoring forces, and external periodic driving forces. This simulation explores resonance, chaos, and quasiperiodic motion through numerical integration.
 
-### Motivation
-Understanding escape velocity is crucial for space exploration. The first, second, and third cosmic velocities define the speed needed to:
+## Mathematical Model
+The motion of the forced damped pendulum is governed by the equation:
 
-* Stay in orbit (first cosmic velocity).
-* Escape a planet’s gravity (second cosmic velocity).
-* Leave a star system (third cosmic velocity).
-These concepts are fundamental for launching satellites, interplanetary travel, and deep-space missions.
+$\ddot{\theta} + b \dot{\theta} + \frac{g}{L} \sin(\theta) = A \cos(\omega t)$
 
-## Cosmic Velocities Definitions
-### First Cosmic Velocity (Orbital Velocity)
-The minimum speed required to stay in a circular orbit around a planet. Derived from:
+where:
+- $b$ is the damping coefficient,
+- $g$ is the acceleration due to gravity,
+- $L$ is the length of the pendulum,
+- $A$ is the amplitude of the driving force,
+- $\omega$ is the driving frequency.
 
-$v1\=RGM​$​
-
-
-### Second Cosmic Velocity (Escape Velocity)
-The speed needed to break free from a planet’s gravity without further propulsion.
- 
-​“v2​\=2​⋅v1​\=R2GM​​”
-
-Third Cosmic Velocity (Interstellar Escape)
-The velocity required to leave the Sun’s gravitational influence:
-
-𝑣“v3​\=2​⋅dGM⊙​​​”
-
-where $M ⊙$ is the Sun’s mass and $𝑑$ is the distance from the Sun.
-
-Calculations for Earth, Mars, and Jupiter
-Using standard gravitational values:
-
-Planet	Mass ($kg$)	Radius ($m$)	First Cosmic Velocity ($km/s$)	Second Cosmic Velocity ($km/s$)
-
-Earth	
-
-$$5.972
-×
-10
-24
-5.972×10 
-24
- 	
-6.371
-×
-10
-6
-6.371×10 
-6
- 	7.91	11.19 $$
-
-Mars	
-
-$$ 6.39
-×
-10
-23
-6.39×10 
-23
- 	
-3.389
-×
-10
-6
-3.389×10 
-6
- 	3.55	5.03 $$
-
-Jupiter	
-
-$$1.898
-×
-10
-27
-1.898×10 
-27
- 	
-6.991
-×
-10
-7
-6.991×10 
-7
- 	42.1	59.5$$
 ## Python Implementation
-### Python Script (cosmic_velocities.py)
-python
-Copy
-Edit
-import math
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import solve_ivp
 
-# Gravitational constant ($m^3 kg^-1 s^-2$)
-$$ G = 6.67430e-11 $$ 
+# Parameters
+g = 9.81   # Gravity (m/s^2)
+L = 1.0    # Length of pendulum (m)
+b = 0.5    # Damping coefficient
+A = 1.2    # Driving force amplitude
+omega = 2/3  # Driving frequency
 
-# Celestial body data (mass in kg, radius in meters)
-celestial_bodies = {
-    "Earth": {"mass": 5.972e24, "radius": 6.371e6, "distance_sun": 1.496e11},
-    "Mars": {"mass": 6.39e23, "radius": 3.389e6, "distance_sun": 2.279e11},
-    "Jupiter": {"mass": 1.898e27, "radius": 6.991e7, "distance_sun": 7.785e11}
-}
+# Differential equation
+def forced_damped_pendulum(t, y):
+    theta, omega_t = y
+    dydt = [
+        omega_t,
+        -b * omega_t - (g/L) * np.sin(theta) + A * np.cos(omega * t)
+    ]
+    return dydt
 
-def first_cosmic_velocity(mass, radius):
-    return math.sqrt(G * mass / radius)
+# Time span
+t_span = (0, 100)
+t_eval = np.linspace(*t_span, 10000)
 
-def second_cosmic_velocity(mass, radius):
-    return math.sqrt(2) * first_cosmic_velocity(mass, radius)
+# Initial conditions
+y0 = [0.2, 0]  # Initial angle and velocity
 
-def third_cosmic_velocity(mass_sun, distance):
-    return math.sqrt(2 * G * mass_sun / distance)
+# Solve ODE
+sol = solve_ivp(forced_damped_pendulum, t_span, y0, t_eval=t_eval, method='RK45')
 
-# Sun's mass
-mass_sun = 1.989e30
+# Phase portrait
+plt.figure(figsize=(8, 6))
+plt.plot(sol.y[0], sol.y[1], lw=0.8)
+plt.xlabel("Theta (rad)")
+plt.ylabel("Angular velocity (rad/s)")
+plt.title("Phase Portrait of Forced Damped Pendulum")
+plt.grid()
+plt.show()
 
-# Compute and display results
-for body, data in celestial_bodies.items():
-    v1 = first_cosmic_velocity(data["mass"], data["radius"]) / 1000  # km/s
-    v2 = second_cosmic_velocity(data["mass"], data["radius"]) / 1000  # km/s
-    v3 = third_cosmic_velocity(mass_sun, data["distance_sun"]) / 1000  # km/s
-    
-    print(f"{body}:")
-    print(f"  First Cosmic Velocity: {v1:.2f} km/s")
-    print(f"  Second Cosmic Velocity: {v2:.2f} km/s")
-    print(f"  Third Cosmic Velocity: {v3:.2f} km/s\n")
-## Jupyter Notebook (Interactive Simulations)
-The accompanying Jupyter Notebook contains:
+# Poincare section (stroboscopic map)
+poincare_times = np.arange(0, 100, 2*np.pi/omega)
+poincare_points = []
 
-* Detailed explanations
-* Interactive graphs
-* Velocity comparisons across planets
-@ Download Jupyter Notebook (Link to the file on your site)@
+for t_p in poincare_times:
+    idx = (np.abs(sol.t - t_p)).argmin()
+    poincare_points.append([sol.y[0][idx], sol.y[1][idx]])
 
-##Graphical Representations
-Below is a sample visualization of escape velocities for different planets:
+poincare_points = np.array(poincare_points)
 
-(Include a velocity vs. planet graph from the Jupyter Notebook output.)
+plt.figure(figsize=(8, 6))
+plt.scatter(poincare_points[:, 0], poincare_points[:, 1], s=10, color='red')
+plt.xlabel("Theta (rad)")
+plt.ylabel("Angular velocity (rad/s)")
+plt.title("Poincaré Section")
+plt.grid()
+plt.show()
 
-## Importance in Space Exploration
-Satellites: Need at least the first cosmic velocity.
-Moon & Mars Missions: Require second cosmic velocity to leave Earth.
-Interstellar Travel: Future missions must reach the third cosmic velocity.
-### Conclusion
-Understanding cosmic velocities is key to space travel. With this knowledge, we can design better rockets, plan efficient space missions, and explore beyond our solar system.
+# Time series plot
+plt.figure(figsize=(8, 6))
+plt.plot(sol.t, sol.y[0], label='Theta (rad)')
+plt.xlabel("Time (s)")
+plt.ylabel("Theta (rad)")
+plt.title("Time Evolution of Theta")
+plt.legend()
+plt.grid()
+plt.show()
+
+# Bifurcation diagram
+A_values = np.linspace(0.5, 2.0, 20)
+th_values = []
+
+for A in A_values:
+    def system(t, y):
+        return [y[1], -b * y[1] - (g/L) * np.sin(y[0]) + A * np.cos(omega * t)]
+    sol = solve_ivp(system, t_span, y0, t_eval=t_eval, method='RK45')
+    th_values.append(sol.y[0][-500:])
+
+plt.figure(figsize=(8, 6))
+for i, A in enumerate(A_values):
+    plt.scatter([A] * len(th_values[i]), th_values[i], s=1, color='blue')
+plt.xlabel("Driving Force Amplitude (A)")
+plt.ylabel("Theta (rad)")
+plt.title("Bifurcation Diagram")
+plt.grid()
+plt.show()
+```
+
+## Results
+The simulation produces:
+1. **Phase Portrait**: Displays how the system evolves in phase space.
+2. **Poincaré Section**: A stroboscopic map showing discrete points at specific time intervals, revealing periodic or chaotic behavior.
+3. **Time Series Plot**: Shows the evolution of the pendulum’s angle over time.
+4. **Bifurcation Diagram**: Demonstrates the transition to chaos as the driving force amplitude increases.
+
+## Conclusion
+The forced damped pendulum demonstrates a range of behaviors from simple oscillations to chaos, depending on parameter values. This study helps in understanding nonlinear dynamics in real-world systems like mechanical oscillators and electrical circuits.
 

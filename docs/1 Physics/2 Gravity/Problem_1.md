@@ -149,10 +149,10 @@ plt.show()
 ### Plots and Interpretations
 
 1. **Kepler's Third Law Verification**:
-   - The plot of \(T^2\) vs. \(r^3\) shows a linear relationship, confirming Kepler's Third Law.
-   - **Explanation**: The linearity of the graph demonstrates that \(T^2\) is directly proportional to \(r^3\), as predicted by the law.
+   - The plot of \($T^2$\) vs. \($r^3$\) shows a linear relationship, confirming Kepler's Third Law.
+   - **Explanation**: The linearity of the graph demonstrates that \($T^2$\) is directly proportional to \($r^3$\), as predicted by the law.
 
-   ![T^2 vs. r^3](https://i.imgur.com/XYZ1234.png)  
+   ! $T^2$ vs. $r^3$(https://i.imgur.com/XYZ1234.png)  
    *Figure 1: Verification of Kepler's Third Law.*
 
 2. **Circular Orbit Simulation**:
@@ -166,11 +166,11 @@ plt.show()
 
 ## Extensions to Elliptical Orbits
 
-Kepler's Third Law also applies to elliptical orbits, with the semi-major axis \(a\) replacing the orbital radius \(r\):
+Kepler's Third Law also applies to elliptical orbits, with the semi-major axis \($a$\) replacing the orbital radius \($r$\):
 
-\[
+$$
 T^2 = \frac{4\pi^2 a^3}{GM}
-\]
+$$
 
 This generalization allows the law to be applied to comets, asteroids, and other celestial bodies with non-circular orbits.
 
