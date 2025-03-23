@@ -2,7 +2,7 @@
 
 ## Motivation
 
-Kepler's Third Law, which states that the square of the orbital period (\(T^2\)) is proportional to the cube of the orbital radius (\(r^3\)), is a cornerstone of celestial mechanics. This relationship explains the motion of planets around the Sun, moons around planets, and satellites around Earth. It also provides a framework for calculating masses and distances in gravitational systems. This investigation explores the theoretical foundation, practical implications, and computational verification of Kepler's Third Law.
+Kepler's Third Law, which states that the square of the orbital period $T^2$ is proportional to the cube of the orbital radius $r^3$, is a cornerstone of celestial mechanics. This relationship explains the motion of planets around the Sun, moons around planets, and satellites around Earth. It also provides a framework for calculating masses and distances in gravitational systems. This investigation explores the theoretical foundation, practical implications, and computational verification of Kepler's Third Law.
 
 ---
 
@@ -10,52 +10,52 @@ Kepler's Third Law, which states that the square of the orbital period (\(T^2\))
 
 ### Derivation of Kepler's Third Law for Circular Orbits
 
-For a satellite of mass \(m\) orbiting a central body of mass \(M\) in a circular orbit of radius \(r\), the gravitational force provides the centripetal force required for circular motion. Mathematically:
+For a satellite of mass $m$ orbiting a central body of mass $M$ in a circular orbit of radius $r$, the gravitational force provides the centripetal force required for circular motion. Mathematically:
 
-\[
+$
 F_{\text{gravity}} = F_{\text{centripetal}}
-\]
+$
 
-\[
+$
 \frac{GMm}{r^2} = \frac{mv^2}{r}
-\]
+$
 
 Where:
-- \(G\): Gravitational constant (\(6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}\))
-- \(v\): Orbital velocity of the satellite
-- \(r\): Orbital radius
-- \(M\): Mass of the central body
-- \(m\): Mass of the orbiting body (cancels out in the equation)
+- $G$: Gravitational constant ($6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$)
+- $v$: Orbital velocity of the satellite
+- $r$: Orbital radius
+- $M$: Mass of the central body
+- $m$: Mass of the orbiting body (cancels out in the equation)
 
-The orbital velocity \(v\) can be expressed in terms of the orbital period \(T\):
+The orbital velocity $v$ can be expressed in terms of the orbital period $TV$:
 
-\[
+$$
 v = \frac{2\pi r}{T}
-\]
+$$
 
-Substituting \(v\) into the force equation:
+Substituting $v$ into the force equation:
 
-\[
+$$
 \frac{GM}{r^2} = \frac{(2\pi r / T)^2}{r}
-\]
+$$
 
 Simplifying:
 
-\[
+$$
 \frac{GM}{r^2} = \frac{4\pi^2 r}{T^2}
-\]
+$$
 
-Rearranging to solve for \(T^2\):
+Rearranging to solve for $T^2$:
 
-\[
+$$
 T^2 = \frac{4\pi^2 r^3}{GM}
-\]
+$$
 
 This is **Kepler's Third Law** for circular orbits, which states:
 
-\[
+$$
 T^2 \propto r^3
-\]
+$$
 
 ---
 
@@ -75,12 +75,12 @@ T^2 \propto r^3
 ## Real-World Examples
 
 1. **Moon's Orbit Around Earth**:
-   - Orbital radius: \(3.84 \times 10^8 \, \text{m}\)
-   - Orbital period: \(27.3 \, \text{days}\)
-   - Using Kepler's Third Law, we can verify the relationship between \(T^2\) and \(r^3\).
+   - Orbital radius: $3.84 \times 10^8 \, \text{m}$
+   - Orbital period: $27.3 \, \text{days}$
+   - Using Kepler's Third Law, we can verify the relationship between $T^2$ and $r^3$.
 
 2. **Planets in the Solar System**:
-   - For example, Earth's orbital radius (\(1 \, \text{AU}\)) and period (\(1 \, \text{year}\)) satisfy \(T^2 \propto r^3\).
+   - For example, Earth's orbital radius ($1 \, \text{AU}$) and period ($1 \, \text{year}$) satisfy $T^2 \propto r^3$.
 
 ---
 
