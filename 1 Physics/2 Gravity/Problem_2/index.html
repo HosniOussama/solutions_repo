@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 2 - Physics and Mathematics</title>
+<title>Investigating the Dynamics of a Forced Damped Pendulum - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 2";
+        var mkdocs_page_name = "Investigating the Dynamics of a Forced Damped Pendulum";
         var mkdocs_page_input_path = "1 Physics/2 Gravity/Problem_2.md";
         var mkdocs_page_url = null;
       </script>
@@ -56,27 +56,17 @@
 <ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../Problem_1/">Orbital Period and Orbital Radius: Kepler's Third Law</a>
 </li>
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 2</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Investigating the Dynamics of a Forced Damped Pendulum</a>
 <ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="#escape-velocities-and-cosmic-velocities">Escape Velocities and Cosmic Velocities</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#motivation">Motivation</a>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a>
 </li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#cosmic-velocities-definitions">Cosmic Velocities Definitions</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#first-cosmic-velocity-orbital-velocity">First Cosmic Velocity (Orbital Velocity)</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#second-cosmic-velocity-escape-velocity">Second Cosmic Velocity (Escape Velocity)</a>
-</li>
-</ul>
+<li class="toctree-l3"><a class="reference internal" href="#mathematical-model">Mathematical Model</a>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#python-implementation">Python Implementation</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#python-script-cosmic_velocitiespy">Python Script (cosmic_velocities.py)</a>
 </li>
-</ul>
+<li class="toctree-l3"><a class="reference internal" href="#results">Results</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#conclusion">Conclusion</a>
 </li>
 </ul>
 </li>
@@ -183,7 +173,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">2 Gravity</li>
-<li class="breadcrumb-item active">Problem 2</li>
+<li class="breadcrumb-item active">Investigating the Dynamics of a Forced Damped Pendulum</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -191,121 +181,113 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="problem-2">Problem 2</h1>
-<h2 id="escape-velocities-and-cosmic-velocities">Escape Velocities and Cosmic Velocities</h2>
-<h3 id="motivation">Motivation</h3>
-<p>Understanding escape velocity is crucial for space exploration. The first, second, and third cosmic velocities define the speed needed to:</p>
-<ul>
-<li>Stay in orbit (first cosmic velocity).</li>
-<li>Escape a planet’s gravity (second cosmic velocity).</li>
-<li>Leave a star system (third cosmic velocity).
-These concepts are fundamental for launching satellites, interplanetary travel, and deep-space missions.</li>
-</ul>
-<h2 id="cosmic-velocities-definitions">Cosmic Velocities Definitions</h2>
-<h3 id="first-cosmic-velocity-orbital-velocity">First Cosmic Velocity (Orbital Velocity)</h3>
-<p>The minimum speed required to stay in a circular orbit around a planet. Derived from:</p>
-<p><span class="arithmatex">\(v1\=RGM​\)</span>​</p>
-<h3 id="second-cosmic-velocity-escape-velocity">Second Cosmic Velocity (Escape Velocity)</h3>
-<p>The speed needed to break free from a planet’s gravity without further propulsion.</p>
-<p>​“v2​\=2​⋅v1​\=R2GM​​”</p>
-<p>Third Cosmic Velocity (Interstellar Escape)
-The velocity required to leave the Sun’s gravitational influence:</p>
-<p>𝑣“v3​\=2​⋅dGM⊙​​​”</p>
-<p>where <span class="arithmatex">\(M ⊙\)</span> is the Sun’s mass and <span class="arithmatex">\(𝑑\)</span> is the distance from the Sun.</p>
-<p>Calculations for Earth, Mars, and Jupiter
-Using standard gravitational values:</p>
-<p>Planet  Mass (<span class="arithmatex">\(kg\)</span>) Radius (<span class="arithmatex">\(m\)</span>)    First Cosmic Velocity (<span class="arithmatex">\(km/s\)</span>)  Second Cosmic Velocity (<span class="arithmatex">\(km/s\)</span>)</p>
-<p>Earth   </p>
-<p>$$5.972
-×
-10
-24
-5.972×10 
-24</p>
-<p>6.371
-×
-10
-6
-6.371×10 
-6
-    7.91    11.19 $$</p>
-<p>Mars    </p>
-<p>$$ 6.39
-×
-10
-23
-6.39×10 
-23</p>
-<p>3.389
-×
-10
-6
-3.389×10 
-6
-    3.55    5.03 $$</p>
-<p>Jupiter </p>
-<p>$$1.898
-×
-10
-27
-1.898×10 
-27</p>
-<p>6.991
-×
-10
-7
-6.991×10 
-7
-    42.1    59.5$$</p>
+<h1 id="investigating-the-dynamics-of-a-forced-damped-pendulum">Investigating the Dynamics of a Forced Damped Pendulum</h1>
+<h2 id="introduction">Introduction</h2>
+<p>The forced damped pendulum is an example of a system exhibiting complex behavior due to the interplay of damping, restoring forces, and external periodic driving forces. This simulation explores resonance, chaos, and quasiperiodic motion through numerical integration.</p>
+<h2 id="mathematical-model">Mathematical Model</h2>
+<p>The motion of the forced damped pendulum is governed by the equation:</p>
+<p><span class="arithmatex">\(\ddot{\theta} + b \dot{\theta} + \frac{g}{L} \sin(\theta) = A \cos(\omega t)\)</span></p>
+<p>where:
+- <span class="arithmatex">\(b\)</span> is the damping coefficient,
+- <span class="arithmatex">\(g\)</span> is the acceleration due to gravity,
+- <span class="arithmatex">\(L\)</span> is the length of the pendulum,
+- <span class="arithmatex">\(A\)</span> is the amplitude of the driving force,
+- <span class="arithmatex">\(\omega\)</span> is the driving frequency.</p>
 <h2 id="python-implementation">Python Implementation</h2>
-<h3 id="python-script-cosmic_velocitiespy">Python Script (cosmic_velocities.py)</h3>
-<p>python
-Copy
-Edit
-import math</p>
-<h1 id="gravitational-constant-m3-kg-1-s-2">Gravitational constant (<span class="arithmatex">\(m^3 kg^-1 s^-2\)</span>)</h1>
-<div class="arithmatex">\[ G = 6.67430e-11 \]</div>
-<h1 id="celestial-body-data-mass-in-kg-radius-in-meters">Celestial body data (mass in kg, radius in meters)</h1>
-<p>celestial_bodies = {
-    "Earth": {"mass": 5.972e24, "radius": 6.371e6, "distance_sun": 1.496e11},
-    "Mars": {"mass": 6.39e23, "radius": 3.389e6, "distance_sun": 2.279e11},
-    "Jupiter": {"mass": 1.898e27, "radius": 6.991e7, "distance_sun": 7.785e11}
-}</p>
-<p>def first_cosmic_velocity(mass, radius):
-    return math.sqrt(G * mass / radius)</p>
-<p>def second_cosmic_velocity(mass, radius):
-    return math.sqrt(2) * first_cosmic_velocity(mass, radius)</p>
-<p>def third_cosmic_velocity(mass_sun, distance):
-    return math.sqrt(2 * G * mass_sun / distance)</p>
-<h1 id="suns-mass">Sun's mass</h1>
-<p>mass_sun = 1.989e30</p>
-<h1 id="compute-and-display-results">Compute and display results</h1>
-<p>for body, data in celestial_bodies.items():
-    v1 = first_cosmic_velocity(data["mass"], data["radius"]) / 1000  # km/s
-    v2 = second_cosmic_velocity(data["mass"], data["radius"]) / 1000  # km/s
-    v3 = third_cosmic_velocity(mass_sun, data["distance_sun"]) / 1000  # km/s</p>
-<pre><code>print(f"{body}:")
-print(f"  First Cosmic Velocity: {v1:.2f} km/s")
-print(f"  Second Cosmic Velocity: {v2:.2f} km/s")
-print(f"  Third Cosmic Velocity: {v3:.2f} km/s\n")
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import solve_ivp
+
+# Parameters
+g = 9.81   # Gravity (m/s^2)
+L = 1.0    # Length of pendulum (m)
+b = 0.5    # Damping coefficient
+A = 1.2    # Driving force amplitude
+omega = 2/3  # Driving frequency
+
+# Differential equation
+def forced_damped_pendulum(t, y):
+    theta, omega_t = y
+    dydt = [
+        omega_t,
+        -b * omega_t - (g/L) * np.sin(theta) + A * np.cos(omega * t)
+    ]
+    return dydt
+
+# Time span
+t_span = (0, 100)
+t_eval = np.linspace(*t_span, 10000)
+
+# Initial conditions
+y0 = [0.2, 0]  # Initial angle and velocity
+
+# Solve ODE
+sol = solve_ivp(forced_damped_pendulum, t_span, y0, t_eval=t_eval, method='RK45')
+
+# Phase portrait
+plt.figure(figsize=(8, 6))
+plt.plot(sol.y[0], sol.y[1], lw=0.8)
+plt.xlabel("Theta (rad)")
+plt.ylabel("Angular velocity (rad/s)")
+plt.title("Phase Portrait of Forced Damped Pendulum")
+plt.grid()
+plt.show()
+
+# Poincare section (stroboscopic map)
+poincare_times = np.arange(0, 100, 2*np.pi/omega)
+poincare_points = []
+
+for t_p in poincare_times:
+    idx = (np.abs(sol.t - t_p)).argmin()
+    poincare_points.append([sol.y[0][idx], sol.y[1][idx]])
+
+poincare_points = np.array(poincare_points)
+
+plt.figure(figsize=(8, 6))
+plt.scatter(poincare_points[:, 0], poincare_points[:, 1], s=10, color='red')
+plt.xlabel("Theta (rad)")
+plt.ylabel("Angular velocity (rad/s)")
+plt.title("Poincaré Section")
+plt.grid()
+plt.show()
+
+# Time series plot
+plt.figure(figsize=(8, 6))
+plt.plot(sol.t, sol.y[0], label='Theta (rad)')
+plt.xlabel("Time (s)")
+plt.ylabel("Theta (rad)")
+plt.title("Time Evolution of Theta")
+plt.legend()
+plt.grid()
+plt.show()
+
+# Bifurcation diagram
+A_values = np.linspace(0.5, 2.0, 20)
+th_values = []
+
+for A in A_values:
+    def system(t, y):
+        return [y[1], -b * y[1] - (g/L) * np.sin(y[0]) + A * np.cos(omega * t)]
+    sol = solve_ivp(system, t_span, y0, t_eval=t_eval, method='RK45')
+    th_values.append(sol.y[0][-500:])
+
+plt.figure(figsize=(8, 6))
+for i, A in enumerate(A_values):
+    plt.scatter([A] * len(th_values[i]), th_values[i], s=1, color='blue')
+plt.xlabel("Driving Force Amplitude (A)")
+plt.ylabel("Theta (rad)")
+plt.title("Bifurcation Diagram")
+plt.grid()
+plt.show()
 </code></pre>
-<h2 id="jupyter-notebook-interactive-simulations">Jupyter Notebook (Interactive Simulations)</h2>
-<p>The accompanying Jupyter Notebook contains:</p>
-<ul>
-<li>Detailed explanations</li>
-<li>Interactive graphs</li>
-<li>Velocity comparisons across planets
-@ Download Jupyter Notebook (Link to the file on your site)@</li>
-</ul>
-<h2 id="graphical-representations">Graphical Representations</h2>
-<p>Below is a sample visualization of escape velocities for different planets:</p>
-<p>(Include a velocity vs. planet graph from the Jupyter Notebook output.)</p>
-<h2 id="importance-in-space-exploration">Importance in Space Exploration</h2>
-<p>Satellites: Need at least the first cosmic velocity.
-Moon &amp; Mars Missions: Require second cosmic velocity to leave Earth.
-Interstellar Travel: Future missions must reach the third cosmic velocity.</p>
-<h3 id="conclusion">Conclusion</h3>
-<p>Understanding cosmic velocities is key to space travel. With this knowledge, we can design better rockets, plan efficient space missions, and explore beyond our solar system.</p>
+<h2 id="results">Results</h2>
+<p>The simulation produces:
+1. <strong>Phase Portrait</strong>: Displays how the system evolves in phase space.
+2. <strong>Poincaré Section</strong>: A stroboscopic map showing discrete points at specific time intervals, revealing periodic or chaotic behavior.
+3. <strong>Time Series Plot</strong>: Shows the evolution of the pendulum’s angle over time.
+4. <strong>Bifurcation Diagram</strong>: Demonstrates the transition to chaos as the driving force amplitude increases.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>The forced damped pendulum demonstrates a range of behaviors from simple oscillations to chaos, depending on parameter values. This study helps in understanding nonlinear dynamics in real-world systems like mechanical oscillators and electrical circuits.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
