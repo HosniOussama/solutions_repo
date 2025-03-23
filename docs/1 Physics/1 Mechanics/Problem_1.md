@@ -84,7 +84,7 @@ plt.title("Forced Damped Pendulum Motion")
 plt.grid()
 plt.show()
 ```
-
+![Forced_Damped_Pendulum_Motion](../../_pics/Forced_Damped_Pendulum_Motion.png)
 ---
 
 ## Orbital Period and Orbital Radius
