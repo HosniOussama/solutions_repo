@@ -119,7 +119,7 @@ plt.legend()
 plt.grid()
 plt.show() 
 ```
-
+![Forced_Damped_Pendulum_Motion](../../_pics/Forced_Damped_Pendulum_Motion.PNG)
 
 ### 5. Graphical Representations
 
