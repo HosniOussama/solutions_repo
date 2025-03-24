@@ -168,7 +168,7 @@ plt.show()
 
 ## Extensions to Elliptical Orbits
 
-Kepler's Third Law also applies to elliptical orbits, with the semi-major axis \($a$\) replacing the orbital radius \($r$\):
+Kepler's Third Law also applies to elliptical orbits, with the semi-major axis $(a)$ replacing the orbital radius $(r)$:
 
 $$
 T^2 = \frac{4\pi^2 a^3}{GM}
