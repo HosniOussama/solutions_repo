@@ -12,13 +12,9 @@ Kepler's Third Law, which states that the square of the orbital period $T^2$ is 
 
 For a satellite of mass $m$ orbiting a central body of mass $M$ in a circular orbit of radius $r$, the gravitational force provides the centripetal force required for circular motion. Mathematically:
 
-$
-F_{\text{gravity}} = F_{\text{centripetal}}
-$
+$F_{\text{gravity}} = F_{\text{centripetal}}$
 
-$
-\frac{GMm}{r^2} = \frac{mv^2}{r}
-$
+$\frac{GMm}{r^2} = \frac{mv^2}{r}$
 
 Where:
 - $G$: Gravitational constant ($6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$)
