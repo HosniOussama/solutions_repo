@@ -150,8 +150,8 @@ plt.show()
 ### Plots and Interpretations
 
 1. **Kepler's Third Law Verification**:
-   - The plot of \($T^2$\) vs. \($r^3$\) shows a linear relationship, confirming Kepler's Third Law.
-   - **Explanation**: The linearity of the graph demonstrates that \($T^2$\) is directly proportional to \($r^3$\), as predicted by the law.
+   - The plot of $(T^2)$ vs. $(r^3)$ shows a linear relationship, confirming Kepler's Third Law.
+   - **Explanation**: The linearity of the graph demonstrates that $(T^2)$ is directly proportional to $(r^3)$, as predicted by the law.
 
    ![Verification_of_Kepler's_Third_Law_r'3](../../_pics/Verification_of_Kepler's_Third_Law_r'3.png) 
     
