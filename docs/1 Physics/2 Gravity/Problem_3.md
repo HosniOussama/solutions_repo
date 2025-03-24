@@ -134,6 +134,9 @@ plt.show()
 ```
 
 ![elliptical_orbit](../../_pics/elliptical_orbit.png)
-![escape_trajectory](../../-pics/escape_trajectory.png)
-![Example3_Re-entry_Trajectory](../../-pics/Example3_Re-entry_Trajectory.png)
-![Example4_Parabolic_Trajectory_Escape_Velocity](../../-pics/Example4_Parabolic_Trajectory_Escape_Velocity.png)
+
+![escape_trajectory](../../_pics/escape_trajectory.png)
+
+![Example3_Re-entry_Trajectory](../../_pics/Example3_Re-entry_Trajectory.png)
+
+![Example4_Parabolic_Trajectory_Escape_Velocity](../../_pics/Example4_Parabolic_Trajectory_Escape_Velocity.png)
