@@ -111,12 +111,19 @@ plt.show()
 
 ## Results
 The simulation produces:
+
 1. **Phase Portrait**: Displays how the system evolves in phase space.
 ![Phase_Portrait_of_Forced_Damped_Pendulum](../../_pics/Phase_Portrait_of_Forced_Damped_Pendulum.png)
+
+
 2. **Poincaré Section**: A stroboscopic map showing discrete points at specific time intervals, revealing periodic or chaotic behavior.
 ![Poincaré_Section](../../_pics/Poincaré_Section.png)
+
+
 3. **Time Series Plot**: Shows the evolution of the pendulum’s angle over time.
 ![Time_Evolution_of_Theta](../../_pics/Time_Evolution_of_Theta.png)
+
+
 4. **Bifurcation Diagram**: Demonstrates the transition to chaos as the driving force amplitude increases.
 ![Bifurcation_Diagram](../../_pics/Bifurcation_Diagram.png)
 
