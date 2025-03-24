@@ -1,4 +1,4 @@
-## Investigating the Range as a Function of the Angle of Projection
+# Investigating the Range as a Function of the Angle of Projection
 
 ### Motivation
 
@@ -84,7 +84,7 @@ plt.title("Forced Damped Pendulum Motion")
 plt.grid()
 plt.show()
 ```
-![Forced_Damped_Pendulum_Motion](../../_pics/Forced_Damped_Pendulum_Motion.png)
+![Forced_Damped_Pendulum_MotionP1](../../_pics/Forced_Damped_Pendulum_MotionP1.png)
 ---
 
 ## Orbital Period and Orbital Radius

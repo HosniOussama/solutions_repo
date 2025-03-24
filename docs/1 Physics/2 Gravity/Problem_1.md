@@ -152,14 +152,15 @@ plt.show()
    - The plot of \($T^2$\) vs. \($r^3$\) shows a linear relationship, confirming Kepler's Third Law.
    - **Explanation**: The linearity of the graph demonstrates that \($T^2$\) is directly proportional to \($r^3$\), as predicted by the law.
 
-   ! $T^2$ vs. $r^3$(https://i.imgur.com/XYZ1234.png)  
+   ![Verification_of_Kepler's_Third_Law_r'3](../../_pics/Verification_of_Kepler's_Third_Law_r'3.png) 
+    
    *Figure 1: Verification of Kepler's Third Law.*
 
 2. **Circular Orbit Simulation**:
    - The circular orbit of Earth around the Sun is visualized, demonstrating the application of the law.
    - **Explanation**: The satellite follows a circular path around the central body, with the gravitational force providing the necessary centripetal force.
 
-   ![Circular Orbit](https://i.imgur.com/ABC5678.png)  
+   ![Simulation_of_Earth's_Circular_Orbit_Around_the_Sun](../../_pics/Simulation_of_Earth's_Circular_Orbit_Around_the_Sun.png)  
    *Figure 2: Simulation of Earth's circular orbit around the Sun.*
 
 ---
