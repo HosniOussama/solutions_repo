@@ -1,10 +1,10 @@
 # Investigating the Range as a Function of the Angle of Projection
 
-### Motivation
+## Motivation
 
 Projectile motion is a fundamental concept in physics, illustrating how objects move under gravity. This study explores how the range of a projectile depends on its launch angle, uncovering both theoretical and computational insights.
 
-### Theoretical Foundation
+## Theoretical Foundation
 
 The motion of a projectile follows these kinematic equations:
 

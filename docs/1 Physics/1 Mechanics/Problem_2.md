@@ -119,7 +119,7 @@ plt.legend()
 plt.grid()
 plt.show() 
 ```
-![Forced_Damped_Pendulum_Motion](../../_pics/Forced_Damped_Pendulum_Motion.PNG)
+![Forced_Damped_Pendulum_Motion](../../_pics/Forced_Damped_Pendulum_MotionP2.png)
 
 ### 5. Graphical Representations
 
@@ -130,16 +130,16 @@ plt.show()
 
 #### 2. Phase Portraits
 
-$${{\text{Plot } (\theta, \dot{\theta}) \text{ to visualize motion in phase space.}}}$$
+$\text{Plot }$ ($\theta, \dot{\theta}$) $\text{ to visualize motion in phase space.}$
 
 
 #### 3. Poincaré Sections
 
-$$\text Stroboscopic map of the system, revealing periodic or chaotic behavior.$$
+$$\text{Stroboscopic map of the system, revealing periodic or chaotic behavior.}$$
 
 #### 4. Bifurcation Diagrams
 
-$$\text Graph showing transition to chaos as the driving force increases.$$
+$$\text{Graph showing transition to chaos as the driving force increases.}$$
 
 
 ### 6. Discussion on Model Limitations & Extensions
