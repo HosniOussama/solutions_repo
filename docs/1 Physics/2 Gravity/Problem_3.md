@@ -132,6 +132,7 @@ plt.savefig('parabolic_trajectory.png')
 plt.show()
 
 ```
+## Graphical Representations
 
 ![elliptical_orbit](../../_pics/elliptical_orbit.png)
 
@@ -140,3 +141,23 @@ plt.show()
 ![Example3_Re-entry_Trajectory](../../_pics/Example3_Re-entry_Trajectory.png)
 
 ![Example4_Parabolic_Trajectory_Escape_Velocity](../../_pics/Example4_Parabolic_Trajectory_Escape_Velocity.png)
+
+
+## Discussion 
+
+
+- **Elliptical Orbits:** When the initial velocity is less than the escape velocity, and the trajectory does not intersect the Earth's surface, the payload will follow an elliptical orbit.
+
+- **Escape Trajectories:** If the initial velocity is greater than the escape velocity, the payload will follow a hyperbolic trajectory and escape Earth's gravitational pull.
+
+- **Re-entry Trajectories:** If the initial velocity is directed towards Earth, the payload will follow a trajectory that intersects Earth's surface, resulting in re-entry.
+
+- **Parabolic Trajectory:** When the velocity equals the escape velocity, the trajectory will be parabolic.
+
+These examples illustrate how initial conditions significantly impact the payload's trajectory, which is crucial for space mission planning, satellite deployment, and understanding celestial mechanics.
+
+## Conclusion
+This analysis and simulation demonstrate the complex interplay between initial conditions and gravitational forces that determine a payload's trajectory near Earth. Numerical methods allow us to visualize and analyze these trajectories, providing valuable insights for various space-related applications.
+
+
+```
