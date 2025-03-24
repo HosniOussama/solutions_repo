@@ -9,10 +9,15 @@ The motion of the forced damped pendulum is governed by the equation:
 $\ddot{\theta} + b \dot{\theta} + \frac{g}{L} \sin(\theta) = A \cos(\omega t)$
 
 where:
+
 - $b$ is the damping coefficient,
+
 - $g$ is the acceleration due to gravity,
+
 - $L$ is the length of the pendulum,
+
 - $A$ is the amplitude of the driving force,
+
 - $\omega$ is the driving frequency.
 
 ## Python Implementation
