@@ -14,13 +14,19 @@ The motion of the payload is governed by Newton's Law of Universal Gravitation:
 
 $$F = G \frac{M_E m}{r^2}$$
 
+
 Where:
 
 -   $F$ is the gravitational force
+
 -   $G$ is the gravitational constant ($6.674 \times 10^{-11} \, \text{N m}^2/\text{kg}^2$)
+
 -   $M_E$ is the mass of Earth ($5.972 \times 10^{24} \, \text{kg}$)
+
 -   $m$ is the mass of the payload
+
 -   $r$ is the distance between the payload and Earth's center
+
 
 The acceleration of the payload is:
 
@@ -124,3 +130,10 @@ plt.axis('equal')
 plt.grid(True)
 plt.savefig('parabolic_trajectory.png')
 plt.show()
+
+```
+
+![elliptical_orbit](../../_pics/elliptical_orbit.png)
+![escape_trajectory](../../-pics/escape_trajectory.png)
+![Example3_Re-entry_Trajectory](../../-pics/Example3_Re-entry_Trajectory.png)
+![Example4_Parabolic_Trajectory_Escape_Velocity](../../-pics/Example4_Parabolic_Trajectory_Escape_Velocity.png)
