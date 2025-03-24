@@ -20,7 +20,7 @@ Where:
 
 - $G$: Gravitational constant ($6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$)
 
-\- $v$: Orbital velocity of the satellite
+- $v$: Orbital velocity of the satellite
 
 - $r$: Orbital radius
 
