@@ -189,44 +189,58 @@
 <div class="arithmatex">\[F = G \frac{M_E m}{r^2}\]</div>
 <p>Where:</p>
 <ul>
-<li><span class="arithmatex">\(F\)</span> is the gravitational force</li>
-<li><span class="arithmatex">\(G\)</span> is the gravitational constant (<span class="arithmatex">\(6.674 \times 10^{-11} \, \text{N m}^2/\text{kg}^2\)</span>)</li>
-<li><span class="arithmatex">\(M_E\)</span> is the mass of Earth (<span class="arithmatex">\(5.972 \times 10^{24} \, \text{kg}\)</span>)</li>
-<li><span class="arithmatex">\(m\)</span> is the mass of the payload</li>
-<li><span class="arithmatex">\(r\)</span> is the distance between the payload and Earth's center</li>
+<li>
+<p><span class="arithmatex">\(F\)</span> is the gravitational force</p>
+</li>
+<li>
+<p><span class="arithmatex">\(G\)</span> is the gravitational constant (<span class="arithmatex">\(6.674 \times 10^{-11} \, \text{N m}^2/\text{kg}^2\)</span>)</p>
+</li>
+<li>
+<p><span class="arithmatex">\(M_E\)</span> is the mass of Earth (<span class="arithmatex">\(5.972 \times 10^{24} \, \text{kg}\)</span>)</p>
+</li>
+<li>
+<p><span class="arithmatex">\(m\)</span> is the mass of the payload</p>
+</li>
+<li>
+<p><span class="arithmatex">\(r\)</span> is the distance between the payload and Earth's center</p>
+</li>
 </ul>
 <p>The acceleration of the payload is:</p>
 <div class="arithmatex">\[a = \frac{F}{m} = \frac{G M_E}{r^2}\]</div>
 <p>We can use numerical integration (e.g., Euler's method, Runge-Kutta) to solve the equations of motion and determine the trajectory.</p>
 <h2 id="python-simulation">Python Simulation</h2>
-<p>```python
-import numpy as np
-import matplotlib.pyplot as plt</p>
-<h1 id="constants">Constants</h1>
-<p>G = 6.674e-11
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+# Constants
+G = 6.674e-11
 ME = 5.972e24
-RE = 6.371e6  # Earth's radius</p>
-<p>def gravity(r):
-    return -G * ME / np.linalg.norm(r)**3 * r</p>
-<p>def simulate_trajectory(r0, v0, dt, duration):
+RE = 6.371e6  # Earth's radius
+
+def gravity(r):
+    return -G * ME / np.linalg.norm(r)**3 * r
+
+def simulate_trajectory(r0, v0, dt, duration):
     num_steps = int(duration / dt)
     r = np.zeros((num_steps, 2))
     v = np.zeros((num_steps, 2))
     r[0] = r0
-    v[0] = v0</p>
-<pre><code>for i in range(1, num_steps):
-    a = gravity(r[i-1])
-    v[i] = v[i-1] + a * dt
-    r[i] = r[i-1] + v[i] * dt
-return r
-</code></pre>
-<h1 id="example-1-elliptical-orbit">Example 1: Elliptical Orbit</h1>
-<p>r0_ellipse = np.array([RE + 400e3, 0.0])
+    v[0] = v0
+
+    for i in range(1, num_steps):
+        a = gravity(r[i-1])
+        v[i] = v[i-1] + a * dt
+        r[i] = r[i-1] + v[i] * dt
+    return r
+
+# Example 1: Elliptical Orbit
+r0_ellipse = np.array([RE + 400e3, 0.0])
 v0_ellipse = np.array([0.0, 7.5e3])
 dt = 10
 duration = 8000
-r_ellipse = simulate_trajectory(r0_ellipse, v0_ellipse, dt, duration)</p>
-<p>plt.figure(figsize=(8, 8))
+r_ellipse = simulate_trajectory(r0_ellipse, v0_ellipse, dt, duration)
+
+plt.figure(figsize=(8, 8))
 plt.plot(r_ellipse[:, 0], r_ellipse[:, 1])
 circle = plt.Circle((0, 0), RE, color='blue', fill=True)
 plt.gca().add_artist(circle)
@@ -236,12 +250,14 @@ plt.title("Elliptical Orbit")
 plt.axis('equal')
 plt.grid(True)
 plt.savefig('elliptical_orbit.png')
-plt.show()</p>
-<h1 id="example-2-escape-trajectory">Example 2: Escape Trajectory</h1>
-<p>r0_escape = np.array([RE + 200e3, 0.0])
+plt.show()
+
+# Example 2: Escape Trajectory
+r0_escape = np.array([RE + 200e3, 0.0])
 v0_escape = np.array([0.0, 11.5e3])
-r_escape = simulate_trajectory(r0_escape, v0_escape, dt, duration*3)</p>
-<p>plt.figure(figsize=(8, 8))
+r_escape = simulate_trajectory(r0_escape, v0_escape, dt, duration*3)
+
+plt.figure(figsize=(8, 8))
 plt.plot(r_escape[:, 0], r_escape[:, 1])
 circle = plt.Circle((0, 0), RE, color='blue', fill=True)
 plt.gca().add_artist(circle)
@@ -251,12 +267,14 @@ plt.title("Escape Trajectory")
 plt.axis('equal')
 plt.grid(True)
 plt.savefig('escape_trajectory.png')
-plt.show()</p>
-<h1 id="example-3-re-entry-trajectory">Example 3: Re-entry Trajectory</h1>
-<p>r0_reentry = np.array([RE + 500e3, 0.0])
+plt.show()
+
+# Example 3: Re-entry Trajectory
+r0_reentry = np.array([RE + 500e3, 0.0])
 v0_reentry = np.array([0.0, -7.0e3])
-r_reentry = simulate_trajectory(r0_reentry, v0_reentry, dt, duration)</p>
-<p>plt.figure(figsize=(8, 8))
+r_reentry = simulate_trajectory(r0_reentry, v0_reentry, dt, duration)
+
+plt.figure(figsize=(8, 8))
 plt.plot(r_reentry[:, 0], r_reentry[:, 1])
 circle = plt.Circle((0, 0), RE, color='blue', fill=True)
 plt.gca().add_artist(circle)
@@ -266,12 +284,14 @@ plt.title("Re-entry Trajectory")
 plt.axis('equal')
 plt.grid(True)
 plt.savefig('reentry_trajectory.png')
-plt.show()</p>
-<h1 id="example-4-parabolic-trajectory-escape-velocity">Example 4: Parabolic Trajectory (Escape Velocity)</h1>
-<p>r0_parabolic = np.array([RE + 300e3, 0.0])
+plt.show()
+
+# Example 4: Parabolic Trajectory (Escape Velocity)
+r0_parabolic = np.array([RE + 300e3, 0.0])
 v0_parabolic = np.array([0.0, np.sqrt(2 * G * ME / (RE + 300e3))]) # escape velocity
-r_parabolic = simulate_trajectory(r0_parabolic, v0_parabolic, dt, duration*2)</p>
-<p>plt.figure(figsize=(8, 8))
+r_parabolic = simulate_trajectory(r0_parabolic, v0_parabolic, dt, duration*2)
+
+plt.figure(figsize=(8, 8))
 plt.plot(r_parabolic[:, 0], r_parabolic[:, 1])
 circle = plt.Circle((0, 0), RE, color='blue', fill=True)
 plt.gca().add_artist(circle)
@@ -281,7 +301,13 @@ plt.title("Parabolic Trajectory (Escape)")
 plt.axis('equal')
 plt.grid(True)
 plt.savefig('parabolic_trajectory.png')
-plt.show()</p>
+plt.show()
+
+</code></pre>
+<p><img alt="elliptical_orbit" src="../../../_pics/elliptical_orbit.png"/>
+<img alt="escape_trajectory" src="../../-pics/escape_trajectory.png"/>
+<img alt="Example3_Re-entry_Trajectory" src="../../-pics/Example3_Re-entry_Trajectory.png"/>
+<img alt="Example4_Parabolic_Trajectory_Escape_Velocity" src="../../-pics/Example4_Parabolic_Trajectory_Escape_Velocity.png"/></p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
