@@ -34,7 +34,8 @@ $$\eta_{sum}(x, y, t) = \sum_{i=1}^{N} \eta_i(x, y, t)$$
 
 ## Python Simulation
 
-```python
+
+``` python 
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
@@ -112,6 +113,7 @@ visualize_interference(circle_sources, A, wavelength, frequency, duration, frame
 print("Circle interference animation generated.")
 
 ```
+
 
 
 ## Graphical Representations
