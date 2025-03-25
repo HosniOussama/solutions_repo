@@ -116,6 +116,7 @@ print("Circle interference animation generated.")
 
 ## Graphical Representations
 
+![circle_interference](..\docs\Animations\circle_interference.gif)
 
 
 
