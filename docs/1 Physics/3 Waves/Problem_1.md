@@ -116,8 +116,32 @@ print("Circle interference animation generated.")
 
 ## Graphical Representations
 
-![circle_interference](..\docs\Animations\circle_interference.gif)
 
+![triangle_interference_regen](../../Animations/triangle_interference_regen.gif)
+*Triangle Interference Pattern – Wave interference from 3 point sources.*
+
+
+
+
+![square_interference_regen](../../Animations/square_interference_regen.gif)
+*Square Interference Pattern – Wave interference from 4 point sources.*
+
+
+
+![pentagon_interference](../../Animations/pentagon_interference.gif)
+*Pentagon Interference Pattern – Wave interference from 5 point sources.*
+
+
+
+
+![octagon_interference](../../Animations/octagon_interference.gif)
+*Octagon Interference Pattern – Wave interference from 8 point sources.*
+
+
+
+
+![circle_interference](../../Animations/circle_interference.gif)
+*Circular Interference Approximation – Wave interference from 30 point sources.*
 
 
 
@@ -128,6 +152,8 @@ print("Circle interference animation generated.")
 * **Regular Polygons:** The number of sources and their arrangement directly influence the complexity of the interference patterns. Higher numbers of sources result in more intricate patterns.
 * **Circular Approximation:** As the number of sources increases, the polygon approaches a circle, resulting in a more uniform and detailed interference pattern.
 * **Animation:** The animations illustrate the dynamic nature of interference patterns, showing how they evolve over time.
+
+
 
 
 ## Conclusion
