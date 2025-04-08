@@ -1,131 +1,174 @@
-# Equivalent Resistance Using Graph Theory
+# Electromagnetism: Lorentz Force Simulation
 
-## Motivation
+## Problem 1 – Simulating the Effects of the Lorentz Force
 
-Calculating equivalent resistance is a fundamental problem in electrical circuits, essential for understanding and designing efficient systems. While traditional methods involve iteratively applying series and parallel resistor rules, these approaches can become cumbersome for complex circuits with many components. Graph theory offers a powerful alternative, providing a structured and algorithmic way to analyze circuits. By representing a circuit as a graph—where nodes correspond to junctions and edges represent resistors with weights equal to their resistance values—we can systematically simplify even the most intricate networks. This method not only streamlines calculations but also opens the door to automated analysis, making it particularly useful in modern applications like circuit simulation software, optimization problems, and network design. Studying equivalent resistance through graph theory is valuable not only for its practical applications but also for the deeper insights it provides into the interplay between electrical and mathematical concepts. This approach highlights the versatility of graph theory, demonstrating its relevance across physics, engineering, and computer science.
+### Motivation
 
-## Task Options
+The Lorentz force governs the motion of charged particles in electromagnetic fields and is given by:
 
-**Option 2: Advanced Task – Full Implementation**
+$$
+\vec{F} = q(\vec{E} + \vec{v} \times \vec{B})
+$$
 
-Implement the algorithm in a programming language of your choice. Ensure the implementation:
+This force is fundamental to understanding plasma physics, mass spectrometry, particle accelerators, and astrophysical phenomena. Through simulations, we can explore the effects of different electric and magnetic field configurations on a particle's trajectory.
 
-* Accepts a circuit graph as input.
-* Handles arbitrary resistor configurations, including nested series and parallel connections.
-* Outputs the final equivalent resistance.
-* Test your implementation with examples, such as:
-    * Simple series and parallel combinations.
-    * Nested configurations.
-    * Complex graphs with multiple cycles.
+---
 
-## Deliverables
+## 1. Exploration of Applications
 
-* A detailed implementation and explanation of the algorithm.
-* Description of how it handles complex circuit configurations on three input examples.
-* A brief analysis of the algorithm's efficiency and potential improvements.
+- **Particle Accelerators**: Use magnetic fields to steer and focus particle beams.
+- **Mass Spectrometers**: Separate ions by mass-to-charge ratio using electric and magnetic fields.
+- **Plasma Confinement**: Magnetic fields contain high-temperature plasma in fusion reactors.
+- **Cyclotrons**: Accelerate particles in spiral paths due to the Lorentz force.
 
-## Implementation (Python)
+Electric fields influence speed; magnetic fields influence direction. Together, they enable precision control of charged particles.
+
+---
+
+## 2. Simulation of Particle Motion
+
+### Imports and Setup
 
 ```python
-import networkx as nx
+import numpy as np
 import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 
-def calculate_equivalent_resistance(graph, start_node, end_node):
-    """
-    Calculates equivalent resistance between two nodes, visualizing each reduction step.
-    """
-    g = graph.copy()
-    reduction_steps = [g.copy()]
+# Constants and initial conditions
+q = 1.0       # Charge (C)
+m = 1.0       # Mass (kg)
+dt = 0.01     # Time step (s)
+steps = 2000  # Number of simulation steps
 
-    while len(g.nodes()) > 2:
-        # 1. Series Reduction
-        series_edges = []
-        for node in g.nodes():
-            neighbors = list(g.neighbors(node))
-            if len(neighbors) == 2:
-                series_edges.append((neighbors[0], node, neighbors[1]))
-
-        for n1, mid, n2 in series_edges:
-            if g.has_edge(n1, mid) and g.has_edge(mid, n2):
-                r1 = g[n1][mid]['resistance']
-                r2 = g[mid][n2]['resistance']
-                g.remove_node(mid)
-                if g.has_edge(n1, n2):
-                    g[n1][n2]['resistance'] += r1 + r2
-                else:
-                    g.add_edge(n1, n2, resistance=r1 + r2)
-        reduction_steps.append(g.copy())
-
-        # 2. Parallel Reduction
-        parallel_edges = []
-        for n1, n2 in g.edges():
-            if n1 != start_node and n2 != end_node:
-                paths = list(nx.all_simple_paths(g, n1, n2))
-                if len(paths) > 1:
-                    parallel_edges.append((n1, n2))
-
-        for n1, n2 in parallel_edges:
-            paths = list(nx.all_simple_paths(g, n1, n2))
-            if len(paths) > 1:
-                resistances = [g[u][v]['resistance'] for u, v in g.edges(paths[0]) if (u,v) in g.edges(paths[0]) or (v,u) in g.edges(paths[0])]
-                if all(g.has_edge(paths[0][i], paths[0][i+1]) for i in range(len(paths[0])-1)):
-                    parallel_resistance = 1 / sum(1 / r for r in resistances)
-                    for u, v in g.edges(paths[0]):
-                        if g.has_edge(u,v):
-                            g.remove_edge(u,v)
-                    g.add_edge(n1, n2, resistance=parallel_resistance)
-        reduction_steps.append(g.copy())
-
-    if g.has_edge(start_node, end_node):
-        return g[start_node][end_node]['resistance'], reduction_steps
-    else:
-        return float('inf'), reduction_steps
-
-def visualize_graph(graph, title):
-    pos = nx.spring_layout(graph)
-    nx.draw(graph, pos, with_labels=True, node_color='lightblue', node_size=1500, edge_color='gray')
-    edge_labels = nx.get_edge_attributes(graph, 'resistance')
-    nx.draw_networkx_edge_labels(graph, pos, edge_labels=edge_labels)
-    plt.title(title)
-    plt.show()
-
-# Complex Example Circuits
-# Example 1: Balanced Bridge Circuit
-graph1 = nx.Graph()
-graph1.add_edge('A', 'B', resistance=10)
-graph1.add_edge('B', 'C', resistance=20)
-graph1.add_edge('C', 'D', resistance=30)
-graph1.add_edge('D', 'A', resistance=40)
-graph1.add_edge('B', 'D', resistance=50)
-graph1.add_edge('A', 'C', resistance=60)
-
-# Example 2: Ladder Network
-graph2 = nx.Graph()
-graph2.add_edge('A', 'B', resistance=10)
-graph2.add_edge('B', 'C', resistance=20)
-graph2.add_edge('C', 'D', resistance=30)
-graph2.add_edge('D', 'E', resistance=40)
-graph2.add_edge('E', 'F', resistance=50)
-graph2.add_edge('A', 'C', resistance=15)
-graph2.add_edge('C', 'E', resistance=25)
-graph2.add_edge('B', 'D', resistance=35)
-graph2.add_edge('D', 'F', resistance=45)
-
-# Example 3: Star-Delta Transformation (Simplified)
-graph3 = nx.Graph()
-graph3.add_edge('A', 'B', resistance=10)
-graph3.add_edge('B', 'C', resistance=20)
-graph3.add_edge('C', 'A', resistance=30)
-graph3.add_edge('A', 'D', resistance=40)
-graph3.add_edge('B', 'D', resistance=50)
-graph3.add_edge('C', 'D', resistance=60)
-
-# Calculate and Visualize
-for i, graph in enumerate([graph1, graph2, graph3]):
-    print(f"\nExample {i+1}:")
-    resistance, reduction_steps = calculate_equivalent_resistance(graph, 'A', 'D' if 'D' in graph.nodes() else 'C')
-    print(f"Equivalent Resistance = {resistance} ohms")
-
-    for step, g in enumerate(reduction_steps):
-        visualize_graph(g, f"Example {i+1}, Step {step}")
+# Initial velocity and position
+v0 = np.array([1.0, 0.0, 1.0])
+r0 = np.array([0.0, 0.0, 0.0])
 ```
+
+---
+
+### Lorentz Force Function
+
+```python
+def lorentz_force(v, E, B):
+    return q * (E + np.cross(v, B))
+```
+
+---
+
+### Runge-Kutta 4 Integrator
+
+```python
+def rk4_lorentz(v0, r0, E, B):
+    r = np.zeros((steps, 3))
+    v = np.zeros((steps, 3))
+    r[0] = r0
+    v[0] = v0
+
+    for i in range(steps - 1):
+        k1v = dt * lorentz_force(v[i], E, B) / m
+        k1r = dt * v[i]
+
+        k2v = dt * lorentz_force(v[i] + 0.5 * k1v, E, B) / m
+        k2r = dt * (v[i] + 0.5 * k1v)
+
+        k3v = dt * lorentz_force(v[i] + 0.5 * k2v, E, B) / m
+        k3r = dt * (v[i] + 0.5 * k2v)
+
+        k4v = dt * lorentz_force(v[i] + k3v, E, B) / m
+        k4r = dt * (v[i] + k3v)
+
+        v[i+1] = v[i] + (k1v + 2*k2v + 2*k3v + k4v) / 6
+        r[i+1] = r[i] + (k1r + 2*k2r + 2*k3r + k4r) / 6
+
+    return r, v
+```
+
+---
+
+### Field Configurations
+
+```python
+# Case 1: Uniform magnetic field (circular/spiral motion)
+E1 = np.array([0.0, 0.0, 0.0])
+B1 = np.array([0.0, 0.0, 1.0])
+
+# Case 2: Uniform E and B fields (helical + drift)
+E2 = np.array([0.0, 1.0, 0.0])
+B2 = np.array([0.0, 0.0, 1.0])
+
+# Case 3: Crossed E and B fields (ExB drift)
+E3 = np.array([1.0, 0.0, 0.0])
+B3 = np.array([0.0, 0.0, 1.0])
+```
+
+---
+
+## 3. Visualization
+
+```python
+def plot_trajectory(r, title="Trajectory"):
+    fig = plt.figure(figsize=(10, 6))
+    ax = fig.add_subplot(111, projection='3d')
+    ax.plot(r[:, 0], r[:, 1], r[:, 2], lw=2)
+    ax.set_title(title)
+    ax.set_xlabel("X")
+    ax.set_ylabel("Y")
+    ax.set_zlabel("Z")
+    plt.show()
+```
+
+---
+
+### Run and Plot Simulations
+
+```python
+r1, _ = rk4_lorentz(v0, r0, E1, B1)
+plot_trajectory(r1, "Circular/Helical Motion (B only)")
+
+r2, _ = rk4_lorentz(v0, r0, E2, B2)
+plot_trajectory(r2, "Helical Motion with Drift (E and B)")
+
+r3, _ = rk4_lorentz(v0, r0, E3, B3)
+plot_trajectory(r3, "ExB Drift (Crossed Fields)")
+```
+
+---
+
+## 4. Parameter Exploration
+
+Try modifying:
+- `q`, `m` : Charge and mass
+- `v0` : Initial velocity
+- `E`, `B` : Field vectors
+
+Observe:
+- **Larmor radius**: $ r_L = \frac{mv_\perp}{qB} $
+- **Cyclotron frequency**: $ \omega_c = \frac{qB}{m} $
+- **ExB drift velocity**: $ \vec{v}_d = \frac{\vec{E} \times \vec{B}}{B^2} $
+
+---
+
+## 5. Discussion and Applications
+
+- **Cyclotrons** rely on the circular motion from a perpendicular $ \vec{v} $ and $ \vec{B} $.
+- **Magnetic Traps** (e.g., tokamaks) confine particles using helical paths.
+- **Mass Spectrometers** utilize radius dependence on mass-to-charge ratio.
+- **Space Physics**: Charged particles spiral along magnetic field lines of Earth.
+
+---
+
+## 6. Extensions
+
+- Include **non-uniform fields** (e.g., magnetic mirrors).
+- Add **collisions or frictional forces**.
+- Simulate multiple particles (plasmas, beam dynamics).
+
+---
+
+> **Note:** All simulations use the RK4 method for accuracy. Be sure to adjust `steps` and `dt` based on scenario dynamics.
+```
+
+---
+
+Let me know if you'd like a `.ipynb` version or want to add interactive sliders (e.g., using `ipywidgets`) for field strength, charge, or mass.
