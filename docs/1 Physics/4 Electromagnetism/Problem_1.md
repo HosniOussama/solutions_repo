@@ -138,9 +138,9 @@ plot_trajectory(r3, "ExB Drift (Crossed Fields)")
 ## 4. Parameter Exploration
 
 Try modifying:
-- `q`, `m` : Charge and mass
-- `v0` : Initial velocity
-- `E`, `B` : Field vectors
+- $`q`$, $`m`$ : Charge and mass
+- $`v0`$ : Initial velocity
+- $`E`$, $`B`$ : Field vectors
 
 Observe:
 - **Larmor radius**: $ r_L = \frac{mv_\perp}{qB} $
@@ -151,7 +151,7 @@ Observe:
 
 ## 5. Discussion and Applications
 
-- **Cyclotrons** rely on the circular motion from a perpendicular $ \vec{v} $ and $ \vec{B} $.
+- **Cyclotrons** rely on the circular motion from a perpendicular $ \vec{v} $ and $ \vec{B}$.
 - **Magnetic Traps** (e.g., tokamaks) confine particles using helical paths.
 - **Mass Spectrometers** utilize radius dependence on mass-to-charge ratio.
 - **Space Physics**: Charged particles spiral along magnetic field lines of Earth.
