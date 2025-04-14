@@ -29,6 +29,9 @@ Electric fields influence speed; magnetic fields influence direction. Together, 
 
 ### Imports and Setup
 
+<details>
+<summary> Python Code </summary>
+
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -44,6 +47,7 @@ steps = 2000  # Number of simulation steps
 v0 = np.array([1.0, 0.0, 1.0])
 r0 = np.array([0.0, 0.0, 0.0])
 ```
+</details>
 
 ---
 
