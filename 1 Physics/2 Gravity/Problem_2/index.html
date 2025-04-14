@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Investigating the Dynamics of a Forced Damped Pendulum - Physics and Mathematics</title>
+<title>Escape Velocities and Cosmic Velocities - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Investigating the Dynamics of a Forced Damped Pendulum";
+        var mkdocs_page_name = "Escape Velocities and Cosmic Velocities";
         var mkdocs_page_input_path = "1 Physics/2 Gravity/Problem_2.md";
         var mkdocs_page_url = null;
       </script>
@@ -54,15 +54,15 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal current">2 Gravity</a>
 <ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../Problem_1/">Orbital Period and Orbital Radius: Kepler's Third Law</a>
+<li class="toctree-l2"><a class="reference internal" href="../Problem_1/">🌍 Kepler’s Third Law: Orbital Period and Radius</a>
 </li>
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Investigating the Dynamics of a Forced Damped Pendulum</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Escape Velocities and Cosmic Velocities</a>
 <ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#mathematical-model">Mathematical Model</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#python-implementation">Python Implementation</a>
+<li class="toctree-l3"><a class="reference internal" href="#-omega-is-the-driving-frequency">- \(\omega\) is the driving frequency.</a>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#results">Results</a>
 </li>
@@ -173,7 +173,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">2 Gravity</li>
-<li class="breadcrumb-item active">Investigating the Dynamics of a Forced Damped Pendulum</li>
+<li class="breadcrumb-item active">Escape Velocities and Cosmic Velocities</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -181,7 +181,7 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="investigating-the-dynamics-of-a-forced-damped-pendulum">Investigating the Dynamics of a Forced Damped Pendulum</h1>
+<h1 id="escape-velocities-and-cosmic-velocities">Escape Velocities and Cosmic Velocities</h1>
 <h2 id="introduction">Introduction</h2>
 <p>The forced damped pendulum is an example of a system exhibiting complex behavior due to the interplay of damping, restoring forces, and external periodic driving forces. This simulation explores resonance, chaos, and quasiperiodic motion through numerical integration.</p>
 <h2 id="mathematical-model">Mathematical Model</h2>
@@ -201,11 +201,10 @@
 <li>
 <p><span class="arithmatex">\(A\)</span> is the amplitude of the driving force,</p>
 </li>
-<li>
-<p><span class="arithmatex">\(\omega\)</span> is the driving frequency.</p>
-</li>
 </ul>
-<h2 id="python-implementation">Python Implementation</h2>
+<h2 id="-omega-is-the-driving-frequency">- <span class="arithmatex">\(\omega\)</span> is the driving frequency.</h2>
+<details>
+<summary> Python Implementation </summary>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import solve_ivp
@@ -292,6 +291,10 @@ plt.title("Bifurcation Diagram")
 plt.grid()
 plt.show()
 </code></pre>
+
+---
+
+</details>
 <h2 id="results">Results</h2>
 <p>The simulation produces:</p>
 <ol>
@@ -315,7 +318,7 @@ plt.show()
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
-<a class="btn btn-neutral float-left" href="../Problem_1/" title="Orbital Period and Orbital Radius: Kepler's Third Law"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+<a class="btn btn-neutral float-left" href="../Problem_1/" title="🌍 Kepler’s Third Law: Orbital Period and Radius"><span class="icon icon-circle-arrow-left"></span> Previous</a>
 <a class="btn btn-neutral float-right" href="../Problem_3/" title="Trajectories of a Freely Released Payload Near Earth">Next <span class="icon icon-circle-arrow-right"></span></a>
 </div>
 <hr/>
