@@ -26,11 +26,12 @@ Electric fields influence speed; magnetic fields influence direction. Together, 
 ---
 
 ## 2. Simulation of Particle Motion
+![lorentz_Bonly](../../_pics/lorentz_Bonly.png)
 
 ### Imports and Setup
 
 <details>
-<summary> Python </summary>
+<summary> Plots Codes </summary>
 
 ```python
 import numpy as np
@@ -87,6 +88,9 @@ def rk4_lorentz(v0, r0, E, B):
     return r, v
 ```
 
+![lorentz_EB](../../_pics/lorentz_EB.png)
+
+![lorentz_ExB](../../_pics/lorentz_ExB.png)
 ---
 
 ### Field Configurations
@@ -136,6 +140,7 @@ r3, _ = rk4_lorentz(v0, r0, E3, B3)
 plot_trajectory(r3, "ExB Drift (Crossed Fields)")
 ```
 </details>
+
 ---
 
 ## 3. Parameter Exploration
