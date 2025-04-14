@@ -72,6 +72,7 @@ plt.show()
 ```
 ![Projectile_Rangevs_Angle_of_Projection](../../_pics/Projectile_Rangevs_Angle_of_Projection.png)
 
+</details>
 
 ### Observations:
 * The range reaches its maximum at 45°.
@@ -85,7 +86,9 @@ plt.show()
 And with appying modifications on $ v_0 $  $g$ 
 this is how can affect the plot 
 
----
+<details>
+<summary>Python Code</summary>
+
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -129,6 +132,80 @@ plt.legend()
 plt.tight_layout()
 plt.show()
 ```
+</details>
+
 ![Effect_of_Initial_Velocity_on_Range](../../_pics/Effect_of_Initial_Velocity_on_Range.png)
 
 ![Effect_of_Gravityon_Range](../../_pics/Effect_of_Gravityon_Range.png)
+
+
+**Key Takeaways:**
+
+Higher velocity = longer range.
+
+Lower gravity (e.g., Moon) = much longer range.
+
+## 4. Practical Applications
+
+Real-World Adjustments
+
+Uneven terrain affects landing point `→` adjust final height.
+
+Air resistance shortens range `→` not covered in ideal model.
+
+Wind adds horizontal forces `→` requires differential equations.
+
+### Example: Adding a Launch Height
+<details>
+<summary>Python Code</summary>
+---
+```python
+
+def range_with_height(v0, theta_deg, h, g=9.81):
+    theta = np.radians(theta_deg)
+    vx = v0 * np.cos(theta)
+    vy = v0 * np.sin(theta)
+    t_flight = (vy + np.sqrt(vy**2 + 2 * g * h)) / g
+    return vx * t_flight
+
+h = 10  # 10 meters launch height
+ranges = [range_with_height(30, angle, h) for angle in angles_deg]
+
+plt.figure(figsize=(10, 6))
+plt.plot(angles_deg, ranges)
+plt.title("Range vs Angle (with Launch Height h = 10 m)")
+plt.xlabel("Angle (degrees)")
+plt.ylabel("Range (meters)")
+plt.grid(True)
+plt.show()
+
+</details>
+
+--- 
+
+Insights:
+Maximum range shifts to lower than 45° if starting from a height.
+
+Launch height increases overall range.
+
+## 5. Limitations of the Idealized Model
+
+
+|Assumption        | Real-World Factor             | Impact                     |
+|------------------|-------------------------------|----------------------------|
+|No air resistance | Drag force	                   |Reduces range               |
+|Constant gravity  | Varies with altitude          |Small effect in most cases  |
+|Flat terrain      |	Hills or valleys           |Changes point of impact     |
+|No wind           | Wind can push/pull projectile | Alters horizontal motion   |
+
+
+Suggestions for Improvement
+Use scipy.integrate.solve_ivp to include air drag.
+
+Use parametric terrain modeling for variable height.
+
+Apply wind forces using vector additions in numerical simulation.
+
+## Conclusion
+Projectile range depends heavily on angle, initial speed, and gravitational field. The theoretical model, while idealized, provides great insight and a foundation for more complex simulations. With simple Python tools, we can visualize and analyze this behavior effectively—bridging the gap between theory and practice.
+
