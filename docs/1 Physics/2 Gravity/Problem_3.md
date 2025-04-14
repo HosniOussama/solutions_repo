@@ -34,7 +34,10 @@ $$a = \frac{F}{m} = \frac{G M_E}{r^2}$$
 
 We can use numerical integration (e.g., Euler's method, Runge-Kutta) to solve the equations of motion and determine the trajectory.
 
-## Python Simulation
+
+
+<details>
+<summary> Python Simulation </summary>
 
 ```python
 import numpy as np
@@ -132,6 +135,8 @@ plt.savefig('parabolic_trajectory.png')
 plt.show()
 
 ```
+</details>
+
 ## Graphical Representations
 
 ![elliptical_orbit](../../_pics/elliptical_orbit.png)

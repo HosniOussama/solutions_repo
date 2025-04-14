@@ -1,4 +1,4 @@
-# Investigating the Dynamics of a Forced Damped Pendulum
+# Escape Velocities and Cosmic Velocities
 
 ## Introduction
 The forced damped pendulum is an example of a system exhibiting complex behavior due to the interplay of damping, restoring forces, and external periodic driving forces. This simulation explores resonance, chaos, and quasiperiodic motion through numerical integration.
@@ -19,8 +19,11 @@ where:
 - $A$ is the amplitude of the driving force,
 
 - $\omega$ is the driving frequency.
+--- 
 
-## Python Implementation
+<details>
+<summary> Python Implementation </summary>
+
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -108,6 +111,10 @@ plt.title("Bifurcation Diagram")
 plt.grid()
 plt.show()
 ```
+---
+
+</details>
+
 
 ## Results
 The simulation produces:
