@@ -199,12 +199,13 @@ Launch height increases overall range.
 |No wind           | Wind can push/pull projectile | Alters horizontal motion   |
 
 
-Suggestions for Improvement
-Use scipy.integrate.solve_ivp to include air drag.
+**Suggestions for Improvement**
 
-Use parametric terrain modeling for variable height.
+* Use `scipy.integrate.solve_ivp` to include air drag.
 
-Apply wind forces using vector additions in numerical simulation.
+* Use parametric terrain modeling for variable height.
+
+* Apply wind forces using vector additions in numerical simulation.
 
 ## Conclusion
 Projectile range depends heavily on angle, initial speed, and gravitational field. The theoretical model, while idealized, provides great insight and a foundation for more complex simulations. With simple Python tools, we can visualize and analyze this behavior effectively—bridging the gap between theory and practice.
