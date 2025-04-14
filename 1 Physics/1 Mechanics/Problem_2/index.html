@@ -249,7 +249,13 @@
 <h3 id="4-computational-model-simulations">4. Computational Model &amp; Simulations</h3>
 <p>We use Python to simulate the forced damped pendulum with the Runge-Kutta method for numerical integration.</p>
 <h4 id="python-script-forced_damped_pendulumpy">Python Script (forced_damped_pendulum.py)</h4>
-<pre><code class="language-python">import numpy as np
+<details>
+<summary>Python Code</summary>
+---
+
+```python
+
+import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import solve_ivp
 
@@ -283,8 +289,10 @@ plt.ylabel("Angle (rad)")
 plt.title("Forced Damped Pendulum Motion")
 plt.legend()
 plt.grid()
-plt.show() 
-</code></pre>
+plt.show()
+
+</details>
+<hr/>
 <p><img alt="Forced_Damped_Pendulum_Motion" src="../../../_pics/Forced_Damped_Pendulum_MotionP2.png"/></p>
 <h3 id="5-graphical-representations">5. Graphical Representations</h3>
 <h4 id="1-time-evolution-of-motion">1. Time Evolution of Motion</h4>
