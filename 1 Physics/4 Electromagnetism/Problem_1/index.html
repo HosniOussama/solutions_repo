@@ -223,6 +223,8 @@
 <hr/>
 <h2 id="2-simulation-of-particle-motion">2. Simulation of Particle Motion</h2>
 <h3 id="imports-and-setup">Imports and Setup</h3>
+<details>
+<summary> Python Code </summary>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
@@ -237,6 +239,7 @@ steps = 2000  # Number of simulation steps
 v0 = np.array([1.0, 0.0, 1.0])
 r0 = np.array([0.0, 0.0, 0.0])
 </code></pre>
+</details>
 <hr/>
 <h3 id="lorentz-force-function">Lorentz Force Function</h3>
 <pre><code class="language-python">def lorentz_force(v, E, B):
