@@ -82,7 +82,12 @@ We use Python to simulate the forced damped pendulum with the Runge-Kutta method
 
 #### Python Script (forced_damped_pendulum.py)
 
+<details>
+<summary>Python Code</summary>
+---
+
 ```python
+
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import solve_ivp
@@ -117,8 +122,15 @@ plt.ylabel("Angle (rad)")
 plt.title("Forced Damped Pendulum Motion")
 plt.legend()
 plt.grid()
-plt.show() 
-```
+plt.show()
+
+</details>
+
+--- 
+
+
+
+
 ![Forced_Damped_Pendulum_Motion](../../_pics/Forced_Damped_Pendulum_MotionP2.png)
 
 ### 5. Graphical Representations
