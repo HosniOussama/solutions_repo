@@ -80,16 +80,25 @@ plt.show()
 
 * The curve is symmetric around 45°.
 
+## 3. Influence of Parameters
+
 And with appying modifications on $ v_0 $  $g$ 
 this is how can affect the plot 
 
-​```Python
+---
+```python
+import numpy as np
+import matplotlib.pyplot as plt
 
-v0_values = [20, 30, 40]
-g_values = [9.81, 1.62]  # Earth and Moon
+# Common parameters
+angles_deg = np.linspace(0, 90, 500)
+angles_rad = np.radians(angles_deg)
+
+# ========== Effect of Initial Velocity ==========
+v0_values = [20, 30, 40]  # initial velocities in m/s
+g = 9.81  # gravitational acceleration (Earth)
 
 plt.figure(figsize=(10, 6))
-
 for v0 in v0_values:
     ranges = (v0**2 * np.sin(2 * angles_rad)) / g
     plt.plot(angles_deg, ranges, label=f'v₀ = {v0} m/s')
@@ -97,22 +106,26 @@ for v0 in v0_values:
 plt.title("Effect of Initial Velocity on Range")
 plt.xlabel("Angle (degrees)")
 plt.ylabel("Range (meters)")
-plt.legend()
 plt.grid(True)
+plt.legend()
+plt.tight_layout()
 plt.show()
 
-# Now for gravity
-plt.figure(figsize=(10, 6))
+# ========== Effect of Gravity ==========
+g_values = [9.81, 1.62]  # Earth and Moon gravity
+v0_fixed = 30  # fixed initial velocity
 
+plt.figure(figsize=(10, 6))
 for g in g_values:
-    ranges = (30**2 * np.sin(2 * angles_rad)) / g
+    ranges = (v0_fixed**2 * np.sin(2 * angles_rad)) / g
     label = f'g = {g} m/s² ({"Earth" if g==9.81 else "Moon"})'
     plt.plot(angles_deg, ranges, label=label)
 
 plt.title("Effect of Gravity on Range")
 plt.xlabel("Angle (degrees)")
 plt.ylabel("Range (meters)")
-plt.legend()
 plt.grid(True)
+plt.legend()
+plt.tight_layout()
 plt.show()
 ```
