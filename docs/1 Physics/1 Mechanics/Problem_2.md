@@ -123,6 +123,7 @@ plt.legend()
 plt.grid()
 plt.show()
 ```
+</details>
 
 
 ![Forced_Damped_Pendulum_Motion](../../_pics/Forced_Damped_Pendulum_MotionP2.png)
