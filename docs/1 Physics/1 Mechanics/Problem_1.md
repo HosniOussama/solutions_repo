@@ -70,7 +70,7 @@ plt.legend()
 plt.show()
 
 ```
-![![Mecaplot1](../../_pics/Projectile_Rangevs_Angle_of_Projection)](../../_pics/Projectile_Rangevs_Angle_of_Projection.png)
+![Projectile_Rangevs_Angle_of_Projection](../../_pics/Projectile_Rangevs_Angle_of_Projection.png)
 
 
 ### Observations:
@@ -129,3 +129,6 @@ plt.legend()
 plt.tight_layout()
 plt.show()
 ```
+![Effect_of_Initial_Velocity_on_Range](../../_pics/Effect_of_Initial_Velocity_on_Range.png)
+
+![Effect_of_Gravity on_Range](../../_pics/Effect_of_Gravity on_Range.png)
