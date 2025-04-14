@@ -72,8 +72,6 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#theoretical-foundation">Theoretical Foundation</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#python-simulation">Python Simulation</a>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="#graphical-representations">Graphical Representations</a>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#analysis">Analysis</a>
@@ -216,7 +214,8 @@
 </ul>
 <p>The superposition of waves from <span class="arithmatex">\(N\)</span> sources is:</p>
 <div class="arithmatex">\[\eta_{sum}(x, y, t) = \sum_{i=1}^{N} \eta_i(x, y, t)\]</div>
-<h2 id="python-simulation">Python Simulation</h2>
+<details>
+<summary> Python Simulation </summary>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
@@ -254,6 +253,7 @@ def visualize_interference(sources, A, wavelength, frequency, duration, frames, 
     ani = animation.FuncAnimation(fig, update, frames=frames, blit=True)
     ani.save(filename, writer='pillow', fps=10)
     plt.close()
+
 
 # Parameters
 A = 1
@@ -294,6 +294,7 @@ visualize_interference(circle_sources, A, wavelength, frequency, duration, frame
 print("Circle interference animation generated.")
 
 </code></pre>
+</details>
 <h2 id="graphical-representations">Graphical Representations</h2>
 <p><img alt="triangle_interference_regen" src="../../../Animations/triangle_interference_regen.gif"/>
 <em>Triangle Interference Pattern – Wave interference from 3 point sources.</em></p>
