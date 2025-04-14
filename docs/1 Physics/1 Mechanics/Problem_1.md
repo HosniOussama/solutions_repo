@@ -209,5 +209,5 @@ Launch height increases overall range.
 * Apply wind forces using vector additions in numerical simulation.
 
 ## Conclusion
-Projectile range depends heavily on angle, initial speed, and gravitational field. The theoretical model, while idealized, provides great insight and a foundation for more complex simulations. With simple Python tools, we can visualize and analyze this behavior effectively—bridging the gap between theory and practice.
+Projectile range depends heavily on **angle**, **initial speed**, and **gravitational field**. The theoretical model, while idealized, provides great insight and a foundation for more complex simulations. With simple Python tools, we can visualize and analyze this behavior effectively—bridging the gap between theory and practice.
 
