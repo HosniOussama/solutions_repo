@@ -30,7 +30,7 @@ Electric fields influence speed; magnetic fields influence direction. Together, 
 ### Imports and Setup
 
 <details>
-<summary> Python Code </summary>
+<summary> Python </summary>
 
 ```python
 import numpy as np
@@ -47,7 +47,6 @@ steps = 2000  # Number of simulation steps
 v0 = np.array([1.0, 0.0, 1.0])
 r0 = np.array([0.0, 0.0, 0.0])
 ```
-</details>
 
 ---
 
@@ -108,7 +107,7 @@ B3 = np.array([0.0, 0.0, 1.0])
 
 ---
 
-## 3. Visualization
+### Visualization
 
 ```python
 def plot_trajectory(r, title="Trajectory"):
@@ -136,10 +135,10 @@ plot_trajectory(r2, "Helical Motion with Drift (E and B)")
 r3, _ = rk4_lorentz(v0, r0, E3, B3)
 plot_trajectory(r3, "ExB Drift (Crossed Fields)")
 ```
-
+</details>
 ---
 
-## 4. Parameter Exploration
+## 3. Parameter Exploration
 
 Try modifying:
 - $`q`$, $`m`$ : Charge and mass
@@ -149,11 +148,11 @@ Try modifying:
 Observe:
 - **Larmor radius**: $ r_L = \frac{mv_\perp}{qB} $
 - **Cyclotron frequency**: $ \omega_c = \frac{qB}{m} $
-- **ExB drift velocity**: $ \vec{v}_d = \frac{\vec{E} \times \vec{B}}{B^2} $
+- **$E$ x $B$ drift velocity**: $ \vec{v}_d = \frac{\vec{E} \times \vec{B}}{B^2} $
 
 ---
 
-## 5. Discussion and Applications
+## 4. Discussion and Applications
 
 - **Cyclotrons** rely on the circular motion from a perpendicular $ \vec{v} $ and $ \vec{B}$.
 - **Magnetic Traps** (e.g., tokamaks) confine particles using helical paths.
@@ -162,7 +161,7 @@ Observe:
 
 ---
 
-## 6. Extensions
+## 5. Extensions
 
 - Include **non-uniform fields** (e.g., magnetic mirrors).
 - Add **collisions or frictional forces**.
@@ -171,8 +170,3 @@ Observe:
 ---
 
 > **Note:** All simulations use the RK4 method for accuracy. Be sure to adjust `steps` and `dt` based on scenario dynamics.
-```
-
----
-
-Let me know if you'd like a `.ipynb` version or want to add interactive sliders (e.g., using `ipywidgets`) for field strength, charge, or mass.

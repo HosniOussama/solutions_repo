@@ -32,8 +32,9 @@ The superposition of waves from $N$ sources is:
 
 $$\eta_{sum}(x, y, t) = \sum_{i=1}^{N} \eta_i(x, y, t)$$
 
-## Python Simulation
+<details>
 
+<summary> Python Simulation </summary>
 
 ``` python 
 import numpy as np
@@ -74,6 +75,7 @@ def visualize_interference(sources, A, wavelength, frequency, duration, frames, 
     ani.save(filename, writer='pillow', fps=10)
     plt.close()
 
+
 # Parameters
 A = 1
 wavelength = 1
@@ -113,7 +115,7 @@ visualize_interference(circle_sources, A, wavelength, frequency, duration, frame
 print("Circle interference animation generated.")
 
 ```
-
+</details>
 
 
 ## Graphical Representations
