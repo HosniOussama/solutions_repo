@@ -50,39 +50,15 @@
 <ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="#motivation">Motivation</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#theoretical-foundation">Theoretical Foundation</a>
+<li class="toctree-l3"><a class="reference internal" href="#1-theoretical-foundation">1. Theoretical Foundation</a>
 <ul>
-<li class="toctree-l4"><a class="reference internal" href="#python-simulation">Python Simulation</a>
+<li class="toctree-l4"><a class="reference internal" href="#equations-of-motion">Equations of Motion</a>
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#_1"></a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#investigating-the-dynamics-of-a-forced-damped-pendulum">Investigating the Dynamics of a Forced Damped Pendulum</a>
+<li class="toctree-l3"><a class="reference internal" href="#2-analysis-of-the-range-vs-angle">2. Analysis of the Range vs Angle</a>
 <ul>
-<li class="toctree-l4"><a class="reference internal" href="#motivation_1">Motivation</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#theoretical-foundation_1">Theoretical Foundation</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#python-simulation_1">Python Simulation</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#_2"></a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#orbital-period-and-orbital-radius">Orbital Period and Orbital Radius</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#motivation_2">Motivation</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#theoretical-foundation_2">Theoretical Foundation</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#python-simulation_2">Python Simulation</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#_3"></a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#conclusion">Conclusion</a>
+<li class="toctree-l4"><a class="reference internal" href="#python-code-plotting-the-range-as-a-function-of-angle">Python Code: Plotting the Range as a Function of Angle</a>
 </li>
 </ul>
 </li>
@@ -211,91 +187,53 @@
 <div class="section" itemprop="articleBody">
 <h1 id="investigating-the-range-as-a-function-of-the-angle-of-projection">Investigating the Range as a Function of the Angle of Projection</h1>
 <h2 id="motivation">Motivation</h2>
-<p>Projectile motion is a fundamental concept in physics, illustrating how objects move under gravity. This study explores how the range of a projectile depends on its launch angle, uncovering both theoretical and computational insights.</p>
-<h2 id="theoretical-foundation">Theoretical Foundation</h2>
-<p>The motion of a projectile follows these kinematic equations:</p>
-<ul>
-<li>
-<p>Horizontal motion: </p>
-<p><span class="arithmatex">\(x = v_0 \cos(\theta) t\)</span></p>
-</li>
-<li>
-<p>Vertical motion: </p>
-<p><span class="arithmatex">\(y = v_0 \sin(\theta) t - \frac{1}{2} g t^2\)</span></p>
-</li>
-<li>
-<p>Time of flight: </p>
-<p><span class="arithmatex">\(T = \frac{2 v_0 \sin(\theta)}{g}\)</span></p>
-</li>
-<li>
-<p>Range equation:</p>
-<p><span class="arithmatex">\(R = \frac{v_0^2 \sin(2\theta)}{g}\)</span></p>
-</li>
-</ul>
-<h3 id="python-simulation">Python Simulation</h3>
-<pre><code class="language-python">import numpy as np
-import matplotlib.pyplot as plt
-
-g = 9.81  # gravitational acceleration (m/s^2)
-v0 = 20   # initial velocity (m/s)
-theta = np.linspace(0, np.pi/2, 100)
-R = (v0**2 * np.sin(2*theta)) / g
-
-plt.plot(np.degrees(theta), R)
-plt.xlabel("Launch Angle (degrees)")
-plt.ylabel("Range (m)")
-plt.title("Projectile Range vs. Launch Angle")
-plt.grid()
+<p>Projectile motion, while seemingly simple, offers a rich playground for exploring fundamental principles of physics. The goal is to analyze how the <strong>range</strong> of a projectile depends on its <strong>angle of projection</strong>. Despite its simplicity, this system unveils deep physical insights through linear and quadratic relationships.</p>
+<p>Parameters like <strong>initial velocity</strong>, <strong>gravitational acceleration</strong>, and <strong>launch height</strong> influence the trajectory, allowing us to model diverse real-world phenomena—from sports to rocketry.</p>
+<hr/>
+<h2 id="1-theoretical-foundation">1. Theoretical Foundation</h2>
+<h3 id="equations-of-motion">Equations of Motion</h3>
+<p>We consider a projectile launched from ground level (height = 0) with:
+- Initial velocity <span class="arithmatex">\(( v_0 )\)</span>
+- Angle of projection <span class="arithmatex">\(( \theta )\)</span>
+- Gravitational acceleration <span class="arithmatex">\(( g )\)</span></p>
+<p>The horizontal and vertical components of velocity:</p>
+<div class="arithmatex">\[
+v_{x} = v_0 \cos(\theta), \quad v_{y} = v_0 \sin(\theta)
+\]</div>
+<p>Time of flight (until the projectile returns to <span class="arithmatex">\(y\)</span> = 0):</p>
+<div class="arithmatex">\[
+T = \frac{2v_0 \sin(\theta)}{g}
+\]</div>
+<p>Horizontal Range:</p>
+<div class="arithmatex">\[
+R(\theta) = v_{x} \cdot T = \frac{v_0^2 \sin(2\theta)}{g}
+\]</div>
+<p>This equation reveals a <strong>sinusoidal dependence</strong> of range on $ 2\theta $. The <strong>maximum range</strong> occurs when $ \theta = 45^\circ $.</p>
+<hr/>
+<h2 id="2-analysis-of-the-range-vs-angle">2. Analysis of the Range vs Angle</h2>
+<h3 id="python-code-plotting-the-range-as-a-function-of-angle">Python Code: Plotting the Range as a Function of Angle</h3>
+<p>```python
+import numpy as np
+import matplotlib.pyplot as plt</p>
+<h1 id="parameters">Parameters</h1>
+<p>v0 = 30  # initial velocity in m/s
+g = 9.81  # gravitational acceleration in m/s²</p>
+<h1 id="angles-from-0-to-90-degrees">Angles from 0 to 90 degrees</h1>
+<p>angles_deg = np.linspace(0, 90, 500)
+angles_rad = np.radians(angles_deg)</p>
+<h1 id="range-formula-r-v02-sin2-g">Range formula: R = (v0^2 * sin(2θ)) / g</h1>
+<p>ranges = (v0**2 * np.sin(2 * angles_rad)) / g</p>
+<h1 id="plotting">Plotting</h1>
+<p>plt.figure(figsize=(10, 6))
+plt.plot(angles_deg, ranges, color='blue')
+plt.title("Projectile Range vs Angle of Projection")
+plt.xlabel("Angle (degrees)")
+plt.ylabel("Range (meters)")
+plt.grid(True)
+plt.axvline(45, color='red', linestyle='--', label='Max Range at 45°')
+plt.legend()
 plt.show()
-</code></pre>
-<h2 id="_1"><img alt="Projectile Range vs. Launch Angle" src="../../../_pics/Projectile_Range_vs._Launch_Angle.png"/></h2>
-<h2 id="investigating-the-dynamics-of-a-forced-damped-pendulum">Investigating the Dynamics of a Forced Damped Pendulum</h2>
-<h3 id="motivation_1">Motivation</h3>
-<p>The forced damped pendulum exhibits complex behaviors such as resonance and chaos. Understanding its motion helps in various applications, from engineering to climate models.</p>
-<h3 id="theoretical-foundation_1">Theoretical Foundation</h3>
-<p>The equation of motion for a forced damped pendulum is:</p>
-<p><span class="arithmatex">\(\frac{d^2\theta}{dt^2} + b\frac{d\theta}{dt} + \omega_0^2 \sin\theta = A \cos(\omega t)\)</span></p>
-<h3 id="python-simulation_1">Python Simulation</h3>
-<pre><code class="language-python">from scipy.integrate import solve_ivp
-
-def pendulum(t, y, b, w0, A, w):
-    theta, omega = y
-    return [omega, -b*omega - w0**2*np.sin(theta) + A*np.cos(w*t)]
-
-b, w0, A, w = 0.1, 1.0, 0.5, 2.0
-t = np.linspace(0, 50, 1000)
-sol = solve_ivp(pendulum, [0, 50], [np.pi/4, 0], args=(b, w0, A, w), t_eval=t)
-
-plt.plot(t, sol.y[0])
-plt.xlabel("Time (s)")
-plt.ylabel("Angle (rad)")
-plt.title("Forced Damped Pendulum Motion")
-plt.grid()
-plt.show()
-</code></pre>
-<h2 id="_2"><img alt="Forced_Damped_Pendulum_MotionP1" src="../../../_pics/Forced_Damped_Pendulum_MotionP1.png"/></h2>
-<h2 id="orbital-period-and-orbital-radius">Orbital Period and Orbital Radius</h2>
-<h3 id="motivation_2">Motivation</h3>
-<p>Kepler's Third Law states that the square of the orbital period is proportional to the cube of the orbital radius. This principle is key in astrophysics and satellite design.</p>
-<h3 id="theoretical-foundation_2">Theoretical Foundation</h3>
-<p>For circular orbits:</p>
-<p><span class="arithmatex">\(T^2 = \frac{4\pi^2 r^3}{GM}\)</span></p>
-<h3 id="python-simulation_2">Python Simulation</h3>
-<pre><code class="language-python">G = 6.674e-11  # Gravitational constant (m^3/kg/s^2)
-M = 5.972e24   # Earth mass (kg)
-r = np.linspace(6.7e6, 4e7, 100)  # Orbital radius range (m)
-T = 2 * np.pi * np.sqrt(r**3 / (G * M))
-
-plt.plot(r / 1e6, T / 3600)
-plt.xlabel("Orbital Radius (million m)")
-plt.ylabel("Orbital Period (hours)")
-plt.title("Orbital Period vs. Radius")
-plt.grid()
-plt.show()
-</code></pre>
-<h2 id="_3"><img alt="Orbital_Period_vs_Radius" src="../../../_pics/Orbital_Period_vs_Radius.png"/></h2>
-<h3 id="conclusion">Conclusion</h3>
-<p>These simulations provide insights into projectile motion, pendulums, and orbits, demonstrating their dependence on key parameters. Further refinements could include air resistance and non-linear effects to enhance realism.</p>
+<img alt="![Mecaplot1](../../_pics/Mecaplot1.png)" src="../../../_pics/Mecaplot1.png"/></p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
