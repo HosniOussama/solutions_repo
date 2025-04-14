@@ -66,6 +66,16 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#3-influence-of-parameters">3. Influence of Parameters</a>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#4-practical-applications">4. Practical Applications</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#example-adding-a-launch-height">Example: Adding a Launch Height</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#5-limitations-of-the-idealized-model">5. Limitations of the Idealized Model</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#conclusion">Conclusion</a>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Problem_2/">Investigating the Dynamics of a Forced Damped Pendulum</a>
@@ -243,6 +253,7 @@ plt.show()
 
 </code></pre>
 <p><img alt="Projectile_Rangevs_Angle_of_Projection" src="../../../_pics/Projectile_Rangevs_Angle_of_Projection.png"/></p>
+
 <h3 id="observations">Observations:</h3>
 <ul>
 <li>
@@ -258,7 +269,8 @@ plt.show()
 <h2 id="3-influence-of-parameters">3. Influence of Parameters</h2>
 <p>And with appying modifications on $ v_0 $  <span class="arithmatex">\(g\)</span> 
 this is how can affect the plot </p>
-<hr/>
+<details>
+<summary>Python Code</summary>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
 
@@ -301,8 +313,84 @@ plt.legend()
 plt.tight_layout()
 plt.show()
 </code></pre>
+</details>
 <p><img alt="Effect_of_Initial_Velocity_on_Range" src="../../../_pics/Effect_of_Initial_Velocity_on_Range.png"/></p>
 <p><img alt="Effect_of_Gravityon_Range" src="../../../_pics/Effect_of_Gravityon_Range.png"/></p>
+<p><strong>Key Takeaways:</strong></p>
+<p>Higher velocity = longer range.</p>
+<p>Lower gravity (e.g., Moon) = much longer range.</p>
+<h2 id="4-practical-applications">4. Practical Applications</h2>
+<p>Real-World Adjustments</p>
+<p>Uneven terrain affects landing point <code>→</code> adjust final height.</p>
+<p>Air resistance shortens range <code>→</code> not covered in ideal model.</p>
+<p>Wind adds horizontal forces <code>→</code> requires differential equations.</p>
+<h3 id="example-adding-a-launch-height">Example: Adding a Launch Height</h3>
+<details>
+<summary>Python Code</summary>
+---
+```python
+
+def range_with_height(v0, theta_deg, h, g=9.81):
+    theta = np.radians(theta_deg)
+    vx = v0 * np.cos(theta)
+    vy = v0 * np.sin(theta)
+    t_flight = (vy + np.sqrt(vy**2 + 2 * g * h)) / g
+    return vx * t_flight
+
+h = 10  # 10 meters launch height
+ranges = [range_with_height(30, angle, h) for angle in angles_deg]
+
+plt.figure(figsize=(10, 6))
+plt.plot(angles_deg, ranges)
+plt.title("Range vs Angle (with Launch Height h = 10 m)")
+plt.xlabel("Angle (degrees)")
+plt.ylabel("Range (meters)")
+plt.grid(True)
+plt.show()
+
+</details>
+<hr/>
+<p>Insights:
+Maximum range shifts to lower than 45° if starting from a height.</p>
+<p>Launch height increases overall range.</p>
+<h2 id="5-limitations-of-the-idealized-model">5. Limitations of the Idealized Model</h2>
+<table>
+<thead>
+<tr>
+<th>Assumption</th>
+<th>Real-World Factor</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No air resistance</td>
+<td>Drag force</td>
+<td>Reduces range</td>
+</tr>
+<tr>
+<td>Constant gravity</td>
+<td>Varies with altitude</td>
+<td>Small effect in most cases</td>
+</tr>
+<tr>
+<td>Flat terrain</td>
+<td>Hills or valleys</td>
+<td>Changes point of impact</td>
+</tr>
+<tr>
+<td>No wind</td>
+<td>Wind can push/pull projectile</td>
+<td>Alters horizontal motion</td>
+</tr>
+</tbody>
+</table>
+<p>Suggestions for Improvement
+Use scipy.integrate.solve_ivp to include air drag.</p>
+<p>Use parametric terrain modeling for variable height.</p>
+<p>Apply wind forces using vector additions in numerical simulation.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Projectile range depends heavily on angle, initial speed, and gravitational field. The theoretical model, while idealized, provides great insight and a foundation for more complex simulations. With simple Python tools, we can visualize and analyze this behavior effectively—bridging the gap between theory and practice.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
