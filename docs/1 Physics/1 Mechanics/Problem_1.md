@@ -68,4 +68,51 @@ plt.grid(True)
 plt.axvline(45, color='red', linestyle='--', label='Max Range at 45°')
 plt.legend()
 plt.show()
-![![Mecaplot1](../../_pics/Mecaplot1.png)](../../_pics/Mecaplot1.png)
+
+```
+![![Mecaplot1](../../_pics/Projectile_Rangevs_Angle_of_Projection)](../../_pics/Projectile_Rangevs_Angle_of_Projection.png)
+
+
+### Observations:
+* The range reaches its maximum at 45°.
+
+* Complementary angles (e.g., 30° and 60°) yield the same range.
+
+* The curve is symmetric around 45°.
+
+And with appying modifications on $ v_0 $  $g$ 
+this is how can affect the plot 
+
+​```Python
+
+v0_values = [20, 30, 40]
+g_values = [9.81, 1.62]  # Earth and Moon
+
+plt.figure(figsize=(10, 6))
+
+for v0 in v0_values:
+    ranges = (v0**2 * np.sin(2 * angles_rad)) / g
+    plt.plot(angles_deg, ranges, label=f'v₀ = {v0} m/s')
+
+plt.title("Effect of Initial Velocity on Range")
+plt.xlabel("Angle (degrees)")
+plt.ylabel("Range (meters)")
+plt.legend()
+plt.grid(True)
+plt.show()
+
+# Now for gravity
+plt.figure(figsize=(10, 6))
+
+for g in g_values:
+    ranges = (30**2 * np.sin(2 * angles_rad)) / g
+    label = f'g = {g} m/s² ({"Earth" if g==9.81 else "Moon"})'
+    plt.plot(angles_deg, ranges, label=label)
+
+plt.title("Effect of Gravity on Range")
+plt.xlabel("Angle (degrees)")
+plt.ylabel("Range (meters)")
+plt.legend()
+plt.grid(True)
+plt.show()
+```
