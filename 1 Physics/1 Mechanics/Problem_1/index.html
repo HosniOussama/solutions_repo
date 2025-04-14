@@ -60,6 +60,8 @@
 <ul>
 <li class="toctree-l4"><a class="reference internal" href="#python-code-plotting-the-range-as-a-function-of-angle">Python Code: Plotting the Range as a Function of Angle</a>
 </li>
+<li class="toctree-l4"><a class="reference internal" href="#observations">Observations:</a>
+</li>
 </ul>
 </li>
 </ul>
@@ -212,19 +214,22 @@ R(\theta) = v_{x} \cdot T = \frac{v_0^2 \sin(2\theta)}{g}
 <hr/>
 <h2 id="2-analysis-of-the-range-vs-angle">2. Analysis of the Range vs Angle</h2>
 <h3 id="python-code-plotting-the-range-as-a-function-of-angle">Python Code: Plotting the Range as a Function of Angle</h3>
-<p>```python
-import numpy as np
-import matplotlib.pyplot as plt</p>
-<h1 id="parameters">Parameters</h1>
-<p>v0 = 30  # initial velocity in m/s
-g = 9.81  # gravitational acceleration in m/s²</p>
-<h1 id="angles-from-0-to-90-degrees">Angles from 0 to 90 degrees</h1>
-<p>angles_deg = np.linspace(0, 90, 500)
-angles_rad = np.radians(angles_deg)</p>
-<h1 id="range-formula-r-v02-sin2-g">Range formula: R = (v0^2 * sin(2θ)) / g</h1>
-<p>ranges = (v0**2 * np.sin(2 * angles_rad)) / g</p>
-<h1 id="plotting">Plotting</h1>
-<p>plt.figure(figsize=(10, 6))
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameters
+v0 = 30  # initial velocity in m/s
+g = 9.81  # gravitational acceleration in m/s²
+
+# Angles from 0 to 90 degrees
+angles_deg = np.linspace(0, 90, 500)
+angles_rad = np.radians(angles_deg)
+
+# Range formula: R = (v0^2 * sin(2θ)) / g
+ranges = (v0**2 * np.sin(2 * angles_rad)) / g
+
+# Plotting
+plt.figure(figsize=(10, 6))
 plt.plot(angles_deg, ranges, color='blue')
 plt.title("Projectile Range vs Angle of Projection")
 plt.xlabel("Angle (degrees)")
@@ -233,7 +238,49 @@ plt.grid(True)
 plt.axvline(45, color='red', linestyle='--', label='Max Range at 45°')
 plt.legend()
 plt.show()
-<img alt="![Mecaplot1](../../_pics/Mecaplot1.png)" src="../../_pics/Mecaplot1.png"/></p>
+
+</code></pre>
+<p><img alt="![Mecaplot1](../../_pics/Projectile_Rangevs_Angle_of_Projection)" src="../../../_pics/Projectile_Rangevs_Angle_of_Projection.png"/></p>
+<h3 id="observations">Observations:</h3>
+<ul>
+<li>
+<p>The range reaches its maximum at 45°.</p>
+</li>
+<li>
+<p>Complementary angles (e.g., 30° and 60°) yield the same range.</p>
+</li>
+<li>
+<p>The curve is symmetric around 45°.</p>
+</li>
+</ul>
+<p>And with appying modifications on $ v_0 $  <span class="arithmatex">\(g\)</span> 
+this is how can affect the plot </p>
+<p>​```Python</p>
+<p>v0_values = [20, 30, 40]
+g_values = [9.81, 1.62]  # Earth and Moon</p>
+<p>plt.figure(figsize=(10, 6))</p>
+<p>for v0 in v0_values:
+    ranges = (v0**2 * np.sin(2 * angles_rad)) / g
+    plt.plot(angles_deg, ranges, label=f'v₀ = {v0} m/s')</p>
+<p>plt.title("Effect of Initial Velocity on Range")
+plt.xlabel("Angle (degrees)")
+plt.ylabel("Range (meters)")
+plt.legend()
+plt.grid(True)
+plt.show()</p>
+<h1 id="now-for-gravity">Now for gravity</h1>
+<p>plt.figure(figsize=(10, 6))</p>
+<p>for g in g_values:
+    ranges = (30**2 * np.sin(2 * angles_rad)) / g
+    label = f'g = {g} m/s² ({"Earth" if g==9.81 else "Moon"})'
+    plt.plot(angles_deg, ranges, label=label)</p>
+<p>plt.title("Effect of Gravity on Range")
+plt.xlabel("Angle (degrees)")
+plt.ylabel("Range (meters)")
+plt.legend()
+plt.grid(True)
+plt.show()
+```</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
