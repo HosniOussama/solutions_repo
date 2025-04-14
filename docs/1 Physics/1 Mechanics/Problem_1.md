@@ -131,4 +131,4 @@ plt.show()
 ```
 ![Effect_of_Initial_Velocity_on_Range](../../_pics/Effect_of_Initial_Velocity_on_Range.png)
 
-![Effect_of_Gravity on_Range](../../_pics/Effect_of_Gravity on_Range.png)
+![Effect_of_Gravityon_Range](../../_pics/Effect_of_Gravityon_Range.png)
