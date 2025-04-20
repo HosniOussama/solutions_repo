@@ -27,7 +27,8 @@ Electric fields influence speed; magnetic fields influence direction. Together, 
 
 ## 2. Simulation of Particle Motion
 ![lorentz_Bonly](../../_pics/lorentz_Bonly.png)
-
+![alt text](../../_pics/lorentz_EB.png)
+![alt text](../../_pics/lorentz_ExB.png)
 ### Imports and Setup
 
 <details>
