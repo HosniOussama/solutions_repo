@@ -39,18 +39,42 @@ def generate_population(dist, size=100000):
 ---
 </details>
 
+![alt text](../../_pics/Stat1.png)
 
 ## Task 2 : Sampling and Visualization
 
 ### Sample and Calculate Sample Means:
 
+<details>
+<summary>Python code</summary>
+
 ```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Define the simulation function
 def simulate_sampling(population, sample_size=30, n_samples=1000):
     return [
         np.mean(np.random.choice(population, size=sample_size, replace=False))
         for _ in range(n_samples)
     ]
+
+# Create a population (e.g., a normal distribution)
+population = np.random.normal(loc=50, scale=10, size=10000)
+
+# Simulate the sampling process
+sample_means = simulate_sampling(population, sample_size=30, n_samples=1000)
+
+# Plot the distribution of sample means
+plt.figure(figsize=(10, 6))
+plt.hist(sample_means, bins=30, edgecolor='black', alpha=0.7)
+plt.title('Distribution of Sample Means')
+plt.xlabel('Sample Mean')
+plt.ylabel('Frequency')
+plt.grid(True)
+plt.show()
 ```
+</details>
 
 ### Visualize the Sampling Distributions:
 
