@@ -76,7 +76,12 @@ plt.show()
 ```
 </details>
 
+![alt text](../../_pics/Stat2.png)
+
 ### Visualize the Sampling Distributions:
+
+<details>
+<summary>Python code</summary>
 
 ```python
 import matplotlib.pyplot as plt
@@ -101,11 +106,16 @@ def plot_sampling_distribution(dist_name, population):
     plt.show()
 ```
 
+</details>
+
 ---
 
 ## Task 3 : Parameter Exploration
 
 ### Run Simulations:
+
+<details>
+<summary>Python code</summary>
 
 ```python
 # Uniform
@@ -120,6 +130,9 @@ plot_sampling_distribution("exponential", exp_pop)
 binom_pop = generate_population("binomial")
 plot_sampling_distribution("binomial", binom_pop)
 ```
+</details>
+
+
 
 ### Observations:
 - Sample means tend toward normal shape.
