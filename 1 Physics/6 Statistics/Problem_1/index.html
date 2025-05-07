@@ -116,10 +116,6 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#conclusion">Conclusion</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#resources">Resources</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#homework-suggestion">Homework Suggestion</a>
-</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Problem_2/">Problem 2</a>
@@ -226,6 +222,10 @@
 - <strong>Binomial</strong>: Count of successes over trials.</p>
 <details>
 <summary>Python code</summary>
+
+--- 
+
+
 <pre><code class="language-python">
 import numpy as np
 
@@ -303,7 +303,8 @@ def plot_sampling_distribution(dist_name, population):
 <h3 id="run-simulations">Run Simulations:</h3>
 <details>
 <summary>Python code</summary>
-<pre><code class="language-python"># Uniform
+<pre><code class="language-python">
+# Uniform
 uniform_pop = generate_population("uniform")
 plot_sampling_distribution("uniform", uniform_pop)
 
@@ -316,6 +317,12 @@ binom_pop = generate_population("binomial")
 plot_sampling_distribution("binomial", binom_pop)
 </code></pre>
 </details>
+<p><img alt="alt text" src="../../../_pics/Stat3.png"/>
+<strong>Uniform Population Distribution</strong></p>
+<p><img alt="alt text" src="../../../_pics/Stat4.png"/>
+<strong>Exponential Population Distribution</strong></p>
+<p><img alt="alt text" src="../../../_pics/Stat5.png"/>
+<strong>Biominal Population Distribution</strong></p>
 <h3 id="observations">Observations:</h3>
 <ul>
 <li>Sample means tend toward normal shape.</li>
@@ -346,17 +353,6 @@ plot_sampling_distribution("binomial", binom_pop)
 <p><strong>Key Takeaway</strong>: CLT bridges the gap between non-normal populations and the powerful tools of normal distribution analysis.</p>
 </blockquote>
 <hr/>
-<h2 id="resources">Resources</h2>
-<ul>
-<li>NumPy for random generation</li>
-<li>Matplotlib &amp; Seaborn for plotting</li>
-<li>Recommended: Try with your own distributions</li>
-</ul>
-<hr/>
-<h2 id="homework-suggestion">Homework Suggestion</h2>
-<p>Try repeating the experiment using:
-- A bimodal population
-- A real-world dataset (e.g., heights, weights, test scores)</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
