@@ -278,9 +278,29 @@ plt.show()
 <summary>Python code</summary>
 <pre><code class="language-python">import matplotlib.pyplot as plt
 import seaborn as sns
+import numpy as np
 
 sns.set(style="whitegrid")
 
+# Simulate sampling
+def simulate_sampling(population, sample_size=30, n_samples=1000):
+    return [
+        np.mean(np.random.choice(population, size=sample_size, replace=False))
+        for _ in range(n_samples)
+    ]
+
+# Generate different types of populations
+def generate_population(distribution_type, size=10000):
+    if distribution_type == "uniform":
+        return np.random.uniform(low=0, high=10, size=size)  # Uniform distribution
+    elif distribution_type == "exponential":
+        return np.random.exponential(scale=1, size=size)  # Exponential distribution
+    elif distribution_type == "binomial":
+        return np.random.binomial(n=10, p=0.5, size=size)  # Binomial distribution
+    else:
+        raise ValueError("Unknown distribution type")
+
+# Plot the sampling distribution
 def plot_sampling_distribution(dist_name, population):
     sample_sizes = [5, 10, 30, 50]
     plt.figure(figsize=(16, 10))
@@ -296,8 +316,14 @@ def plot_sampling_distribution(dist_name, population):
     plt.tight_layout()
     plt.suptitle(f"CLT Simulation for {dist_name.capitalize()} Population", fontsize=18, y=1.03)
     plt.show()
+
+# Example usage
+uniform_pop = generate_population("uniform")
+plot_sampling_distribution("uniform", uniform_pop)
+
 </code></pre>
 </details>
+<p><img alt="alt text" src="../../../_pics/Stat2missing_one.png"/></p>
 <hr/>
 <h2 id="task-3-parameter-exploration">Task 3 : Parameter Exploration</h2>
 <h3 id="run-simulations">Run Simulations:</h3>
