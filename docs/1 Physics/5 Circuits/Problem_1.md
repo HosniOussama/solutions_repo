@@ -1,138 +1,101 @@
-# Problem 1
-
 # Equivalent Resistance Using Graph Theory
 
-## Introduction
-Calculating equivalent resistance is a fundamental problem in circuit analysis. Traditional methods involve applying series and parallel resistance formulas iteratively. However, for complex circuits, graph theory provides a more systematic approach by representing circuits as weighted graphs.
+## Problem Overview
 
-In this document, we explore how to calculate equivalent resistance using graph theory, implement it programmatically, and visualize the circuit as a graph.
-
----
-
-## Graph Representation of Circuits
-A circuit can be represented as an undirected graph:
-- **Nodes (Vertices)**: Represent junctions in the circuit.
-- **Edges**: Represent resistors, with weights corresponding to resistance values.
-
-Graph simplification involves:
-- Identifying **series** and **parallel** resistor connections.
-- Using algorithmic techniques to iteratively reduce the graph.
+Calculating the **equivalent resistance** in electrical circuits is essential for designing and analyzing efficient systems. While traditional methods work well for simple circuits, **graph theory** offers a powerful tool to handle **complex resistor networks**, especially with nested or looped configurations.
 
 ---
 
-## Theoretical Background
+##  Motivation
 
-### Series Resistance
-For resistors in series, the equivalent resistance is:
-$$
-R_{eq} = R_1 + R_2 + \dots + R_n
-$$
-
-### Parallel Resistance
-For resistors in parallel, the equivalent resistance is given by:
-$$
-\frac{1}{R_{eq}} = \frac{1}{R_1} + \frac{1}{R_2} + \dots + \frac{1}{R_n}
-$$
-
-### Graph Reduction Approach
-1. **Identify series and parallel components** in the circuit graph.
-2. **Reduce series and parallel resistors** iteratively.
-3. **Continue simplification** until a single equivalent resistance remains.
+- Traditional circuit analysis relies on identifying series and parallel components.
+- This becomes difficult in large or irregular circuits.
+- Graph theory provides a **systematic, programmable approach** using nodes ( junctions ) and edges ( resistors ).
+- Enables **automation**, **visualization**, and **scalability**.
 
 ---
 
-## Python Implementation
-The following Python script models a circuit as a graph and calculates the equivalent resistance.
+## Circuit as a Graph
 
-```python
-import networkx as nx
-import matplotlib.pyplot as plt
+- **Nodes** = electrical junctions
+- **Edges** = resistors (with weight = resistance)
+- Goal: Reduce graph to one equivalent edge between input and output nodes
 
-def calculate_resistance(graph, start, end):
-    paths = list(nx.all_simple_paths(graph, source=start, target=end))
-    
-    parallel_resistances = []
-    for path in paths:
-        series_resistance = sum(graph[path[i]][path[i+1]]['weight'] for i in range(len(path)-1))
-        parallel_resistances.append(1 / series_resistance)
-    
-    return 1 / sum(parallel_resistances)
-
-def visualize_circuit(graph):
-    pos = nx.spring_layout(graph)
-    labels = nx.get_edge_attributes(graph, 'weight')
-    nx.draw(graph, pos, with_labels=True, node_color='lightblue', edge_color='black')
-    nx.draw_networkx_edge_labels(graph, pos, edge_labels=labels)
-    plt.title("Circuit Representation")
-    plt.show()
-
-# Create a sample circuit
-graph = nx.Graph()
-graph.add_edge('A', 'B', weight=5)
-graph.add_edge('B', 'C', weight=10)
-graph.add_edge('A', 'C', weight=15)  # Parallel path
-
-visualize_circuit(graph)
-print("Equivalent Resistance:", calculate_resistance(graph, 'A', 'C'))
-```
+![Graph Theory in Circuits](https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Resistor_Network.svg/1024px-Resistor_Network.svg.png)
 
 ---
 
-## Example Circuits and Graphs
+## Algorithm Description
 
-### Example 1: Simple Series Circuit
-**Resistors:** $5Ω$, $10Ω$, $15Ω$ in series.
+### Graph Simplification Strategy
 
-**Graph Representation:**
+1. **Detect series connections**: Nodes with degree 2 (except terminals)
+2. **Detect parallel connections**: Multiple edges between same nodes or cycles
+3. **Reduce step by step**:
+   - Combine series: $( R_{eq} = R_1 + R_2 )$
+   - Combine parallel: $( \frac{1}{R_{eq}} = \frac{1}{R_1} + \frac{1}{R_2} )$
 
-```
-A --- 5Ω --- B --- 10Ω --- C --- 15Ω --- D
-```
 
-**Equivalent Resistance:**
+   ## Examples & Visualizations
+
+###  Example 1: Series Circuit
+![SeriesCircuit](../../_pics/Example1_Series_Circuit.png)
+Two resistors are connected end-to-end:
+
+- **A → B** : 10 $Ω$  
+- **B → C** : 5 $Ω$
+
+They are in **series**, so the equivalent resistance is:
+
 $$
-R_{eq} = 5 + 10 + 15 = 30Ω
+R_{\text{eq}} = R_1 + R_2 = 10\,\Omega + 5\,\Omega = 15\,\Omega
 $$
 
----
 
-### Example 2: Parallel Circuit
-**Resistors:** $5Ω$, $10Ω$ in parallel.
 
-**Graph Representation:**
+###  Example 2: Parallel Circuit
+![ParallelCircuit](../../_pics/Example2_Parallel_Circuit.png)
 
-```
- A
- | \
- | 5Ω \
- |   \
- |    B
- |   /
- | 10Ω /
- | /
- C
-```
+Two resistors are connected between the same nodes **A** and **B**:
 
-**Equivalent Resistance:**
+- **A ↔ B** : 10 $Ω$  
+- **A ↔ B** : 20 $Ω$  
+
+They are in **parallel**, so:
+
 $$
-\frac{1}{R_{eq}} = \frac{1}{5} + \frac{1}{10} \Rightarrow R_{eq} = 3.33Ω
+\frac{1}{R_{\text{eq}}} = \frac{1}{10} + \frac{1}{20} = \frac{3}{20}
+\quad\Rightarrow\quad
+R_{\text{eq}} = \frac{20}{3} \approx 6.67\,\Omega
 $$
 
----
+###  Example 3: Nested Configuration
+![NestedConfig](../../_pics/Example3_Nested_Configuration.png)
 
-## Conclusion
-By leveraging graph theory, we can systematically compute the equivalent resistance of complex circuits. This method is efficient for large networks and allows for automation in electrical circuit simulations.
+We have two paths from **A** to **C** :
 
----
+- **Path 1** : A → B → C  
+  - AB = 5 $Ω$, B C = 5 $Ω$ → total = 10 $Ω$  
+- **Path 2** : Direct A → C = 10 $Ω$  
 
-## Further Exploration
-- Extend the algorithm to handle more complex circuit configurations.
-- Integrate Kirchhoff’s laws to analyze voltage and current distributions.
-- Implement a graphical user interface (GUI) for interactive circuit analysis.
+These two 10 $Ω$ paths are in **parallel**, so :
 
----
+$$
+\frac{1}{R_{\text{eq}}} = \frac{1}{10} + \frac{1}{10} = \frac{1}{5}
+\quad\Rightarrow\quad
+R_{\text{eq}} = 5\,\Omega
+$$
 
-### References
-- Network Analysis by M.E. Van Valkenburg
-- Graph Theory Applications in Electrical Engineering
 
+### Pseudocode
+
+```pseudo
+function simplify_circuit(graph, input_node, output_node):
+    repeat:
+        for each node in graph:
+            if node is not input/output and has degree 2:
+                merge series resistors
+        for each pair of nodes with parallel edges:
+            combine using parallel rule
+    until no more simplifications
+    return resistance between input_node and output_node
