@@ -72,17 +72,23 @@
 <ul class="current">
 <li class="toctree-l2 current"><a class="reference internal current" href="#">Equivalent Resistance Using Graph Theory</a>
 <ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="#problem-overview">🔌 Problem Overview</a>
+<li class="toctree-l3"><a class="reference internal" href="#problem-overview">Problem Overview</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#motivation">🧠 Motivation</a>
+<li class="toctree-l3"><a class="reference internal" href="#motivation">Motivation</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#circuit-as-a-graph">📊 Circuit as a Graph</a>
+<li class="toctree-l3"><a class="reference internal" href="#circuit-as-a-graph">Circuit as a Graph</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#algorithm-description">🧮 Algorithm Description</a>
+<li class="toctree-l3"><a class="reference internal" href="#algorithm-description">Algorithm Description</a>
 <ul>
-<li class="toctree-l4"><a class="reference internal" href="#graph-simplification-strategy">🔁 Graph Simplification Strategy</a>
+<li class="toctree-l4"><a class="reference internal" href="#graph-simplification-strategy">Graph Simplification Strategy</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#pseudocode">🧾 Pseudocode</a>
+<li class="toctree-l4"><a class="reference internal" href="#example-1-series-circuit">Example 1: Series Circuit</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#example-2-parallel-circuit">Example 2: Parallel Circuit</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#example-3-nested-configuration">Example 3: Nested Configuration</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#pseudocode">Pseudocode</a>
 </li>
 </ul>
 </li>
@@ -186,18 +192,18 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="equivalent-resistance-using-graph-theory">Equivalent Resistance Using Graph Theory</h1>
-<h2 id="problem-overview">🔌 Problem Overview</h2>
+<h2 id="problem-overview">Problem Overview</h2>
 <p>Calculating the <strong>equivalent resistance</strong> in electrical circuits is essential for designing and analyzing efficient systems. While traditional methods work well for simple circuits, <strong>graph theory</strong> offers a powerful tool to handle <strong>complex resistor networks</strong>, especially with nested or looped configurations.</p>
 <hr/>
-<h2 id="motivation">🧠 Motivation</h2>
+<h2 id="motivation">Motivation</h2>
 <ul>
 <li>Traditional circuit analysis relies on identifying series and parallel components.</li>
 <li>This becomes difficult in large or irregular circuits.</li>
-<li>Graph theory provides a <strong>systematic, programmable approach</strong> using nodes (junctions) and edges (resistors).</li>
+<li>Graph theory provides a <strong>systematic, programmable approach</strong> using nodes ( junctions ) and edges ( resistors ).</li>
 <li>Enables <strong>automation</strong>, <strong>visualization</strong>, and <strong>scalability</strong>.</li>
 </ul>
 <hr/>
-<h2 id="circuit-as-a-graph">📊 Circuit as a Graph</h2>
+<h2 id="circuit-as-a-graph">Circuit as a Graph</h2>
 <ul>
 <li><strong>Nodes</strong> = electrical junctions</li>
 <li><strong>Edges</strong> = resistors (with weight = resistance)</li>
@@ -205,16 +211,55 @@
 </ul>
 <p><img alt="Graph Theory in Circuits" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Resistor_Network.svg/1024px-Resistor_Network.svg.png"/></p>
 <hr/>
-<h2 id="algorithm-description">🧮 Algorithm Description</h2>
-<h3 id="graph-simplification-strategy">🔁 Graph Simplification Strategy</h3>
+<h2 id="algorithm-description">Algorithm Description</h2>
+<h3 id="graph-simplification-strategy">Graph Simplification Strategy</h3>
 <ol>
 <li><strong>Detect series connections</strong>: Nodes with degree 2 (except terminals)</li>
 <li><strong>Detect parallel connections</strong>: Multiple edges between same nodes or cycles</li>
 <li><strong>Reduce step by step</strong>:</li>
-<li>Combine series: <span class="arithmatex">\( R_{eq} = R_1 + R_2 \)</span></li>
-<li>Combine parallel: <span class="arithmatex">\( \frac{1}{R_{eq}} = \frac{1}{R_1} + \frac{1}{R_2} \)</span></li>
+<li>Combine series: <span class="arithmatex">\(( R_{eq} = R_1 + R_2 )\)</span></li>
+<li>Combine parallel: <span class="arithmatex">\(( \frac{1}{R_{eq}} = \frac{1}{R_1} + \frac{1}{R_2} )\)</span></li>
 </ol>
-<h3 id="pseudocode">🧾 Pseudocode</h3>
+<p>## Examples &amp; Visualizations</p>
+<h3 id="example-1-series-circuit">Example 1: Series Circuit</h3>
+<p><img alt="SeriesCircuit" src="../../../_pics/Example1_Series_Circuit.png"/>
+Two resistors are connected end-to-end:</p>
+<ul>
+<li><strong>A → B</strong> : 10 <span class="arithmatex">\(Ω\)</span> </li>
+<li><strong>B → C</strong> : 5 <span class="arithmatex">\(Ω\)</span></li>
+</ul>
+<p>They are in <strong>series</strong>, so the equivalent resistance is:</p>
+<div class="arithmatex">\[
+R_{\text{eq}} = R_1 + R_2 = 10\,\Omega + 5\,\Omega = 15\,\Omega
+\]</div>
+<h3 id="example-2-parallel-circuit">Example 2: Parallel Circuit</h3>
+<p><img alt="ParallelCircuit" src="../../../_pics/Example2_Parallel_Circuit.png"/></p>
+<p>Two resistors are connected between the same nodes <strong>A</strong> and <strong>B</strong>:</p>
+<ul>
+<li><strong>A ↔ B</strong> : 10 <span class="arithmatex">\(Ω\)</span> </li>
+<li><strong>A ↔ B</strong> : 20 <span class="arithmatex">\(Ω\)</span> </li>
+</ul>
+<p>They are in <strong>parallel</strong>, so:</p>
+<div class="arithmatex">\[
+\frac{1}{R_{\text{eq}}} = \frac{1}{10} + \frac{1}{20} = \frac{3}{20}
+\quad\Rightarrow\quad
+R_{\text{eq}} = \frac{20}{3} \approx 6.67\,\Omega
+\]</div>
+<h3 id="example-3-nested-configuration">Example 3: Nested Configuration</h3>
+<p><img alt="NestedConfig" src="../../../_pics/Example3_Nested_Configuration.png"/></p>
+<p>We have two paths from <strong>A</strong> to <strong>C</strong> :</p>
+<ul>
+<li><strong>Path 1</strong> : A → B → C  </li>
+<li>AB = 5 <span class="arithmatex">\(Ω\)</span>, B C = 5 <span class="arithmatex">\(Ω\)</span> → total = 10 <span class="arithmatex">\(Ω\)</span> </li>
+<li><strong>Path 2</strong> : Direct A → C = 10 <span class="arithmatex">\(Ω\)</span> </li>
+</ul>
+<p>These two 10 <span class="arithmatex">\(Ω\)</span> paths are in <strong>parallel</strong>, so :</p>
+<div class="arithmatex">\[
+\frac{1}{R_{\text{eq}}} = \frac{1}{10} + \frac{1}{10} = \frac{1}{5}
+\quad\Rightarrow\quad
+R_{\text{eq}} = 5\,\Omega
+\]</div>
+<h3 id="pseudocode">Pseudocode</h3>
 <p>```pseudo
 function simplify_circuit(graph, input_node, output_node):
     repeat:
