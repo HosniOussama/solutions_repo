@@ -272,7 +272,10 @@ plt.grid(True)
 plt.show()
 </code></pre>
 </details>
+<p><img alt="alt text" src="../../../_pics/Stat2.png"/></p>
 <h3 id="visualize-the-sampling-distributions">Visualize the Sampling Distributions:</h3>
+<details>
+<summary>Python code</summary>
 <pre><code class="language-python">import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -294,9 +297,12 @@ def plot_sampling_distribution(dist_name, population):
     plt.suptitle(f"CLT Simulation for {dist_name.capitalize()} Population", fontsize=18, y=1.03)
     plt.show()
 </code></pre>
+</details>
 <hr/>
 <h2 id="task-3-parameter-exploration">Task 3 : Parameter Exploration</h2>
 <h3 id="run-simulations">Run Simulations:</h3>
+<details>
+<summary>Python code</summary>
 <pre><code class="language-python"># Uniform
 uniform_pop = generate_population("uniform")
 plot_sampling_distribution("uniform", uniform_pop)
@@ -309,6 +315,7 @@ plot_sampling_distribution("exponential", exp_pop)
 binom_pop = generate_population("binomial")
 plot_sampling_distribution("binomial", binom_pop)
 </code></pre>
+</details>
 <h3 id="observations">Observations:</h3>
 <ul>
 <li>Sample means tend toward normal shape.</li>
