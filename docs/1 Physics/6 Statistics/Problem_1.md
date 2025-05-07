@@ -21,7 +21,10 @@ We will use three types of populations:
 - **Binomial**: Count of successes over trials.
 
 <details>
+
 <summary>Python code</summary>
+
+--- 
 
 ```python 
 
@@ -118,6 +121,7 @@ def plot_sampling_distribution(dist_name, population):
 <summary>Python code</summary>
 
 ```python
+
 # Uniform
 uniform_pop = generate_population("uniform")
 plot_sampling_distribution("uniform", uniform_pop)
@@ -132,6 +136,15 @@ plot_sampling_distribution("binomial", binom_pop)
 ```
 </details>
 
+
+![alt text](../../_pics/Stat3.png)
+**Uniform Population Distribution**
+
+![alt text](../../_pics/Stat4.png)
+**Exponential Population Distribution**
+
+![alt text](../../_pics/Stat5.png)
+**Biominal Population Distribution**
 
 
 ### Observations:
@@ -163,16 +176,3 @@ plot_sampling_distribution("binomial", binom_pop)
 > **Key Takeaway**: CLT bridges the gap between non-normal populations and the powerful tools of normal distribution analysis.
 
 ---
-
-## Resources
-- NumPy for random generation
-- Matplotlib & Seaborn for plotting
-- Recommended: Try with your own distributions
-
----
-
-## Homework Suggestion
-Try repeating the experiment using:
-- A bimodal population
-- A real-world dataset (e.g., heights, weights, test scores)
-
