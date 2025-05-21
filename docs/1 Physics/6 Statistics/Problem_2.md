@@ -57,20 +57,12 @@ def estimate_pi_circle(n_points=10000, seed=None):
 
 pi_est, x, y, inside = estimate_pi_circle(10000)
 print(f"Estimated π: {pi_est}")
-
 ```
-
-</details>
-
-![alt text](../../_pics/Figure_1.png)
-
 
 ### 3. Visualization
 
-<details>
-<summary>Python code</summary>
-
 ```python
+
 plt.figure(figsize=(6,6))
 plt.scatter(x[inside], y[inside], color='blue', s=1, label='Inside Circle')
 plt.scatter(x[~inside], y[~inside], color='red', s=1, label='Outside Circle')
@@ -78,31 +70,93 @@ plt.gca().set_aspect('equal')
 plt.title('Monte Carlo π Estimation via Circle')
 plt.legend()
 plt.show()
-```
 
-</details>
----
+```
 
 ### 4. Analysis
 
-<details>
-<summary>Python code</summary>
-
 ```python
+
+import numpy as np
+import matplotlib.pyplot as plt
+import mplcursors  # For interactive cursor
+
+def estimate_pi_circle(n_points=10000, seed=None):
+    if seed is not None:
+        np.random.seed(seed)
+    x = np.random.uniform(-1, 1, n_points)
+    y = np.random.uniform(-1, 1, n_points)
+    inside = x**2 + y**2 <= 1
+    pi_estimate = 4 * np.sum(inside) / n_points
+    return pi_estimate, x, y, inside
+
+# Estimate π for different numbers of points
 trials = np.logspace(2, 6, 10, dtype=int)
 estimates = [estimate_pi_circle(n)[0] for n in trials]
 
-plt.figure()
-plt.plot(trials, estimates, marker='o')
-plt.axhline(np.pi, color='r', linestyle='--', label='True π')
-plt.xscale('log')
-plt.xlabel('Number of Points')
-plt.ylabel('Estimated π')
-plt.title('Convergence of π Estimate')
-plt.legend()
-plt.grid(True)
+# Create interactive plot
+fig, ax = plt.subplots()
+ax.plot(trials, estimates, marker='o', label='π Estimate')
+ax.axhline(np.pi, color='r', linestyle='--', label='True π')
+ax.set_xscale('log')
+ax.set_xlabel('Number of Points')
+ax.set_ylabel('Estimated π')
+ax.set_title('Convergence of π Estimate')
+ax.legend()
+ax.grid(True)
+
+# Add interactive cursor
+mplcursors.cursor(ax.lines[0], hover=True)
+
 plt.show()
+
 ```
+</details>
+
+![alt text](../../_pics/Figure_1.png)
+
+```python 
+
+import numpy as np
+import plotly.graph_objs as go
+
+def estimate_pi_circle(n_points=10000, seed=None):
+    if seed is not None:
+        np.random.seed(seed)
+    x = np.random.uniform(-1, 1, n_points)
+    y = np.random.uniform(-1, 1, n_points)
+    inside = x**2 + y**2 <= 1
+    pi_estimate = 4 * np.sum(inside) / n_points
+    return pi_estimate
+
+trials = np.logspace(2, 6, 10, dtype=int)
+estimates = [estimate_pi_circle(n) for n in trials]
+
+fig = go.Figure()
+
+fig.add_trace(go.Scatter(
+    x=trials,
+    y=estimates,
+    mode='markers+lines',
+    name='Estimated π',
+    hovertemplate='Points: %{x}<br>Estimate: %{y:.6f}<extra></extra>'
+))
+
+fig.add_hline(y=np.pi, line_dash="dash", line_color="red", annotation_text="True π")
+
+fig.update_layout(
+    title="Convergence of π Estimate",
+    xaxis=dict(title='Number of Points', type='log'),
+    yaxis=dict(title='Estimated π'),
+    hovermode='closest'
+)
+
+fig.write_html("pi_estimate_interactive.html")
+<iframe src="pi_estimate_interactive.html" width="900" height="600" frameborder="0"></iframe>
+```
+
+
+![alt text](../../_pics/Figure_1better.png)
 
 As the number of points increases, the estimate of π converges toward the true value, illustrating the law of large numbers. The error decreases roughly with $1/\sqrt{N}$, characteristic of Monte Carlo methods.
 
