@@ -57,10 +57,13 @@ def estimate_pi_circle(n_points=10000, seed=None):
 
 pi_est, x, y, inside = estimate_pi_circle(10000)
 print(f"Estimated π: {pi_est}")
+
 ```
 
 </details>
----
+
+![alt text](../../_pics/Figure_1.png)
+
 
 ### 3. Visualization
 
