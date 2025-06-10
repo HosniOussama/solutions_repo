@@ -39,8 +39,11 @@ Answer: $$ \begin{bmatrix} 31 & 36 \ 33 & 38 \end{bmatrix} $$
 ### Problem 4: Calculate the product $ d * c $
 
 Given: $$ d = \begin{bmatrix} 5 & 6 \ 7 & 8 \end{bmatrix}, c = \begin{bmatrix} 1 & 2 \ 3 & 4 \end{bmatrix} $$
+
 Solution: Multiply row by column:
+
 First row: $ (5 \cdot 1) + (6 \cdot 3) = 5 + 18 = 23 $, $ (5 \cdot 2) + (6 \cdot 4) = 10 + 24 = 34 $
+
 Second row: $ (7 \cdot 1) + (8 \cdot 3) = 7 + 24 = 31 $, $ (7 \cdot 2) + (8 \cdot 4) = 14 + 32 = 46 $
 
 
@@ -151,12 +154,13 @@ $ y = (-0.333 \cdot 1) + (0.667 \cdot 4) = -0.333 + 2.668 = 2.335 $
 
 Answer: $x ≈ 1.67, y ≈ 2.33$
 
-Problem 14: Solve the system of equations using the elimination method
+### Problem 14: Solve the system of equations using the elimination method
 
 Given:$$ \begin{cases} 2x - y = 1 \ x + y = 4 \end{cases} $$
 
 Solution: Add the equations to eliminate $ y $:
 $ (2x - y) + (x + y) = 1 + 4 $
+
 $ 3x = 5 $, so $ x = \frac{5}{3} \approx 1.67 $
 
 Substitute $ x = \frac{5}{3} $ into $ x + y = 4 $: $ \frac{5}{3} + y = 4 $, $ y = 4 - \frac{5}{3} = \frac{12}{3} - \frac{5}{3} = \frac{7}{3} \approx 2.33 $
@@ -165,17 +169,18 @@ Substitute $ x = \frac{5}{3} $ into $ x + y = 4 $: $ \frac{5}{3} + y = 4 $, $ y 
 Answer: $x ≈ 1.67,   y ≈ 2.33$
 
 
-Problem 15: Calculate the length of the vector $v = (2, -1)$
+### Problem 15: Calculate the length of the vector $v = (2, -1)$
 
 Solution: Length = $ \sqrt{2^2 + (-1)^2} = \sqrt{4 + 1} = \sqrt{5} \approx 2.24 $
+
 Answer: $(\sqrt{5} \approx 2.24)$
 
-Problem 16: Find the dot product of vectors $v = (2, -1)$ and $w = (3, 4)$
+### Problem 16: Find the dot product of vectors $v = (2, -1)$ and $w = (3, 4)$
 
 Solution: Dot product = $ (2 \cdot 3) + (-1 \cdot 4) = 6 - 4 = 2 $
 Answer: 2
 
-Problem 17: Find the angle between vectors $v = (2, -1)$ and $w = (3, 4)$
+### Problem 17: Find the angle between vectors $v = (2, -1)$ and $w = (3, 4)$
 
 Solution: Use $ \cos\theta = \frac{v \cdot w}{|v| |w|} $
 $ |v| = \sqrt{5} $, $ |w| = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5 $
