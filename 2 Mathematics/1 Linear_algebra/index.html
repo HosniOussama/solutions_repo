@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../img/favicon.ico" rel="shortcut icon"/>
-<title>Linear Algebra - Physics and Mathematics</title>
+<title>1 Linear algebra - Physics and Mathematics</title>
 <link href="../../css/theme.css" rel="stylesheet"/>
 <link href="../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Linear Algebra";
+        var mkdocs_page_name = "1 Linear algebra";
         var mkdocs_page_input_path = "2 Mathematics/1 Linear_algebra.md";
         var mkdocs_page_url = null;
       </script>
@@ -97,7 +97,7 @@
 </ul>
 <p class="caption"><span class="caption-text">2 Mathematics</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal current" href="#">Linear Algebra</a>
+<li class="toctree-l1 current"><a class="reference internal current" href="#">1 Linear algebra</a>
 <ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="#problem-1-calculate-the-sum-a-c">Problem 1: Calculate the sum a + c</a>
 </li>
@@ -196,7 +196,7 @@
 <ul class="wy-breadcrumbs">
 <li><a aria-label="Docs" class="icon icon-home" href="../.."></a></li>
 <li class="breadcrumb-item">2 Mathematics</li>
-<li class="breadcrumb-item active">Linear Algebra</li>
+<li class="breadcrumb-item active">1 Linear algebra</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -204,72 +204,72 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="linear-algebra">Linear Algebra</h1>
-<h2 id="problem-1-calculate-the-sum-a-c">Problem 1: Calculate the sum <strong>a + c</strong></h2>
+<h2 id="linear-algebra">Linear Algebra</h2>
+<h3 id="problem-1-calculate-the-sum-a-c">Problem 1: Calculate the sum <strong>a + c</strong></h3>
 <p>Given:<br/>
 $$
 a = \begin{bmatrix} 2 &amp; 3 \ 1 &amp; 4 \end{bmatrix}, \quad
 c = \begin{bmatrix} 1 &amp; 2 \ 3 &amp; 4 \end{bmatrix}
 $$</p>
 <p>Add corresponding elements:<br/>
-First row: $ 2 + 1 = 3 $, $ 3 + 2 = 5 $</p>
-<p>Second row: $ 1 + 3 = 4 $, $ 4 + 4 = 8 $</p>
+First row: $ 2 + 1 = 3 $, $ 3 + 2 = 5 $<br/>
+Second row: $ 1 + 3 = 4 $, $ 4 + 4 = 8 $</p>
 <p><strong>Answer:</strong><br/>
 $$
 \begin{bmatrix} 3 &amp; 5 \ 4 &amp; 8 \end{bmatrix}
 $$</p>
 <hr/>
-<h2 id="problem-2-calculate-the-sum-c-d">Problem 2: Calculate the sum <strong>c + d</strong></h2>
+<h3 id="problem-2-calculate-the-sum-c-d">Problem 2: Calculate the sum <strong>c + d</strong></h3>
 <p>Given:<br/>
 $$
 c = \begin{bmatrix} 1 &amp; 2 \ 3 &amp; 4 \end{bmatrix}, \quad
 d = \begin{bmatrix} 5 &amp; 6 \ 7 &amp; 8 \end{bmatrix}
 $$</p>
 <p>Add corresponding elements:<br/>
-First row: $ 1 + 5 = 6 $, $ 2 + 6 = 8 $ </p>
-<p>Second row: $ 3 + 7 = 10 $, $ 4 + 8 = 12 $</p>
+First row: $ 1 + 5 = 6 $, $ 2 + 6 = 8 $<br/>
+Second row: $ 3 + 7 = 10 $, $ 4 + 8 = 12 $</p>
 <p><strong>Answer:</strong><br/>
 $$
 \begin{bmatrix} 6 &amp; 8 \ 10 &amp; 12 \end{bmatrix}
 $$</p>
 <hr/>
-<h2 id="problem-3-calculate-the-product-a-d">Problem 3: Calculate the product <strong>a × d</strong></h2>
+<h3 id="problem-3-calculate-the-product-a-d">Problem 3: Calculate the product <strong>a × d</strong></h3>
 <p>Given:<br/>
 $$
 a = \begin{bmatrix} 2 &amp; 3 \ 1 &amp; 4 \end{bmatrix}, \quad
 d = \begin{bmatrix} 5 &amp; 6 \ 7 &amp; 8 \end{bmatrix}
 $$</p>
-<p>Multiply row by column:</p>
-<p>First row:<br/>
-$ (2 \cdot 5) + (3 \cdot 7) = 10 + 21 = 31 $</p>
-<p>$ (2 \cdot 6) + (3 \cdot 8) = 12 + 24 = 36 $</p>
+<p>Multiply row by column:<br/>
+First row:<br/>
+$ (2 \cdot 5) + (3 \cdot 7) = 10 + 21 = 31 $<br/>
+$ (2 \cdot 6) + (3 \cdot 8) = 12 + 24 = 36 $  </p>
 <p>Second row:<br/>
-$ (1 \cdot 5) + (4 \cdot 7) = 5 + 28 = 33 $</p>
-<p>$ (1 \cdot 6) + (4 \cdot 8) = 6 + 32 = 38 $</p>
+$ (1 \cdot 5) + (4 \cdot 7) = 5 + 28 = 33 $<br/>
+$ (1 \cdot 6) + (4 \cdot 8) = 6 + 32 = 38 $</p>
 <p><strong>Answer:</strong><br/>
 $$
 \begin{bmatrix} 31 &amp; 36 \ 33 &amp; 38 \end{bmatrix}
 $$</p>
 <hr/>
-<h2 id="problem-4-calculate-the-product-d-c">Problem 4: Calculate the product <strong>d × c</strong></h2>
+<h3 id="problem-4-calculate-the-product-d-c">Problem 4: Calculate the product <strong>d × c</strong></h3>
 <p>Given:<br/>
 $$
 d = \begin{bmatrix} 5 &amp; 6 \ 7 &amp; 8 \end{bmatrix}, \quad
 c = \begin{bmatrix} 1 &amp; 2 \ 3 &amp; 4 \end{bmatrix}
 $$</p>
-<p>Multiply row by column:</p>
-<p>First row:<br/>
-$ 5 \cdot 1 + 6 \cdot 3 = 5 + 18 = 23 $</p>
-<p>$ 5 \cdot 2 + 6 \cdot 4 = 10 + 24 = 34 $</p>
+<p>Multiply row by column:<br/>
+First row:<br/>
+$ 5 \cdot 1 + 6 \cdot 3 = 5 + 18 = 23 $<br/>
+$ 5 \cdot 2 + 6 \cdot 4 = 10 + 24 = 34 $  </p>
 <p>Second row:<br/>
-$ 7 \cdot 1 + 8 \cdot 3 = 7 + 24 = 31 $ </p>
-<p>$ 7 \cdot 2 + 8 \cdot 4 = 14 + 32 = 46 $</p>
+$ 7 \cdot 1 + 8 \cdot 3 = 7 + 24 = 31 $<br/>
+$ 7 \cdot 2 + 8 \cdot 4 = 14 + 32 = 46 $</p>
 <p><strong>Answer:</strong><br/>
 $$
 \begin{bmatrix} 23 &amp; 34 \ 31 &amp; 46 \end{bmatrix}
 $$</p>
 <hr/>
-<h2 id="problem-5-determinant-of-a">Problem 5: Determinant of <strong>a</strong></h2>
+<h3 id="problem-5-determinant-of-a">Problem 5: Determinant of <strong>a</strong></h3>
 <p>Given:<br/>
 $$
 a = \begin{bmatrix} 2 &amp; 3 \ 1 &amp; 4 \end{bmatrix}
@@ -281,7 +281,7 @@ $$
 5
 $$</p>
 <hr/>
-<h2 id="problem-6-determinant-of-c">Problem 6: Determinant of <strong>c</strong></h2>
+<h3 id="problem-6-determinant-of-c">Problem 6: Determinant of <strong>c</strong></h3>
 <p>Given:<br/>
 $$
 c = \begin{bmatrix} 1 &amp; 2 \ 3 &amp; 4 \end{bmatrix}
@@ -293,7 +293,7 @@ $$
 -2
 $$</p>
 <hr/>
-<h2 id="problem-7-determinant-of-d">Problem 7: Determinant of <strong>d</strong></h2>
+<h3 id="problem-7-determinant-of-d">Problem 7: Determinant of <strong>d</strong></h3>
 <p>Given:<br/>
 $$
 d = \begin{bmatrix} 5 &amp; 6 \ 7 &amp; 8 \end{bmatrix}
@@ -305,7 +305,7 @@ $$
 -2
 $$</p>
 <hr/>
-<h2 id="problem-8-inverse-of-a">Problem 8: Inverse of <strong>a</strong></h2>
+<h3 id="problem-8-inverse-of-a">Problem 8: Inverse of <strong>a</strong></h3>
 <p>Given:<br/>
 $$
 a = \begin{bmatrix} 2 &amp; 3 \ 1 &amp; 4 \end{bmatrix}
@@ -320,7 +320,7 @@ $$
 \begin{bmatrix} 0.8 &amp; -0.6 \ -0.2 &amp; 0.4 \end{bmatrix}
 $$</p>
 <hr/>
-<h2 id="problem-9-inverse-of-c">Problem 9: Inverse of <strong>c</strong></h2>
+<h3 id="problem-9-inverse-of-c">Problem 9: Inverse of <strong>c</strong></h3>
 <p>Given:<br/>
 $$
 c = \begin{bmatrix} 1 &amp; 2 \ 3 &amp; 4 \end{bmatrix}
@@ -335,7 +335,7 @@ $$
 \begin{bmatrix} -2 &amp; 1 \ 1.5 &amp; -0.5 \end{bmatrix}
 $$</p>
 <hr/>
-<h2 id="problem-10-solve-the-system-using-matrix-method">Problem 10: Solve the system using matrix method</h2>
+<h3 id="problem-10-solve-the-system-using-matrix-method">Problem 10: Solve the system using matrix method</h3>
 <p>Given:<br/>
 $$
 \begin{cases}
@@ -359,7 +359,7 @@ $$
 $$</p>
 <p><strong>Answer:</strong> $ x = 2, y = 3 $</p>
 <hr/>
-<h2 id="problem-11-solve-using-elimination">Problem 11: Solve using elimination</h2>
+<h3 id="problem-11-solve-using-elimination">Problem 11: Solve using elimination</h3>
 <p>Given:<br/>
 $$
 \begin{cases}
@@ -368,22 +368,22 @@ x + 2y = 8 \
 \end{cases}
 $$</p>
 <p>Multiply first equation by 3:<br/>
-$3x + 6y = 24 $</p>
+<span class="arithmatex">\(3x + 6y = 24\)</span></p>
 <p>Subtract second:<br/>
-$(3x + 6y) - (3x + 4y) = 2y = 6 \Rightarrow y = 3 $</p>
+<span class="arithmatex">\(2y = 6 \Rightarrow y = 3\)</span></p>
 <p>Substitute back:<br/>
-$ x + 6 = 8 \Rightarrow x = 2 $</p>
+<span class="arithmatex">\(x + 6 = 8 \Rightarrow x = 2\)</span></p>
 <p><strong>Answer:</strong> $ x = 2, \ y = 3 $</p>
 <hr/>
-<h2 id="problem-12-why-is-the-solution-unique">Problem 12: Why is the solution unique?</h2>
+<h3 id="problem-12-why-is-the-solution-unique">Problem 12: Why is the solution unique?</h3>
 <p>Given:<br/>
 $$
 A = \begin{bmatrix} 1 &amp; 2 \ 3 &amp; 4 \end{bmatrix}
 $$</p>
-<p>Determinant = $ 4 - 6 = -2 \neq 0 $ 
+<p>Determinant = $ 4 - 6 = -2 \neq 0 $<br/>
 So the solution is <strong>unique</strong>.</p>
 <hr/>
-<h2 id="problem-13-solve-using-matrix-method">Problem 13: Solve using matrix method</h2>
+<h3 id="problem-13-solve-using-matrix-method">Problem 13: Solve using matrix method</h3>
 <p>Given:<br/>
 $$
 \begin{cases}
@@ -408,33 +408,32 @@ $$
 x \approx 1.67, \quad y \approx 2.33
 $$</p>
 <hr/>
-<h2 id="problem-14-solve-using-elimination">Problem 14: Solve using elimination</h2>
+<h3 id="problem-14-solve-using-elimination">Problem 14: Solve using elimination</h3>
 <p>Add equations:<br/>
 $ (2x - y) + (x + y) = 3x = 5 \Rightarrow x = \frac{5}{3} \approx 1.67 $</p>
 <p>Substitute back:<br/>
 <span class="arithmatex">\(x + y = 4 \Rightarrow y = \frac{7}{3} \approx 2.33\)</span></p>
 <p><strong>Answer:</strong> $ x \approx 1.67, \ y \approx 2.33 $</p>
 <hr/>
-<h2 id="problem-15-length-of-vector-vecv-2-1">Problem 15: Length of vector $ \vec{v} = (2, -1) $</h2>
+<h3 id="problem-15-length-of-vector-vecv-2-1">Problem 15: Length of vector $ \vec{v} = (2, -1) $</h3>
 <p>Length:<br/>
 $$
 |\vec{v}| = \sqrt{2^2 + (-1)^2} = \sqrt{5} \approx 2.24
 $$</p>
 <hr/>
-<h2 id="problem-16-dot-product-of-vecv-2-1-vecw-3-4">Problem 16: Dot product of <span class="arithmatex">\( \vec{v} = (2, -1) \)</span>, <span class="arithmatex">\( \vec{w} = (3, 4) \)</span></h2>
+<h3 id="problem-16-dot-product-of-vecv-2-1-vecw-3-4">Problem 16: Dot product of <span class="arithmatex">\( \vec{v} = (2, -1) \)</span>, <span class="arithmatex">\( \vec{w} = (3, 4) \)</span></h3>
 <p>Dot product:<br/>
 $$
 \vec{v} \cdot \vec{w} = 2 \cdot 3 + (-1) \cdot 4 = 6 - 4 = 2
 $$</p>
 <hr/>
-<h2 id="problem-17-angle-between-vecv-and-vecw">Problem 17: Angle between $ \vec{v} $ and $ \vec{w} $</h2>
+<h3 id="problem-17-angle-between-vecv-and-vecw">Problem 17: Angle between $ \vec{v} $ and $ \vec{w} $</h3>
 <div class="arithmatex">\[
 \cos\theta = \frac{\vec{v} \cdot \vec{w}}{|\vec{v}| \cdot |\vec{w}|}
 = \frac{2}{\sqrt{5} \cdot 5} \approx 0.179
 \Rightarrow \theta \approx \cos^{-1}(0.179) \approx 79.7^\circ
 \]</div>
 <p><strong>Answer:</strong> $ \theta \approx 79.7^\circ $</p>
-<hr/>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
