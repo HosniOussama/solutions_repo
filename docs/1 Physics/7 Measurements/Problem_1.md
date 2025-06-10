@@ -98,7 +98,7 @@ g = (9.81 ± 0.04) m/s²
 ## Visualizations
 
 ### 1. Time Series Analysis
-![Time Series](../_pics/time_series.png)
+![Time Series](../../_pics/time_series.png)
 
 This plot shows the consistency of our measurements across all trials. The small variations between measurements indicate good precision in our timing method.
 
@@ -125,7 +125,7 @@ plt.close()
 </details>
 
 ### 2. Period Distribution
-![Period Histogram](../_pics/period_histogram.png)
+![Period_Histogram](../../_pics/period_histogram.png)
 
 The histogram shows the distribution of individual periods, demonstrating that our measurements follow an approximately normal distribution around the mean value.
 
@@ -147,7 +147,7 @@ plt.savefig('../_pics/period_histogram.png', dpi=300, bbox_inches='tight')
 </details>
 
 ### 3. Measurement Residuals
-![Residuals](../_pics/residuals.png)
+![Residuals](../../_pics/residuals.png)
 
 The residuals plot shows the deviation of each measurement from the mean value in milliseconds. This helps identify any systematic trends or biases in our measurements.
 
@@ -168,7 +168,8 @@ plt.savefig('../_pics/residuals.png', dpi=300, bbox_inches='tight')
 </details>
 
 ### 4. Pendulum Motion Animation
-![Pendulum Animation](../_pics/pendulum.gif)
+
+![pendulum animation](../../_pics/pendulum.gif)
 
 This animation illustrates the simple harmonic motion of our pendulum setup, showing how the period remains constant for small angles.
 
@@ -214,7 +215,7 @@ anim.save('../_pics/pendulum.gif', writer='pillow')
 </details>
 
 ### 5. Uncertainty Analysis
-![Uncertainty Analysis](../_pics/uncertainty_analysis.png)
+![Uncertainty Analysisdocs](../../_pics/uncertainty_analysis.png)
 
 This plot shows how our measured period relates to different values of g, with our measurement uncertainty range highlighted. The intersection of our measured period with the theoretical curve gives us our experimental value for g.
 
