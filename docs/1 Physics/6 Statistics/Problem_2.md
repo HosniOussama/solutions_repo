@@ -36,11 +36,8 @@ $$
 
 ---
 
-### 2. Simulation
-
-
 <details>
-<summary>Python code</summary>
+<summary>2.Simulation</summary>
 
 ```python
 import numpy as np
@@ -57,9 +54,13 @@ def estimate_pi_circle(n_points=10000, seed=None):
 
 pi_est, x, y, inside = estimate_pi_circle(10000)
 print(f"Estimated π: {pi_est}")
+
 ```
 
-### 3. Visualization
+</details>
+
+
+<summary>3.Visualization</summary>
 
 ```python
 
@@ -73,7 +74,14 @@ plt.show()
 
 ```
 
-### 4. Analysis
+</details>
+
+
+![alt text](../../_pics/Figure_1.png)
+
+
+<details>
+<summary>4. Analysis</summary>
 
 ```python
 
@@ -111,56 +119,13 @@ mplcursors.cursor(ax.lines[0], hover=True)
 plt.show()
 
 ```
+
 </details>
 
-![alt text](../../_pics/Figure_1.png)
-
-```python 
-
-import numpy as np
-import plotly.graph_objs as go
-
-def estimate_pi_circle(n_points=10000, seed=None):
-    if seed is not None:
-        np.random.seed(seed)
-    x = np.random.uniform(-1, 1, n_points)
-    y = np.random.uniform(-1, 1, n_points)
-    inside = x**2 + y**2 <= 1
-    pi_estimate = 4 * np.sum(inside) / n_points
-    return pi_estimate
-
-trials = np.logspace(2, 6, 10, dtype=int)
-estimates = [estimate_pi_circle(n) for n in trials]
-
-fig = go.Figure()
-
-fig.add_trace(go.Scatter(
-    x=trials,
-    y=estimates,
-    mode='markers+lines',
-    name='Estimated π',
-    hovertemplate='Points: %{x}<br>Estimate: %{y:.6f}<extra></extra>'
-))
-
-fig.add_hline(y=np.pi, line_dash="dash", line_color="red", annotation_text="True π")
-
-fig.update_layout(
-    title="Convergence of π Estimate",
-    xaxis=dict(title='Number of Points', type='log'),
-    yaxis=dict(title='Estimated π'),
-    hovermode='closest'
-)
-
-fig.write_html("pi_estimate_interactive.html")
-<iframe src="pi_estimate_interactive.html" width="900" height="600" frameborder="0"></iframe>
-```
-
-
-![alt text](../../_pics/Figure_1better.png)
 
 As the number of points increases, the estimate of π converges toward the true value, illustrating the law of large numbers. The error decreases roughly with $1/\sqrt{N}$, characteristic of Monte Carlo methods.
 
-</details>
+
 ---
 
 ## Part 2: Estimating π Using Buffon’s Needle
@@ -278,3 +243,6 @@ Compared to the circle-based method, Buffon’s Needle tends to converge more sl
 * Monte Carlo Method: [Wikipedia](https://en.wikipedia.org/wiki/Monte_Carlo_method)
 * Buffon’s Needle Problem: [Wikipedia](https://en.wikipedia.org/wiki/Buffon%27s_needle)
 * NumPy and Matplotlib Documentation
+
+
+[def]: ../../Animations/pi_estimation_interactive.html
