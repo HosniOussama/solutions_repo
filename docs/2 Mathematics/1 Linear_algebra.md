@@ -1,6 +1,6 @@
-# Linear Algebra
+## Linear Algebra
 
-## Problem 1: Calculate the sum **a + c**
+### Problem 1: Calculate the sum **a + c**
 
 Given:  
 $$
@@ -9,8 +9,7 @@ c = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}
 $$
 
 Add corresponding elements:  
-First row: $ 2 + 1 = 3 $, $ 3 + 2 = 5 $
-
+First row: $ 2 + 1 = 3 $, $ 3 + 2 = 5 $  
 Second row: $ 1 + 3 = 4 $, $ 4 + 4 = 8 $
 
 **Answer:**  
@@ -20,7 +19,7 @@ $$
 
 ---
 
-## Problem 2: Calculate the sum **c + d**
+### Problem 2: Calculate the sum **c + d**
 
 Given:  
 $$
@@ -29,8 +28,7 @@ d = \begin{bmatrix} 5 & 6 \\ 7 & 8 \end{bmatrix}
 $$
 
 Add corresponding elements:  
-First row: $ 1 + 5 = 6 $, $ 2 + 6 = 8 $ 
-
+First row: $ 1 + 5 = 6 $, $ 2 + 6 = 8 $  
 Second row: $ 3 + 7 = 10 $, $ 4 + 8 = 12 $
 
 **Answer:**  
@@ -40,7 +38,7 @@ $$
 
 ---
 
-## Problem 3: Calculate the product **a × d**
+### Problem 3: Calculate the product **a × d**
 
 Given:  
 $$
@@ -48,16 +46,13 @@ a = \begin{bmatrix} 2 & 3 \\ 1 & 4 \end{bmatrix}, \quad
 d = \begin{bmatrix} 5 & 6 \\ 7 & 8 \end{bmatrix}
 $$
 
-Multiply row by column:
-
+Multiply row by column:  
 First row:  
-$ (2 \cdot 5) + (3 \cdot 7) = 10 + 21 = 31 $
-
-$ (2 \cdot 6) + (3 \cdot 8) = 12 + 24 = 36 $
+$ (2 \cdot 5) + (3 \cdot 7) = 10 + 21 = 31 $  
+$ (2 \cdot 6) + (3 \cdot 8) = 12 + 24 = 36 $  
 
 Second row:  
-$ (1 \cdot 5) + (4 \cdot 7) = 5 + 28 = 33 $
-
+$ (1 \cdot 5) + (4 \cdot 7) = 5 + 28 = 33 $  
 $ (1 \cdot 6) + (4 \cdot 8) = 6 + 32 = 38 $
 
 **Answer:**  
@@ -67,7 +62,7 @@ $$
 
 ---
 
-## Problem 4: Calculate the product **d × c**
+### Problem 4: Calculate the product **d × c**
 
 Given:  
 $$
@@ -75,16 +70,13 @@ d = \begin{bmatrix} 5 & 6 \\ 7 & 8 \end{bmatrix}, \quad
 c = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}
 $$
 
-Multiply row by column:
-
+Multiply row by column:  
 First row:  
-$ 5 \cdot 1 + 6 \cdot 3 = 5 + 18 = 23 $
-
-$ 5 \cdot 2 + 6 \cdot 4 = 10 + 24 = 34 $
+$ 5 \cdot 1 + 6 \cdot 3 = 5 + 18 = 23 $  
+$ 5 \cdot 2 + 6 \cdot 4 = 10 + 24 = 34 $  
 
 Second row:  
-$ 7 \cdot 1 + 8 \cdot 3 = 7 + 24 = 31 $ 
-
+$ 7 \cdot 1 + 8 \cdot 3 = 7 + 24 = 31 $  
 $ 7 \cdot 2 + 8 \cdot 4 = 14 + 32 = 46 $
 
 **Answer:**  
@@ -94,7 +86,7 @@ $$
 
 ---
 
-## Problem 5: Determinant of **a**
+### Problem 5: Determinant of **a**
 
 Given:  
 $$
@@ -111,7 +103,7 @@ $$
 
 ---
 
-## Problem 6: Determinant of **c**
+### Problem 6: Determinant of **c**
 
 Given:  
 $$
@@ -128,7 +120,7 @@ $$
 
 ---
 
-## Problem 7: Determinant of **d**
+### Problem 7: Determinant of **d**
 
 Given:  
 $$
@@ -145,7 +137,7 @@ $$
 
 ---
 
-## Problem 8: Inverse of **a**
+### Problem 8: Inverse of **a**
 
 Given:  
 $$
@@ -165,7 +157,7 @@ $$
 
 ---
 
-## Problem 9: Inverse of **c**
+### Problem 9: Inverse of **c**
 
 Given:  
 $$
@@ -185,7 +177,7 @@ $$
 
 ---
 
-## Problem 10: Solve the system using matrix method
+### Problem 10: Solve the system using matrix method
 
 Given:  
 $$
@@ -216,7 +208,7 @@ $$
 
 ---
 
-## Problem 11: Solve using elimination
+### Problem 11: Solve using elimination
 
 Given:  
 $$
@@ -227,31 +219,31 @@ x + 2y = 8 \\
 $$
 
 Multiply first equation by 3:  
-$3x + 6y = 24 $
+$3x + 6y = 24$
 
 Subtract second:  
-$(3x + 6y) - (3x + 4y) = 2y = 6 \Rightarrow y = 3 $
+$2y = 6 \Rightarrow y = 3$
 
 Substitute back:  
-$ x + 6 = 8 \Rightarrow x = 2 $
+$x + 6 = 8 \Rightarrow x = 2$
 
 **Answer:** $ x = 2, \ y = 3 $
 
 ---
 
-## Problem 12: Why is the solution unique?
+### Problem 12: Why is the solution unique?
 
 Given:  
 $$
 A = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}
 $$
 
-Determinant = $ 4 - 6 = -2 \neq 0 $ 
+Determinant = $ 4 - 6 = -2 \neq 0 $  
 So the solution is **unique**.
 
 ---
 
-## Problem 13: Solve using matrix method
+### Problem 13: Solve using matrix method
 
 Given:  
 $$
@@ -260,7 +252,6 @@ $$
 x + y = 4
 \end{cases}
 $$
-
 
 Let  
 $$
@@ -284,7 +275,7 @@ $$
 
 ---
 
-## Problem 14: Solve using elimination
+### Problem 14: Solve using elimination
 
 Add equations:  
 $ (2x - y) + (x + y) = 3x = 5 \Rightarrow x = \frac{5}{3} \approx 1.67 $
@@ -296,7 +287,7 @@ $x + y = 4 \Rightarrow y = \frac{7}{3} \approx 2.33$
 
 ---
 
-## Problem 15: Length of vector $ \vec{v} = (2, -1) $
+### Problem 15: Length of vector $ \vec{v} = (2, -1) $
 
 Length:  
 $$
@@ -305,7 +296,7 @@ $$
 
 ---
 
-## Problem 16: Dot product of \( \vec{v} = (2, -1) \), \( \vec{w} = (3, 4) \)
+### Problem 16: Dot product of \( \vec{v} = (2, -1) \), \( \vec{w} = (3, 4) \)
 
 Dot product:  
 $$
@@ -314,7 +305,7 @@ $$
 
 ---
 
-## Problem 17: Angle between $ \vec{v} $ and $ \vec{w} $
+### Problem 17: Angle between $ \vec{v} $ and $ \vec{w} $
 
 $$
 \cos\theta = \frac{\vec{v} \cdot \vec{w}}{|\vec{v}| \cdot |\vec{w}|}
@@ -323,5 +314,3 @@ $$
 $$
 
 **Answer:** $ \theta \approx 79.7^\circ $
-
----
